@@ -12,10 +12,10 @@ Aggiornare questo file ad ogni passo completato (un commit per passo, vedi git l
 - [x] `compute_behavioural_indicators` (`src/analysis/behavioural.py`) — destinazioni, porte, connections/sec, rapporto SYN/SYN-ACK
 - [x] `compute_risk_score` (`src/scoring/risk_score.py`) — punteggio 0-100 + reasons + classificazione NORMAL/SUSPICIOUS/HIGH RISK
 - [x] `parse_packet` (`src/capture/parser.py`) — da pacchetto Scapy a `PacketRecord`, richiede l'IP locale per determinare la direzione
+- [x] `start_capture` (`src/capture/sniffer.py`) — wrapper su `scapy.sniff`, filtro `tcp`, richiede privilegi root
 
 ## Da fare
 
-- [ ] `start_capture` — sniffing live con Scapy, richiede privilegi root (`src/capture/sniffer.py`)
 - [ ] `Detector.run()` — orchestrazione finestra temporale → statistiche → work weight → risk score (`src/detector.py`)
 - [ ] Output console nel formato di specifica (sez. 10)
 - [ ] `main.py` — entry point, parsing argomenti (interfaccia, durata finestra)
