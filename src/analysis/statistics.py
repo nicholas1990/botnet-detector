@@ -15,4 +15,20 @@ class StatisticsWindow:
         self.unique_destination_ports = set()
 
     def update(self, record):
-        raise NotImplementedError
+        if record.direction == "sent":
+            self.packets_sent += 1
+            self.bytes_sent += record.size
+            if "S" in record.flags and "A" not in record.flags:
+                self.syn_sent += 1
+            if "F" in record.flags:
+                self.fin_sent += 1
+        else:
+            self.packets_received += 1
+            self.bytes_received += record.size
+            if "S" in record.flags and "A" in record.flags:
+                self.syn_ack_received += 1
+            if "R" in record.flags:
+                self.rst_received += 1
+
+        self.unique_destination_ips.add(record.remote_ip)
+        self.unique_destination_ports.add(record.remote_port)
