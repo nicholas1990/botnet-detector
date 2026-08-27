@@ -1,4 +1,4 @@
-from src.risk_score import compute_risk_score
+from src.scoring.risk_score import compute_risk_score
 
 
 def test_compute_risk_score_is_not_implemented_yet():
