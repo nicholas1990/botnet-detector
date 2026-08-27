@@ -22,13 +22,20 @@ botnet-detector/
 │
 ├── src/
 │   ├── main.py
-│   ├── capture.py
-│   ├── parser.py
-│   ├── statistics.py
-│   ├── work_weight.py
-│   ├── risk_score.py
+│   ├── config.py
 │   ├── detector.py
-│   └── config.py
+│   │
+│   ├── capture/
+│   │   ├── sniffer.py
+│   │   └── parser.py
+│   │
+│   ├── analysis/
+│   │   ├── statistics.py
+│   │   ├── work_weight.py
+│   │   └── behavioural.py
+│   │
+│   └── scoring/
+│       └── risk_score.py
 │
 ├── tests/
 │   ├── test_work_weight.py
