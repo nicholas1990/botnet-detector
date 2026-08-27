@@ -10,7 +10,7 @@ a quello di un singolo host, ed esteso con analisi comportamentale
 (destinazioni uniche, porte uniche, frequenza connessioni, rapporto
 SYN/SYN-ACK) e Risk Score.
 
-Le specifiche complete sono in [`specifiche_botnet_detector.md`](specifiche_botnet_detector.md).
+Le specifiche complete sono in [`docs/specifiche_botnet_detector.md`](docs/specifiche_botnet_detector.md).
 
 ## Struttura del progetto
 
