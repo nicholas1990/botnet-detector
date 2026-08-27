@@ -1,4 +1,4 @@
-from src.work_weight import compute_work_weight
+from src.analysis.work_weight import compute_work_weight
 
 
 def test_compute_work_weight_example_from_spec():
