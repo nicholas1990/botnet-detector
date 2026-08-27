@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+.idea/
+.DS_Store
+*.pcap
+*.log
+data/samples/*
+!data/samples/.gitkeep
