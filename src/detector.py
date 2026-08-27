@@ -41,6 +41,8 @@ class Detector:
         result = compute_risk_score(self.window, work_weight)
         result["work_weight"] = work_weight
         result["stats"] = self.window
+        result["window_start"] = self.window_start
+        result["window_end"] = self.window_start + self.window_size
 
         if self.on_window_complete:
             self.on_window_complete(result)

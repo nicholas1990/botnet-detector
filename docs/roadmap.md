@@ -14,10 +14,10 @@ Aggiornare questo file ad ogni passo completato (un commit per passo, vedi git l
 - [x] `parse_packet` (`src/capture/parser.py`) — da pacchetto Scapy a `PacketRecord`, richiede l'IP locale per determinare la direzione
 - [x] `start_capture` (`src/capture/sniffer.py`) — wrapper su `scapy.sniff`, filtro `tcp`, richiede privilegi root
 - [x] `Detector` (`src/detector.py`) — rotazione finestra basata sul timestamp dei pacchetti, chiama `on_window_complete` con stats/work weight/risk score
+- [x] Output console nel formato di specifica (`src/reporting/console.py`, sez. 10)
 
 ## Da fare
 
-- [ ] Output console nel formato di specifica (sez. 10)
 - [ ] `main.py` — entry point, parsing argomenti (interfaccia, durata finestra)
 - [ ] Dataset di test controllato — scenari A (normale) / B (molte connessioni) / C (scanning) (sez. 14)
 - [ ] Dashboard opzionale — Flask/FastAPI/Streamlit (sez. 11)
