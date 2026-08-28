@@ -16,10 +16,10 @@ Aggiornare questo file ad ogni passo completato (un commit per passo, vedi git l
 - [x] `Detector` (`src/detector.py`) — rotazione finestra basata sul timestamp dei pacchetti, chiama `on_window_complete` con stats/work weight/risk score
 - [x] Output console nel formato di specifica (`src/reporting/console.py`, sez. 10)
 - [x] `main.py` — entry point, parsing argomenti (interfaccia, durata finestra), risoluzione IP locale via Scapy
+- [x] Dataset di test controllato (`tests/fixtures/scenarios.py`, `tests/test_scenarios.py`) — scenari A/B/C (sez. 14): A=NORMAL, B=SUSPICIOUS, C=HIGH RISK, con punteggio crescente A < B < C
 
 ## Da fare
 
-- [ ] Dataset di test controllato — scenari A (normale) / B (molte connessioni) / C (scanning) (sez. 14)
 - [ ] Dashboard opzionale — Flask/FastAPI/Streamlit (sez. 11)
 
 ## Evoluzioni future (fuori dalla v1)
