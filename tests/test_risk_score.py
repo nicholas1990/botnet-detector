@@ -41,6 +41,36 @@ def test_scanning_like_traffic_gets_high_score_and_high_risk_status():
     assert any("destination IPs" in reason for reason in result["reasons"])
 
 
+def test_diversity_bonus_is_ignored_with_too_few_packets():
+    window = StatisticsWindow()
+    window.update(PacketRecord("sent", "1.2.3.4", 443, "S", 60, 0.0))
+    window.update(PacketRecord("sent", "5.6.7.8", 22, "S", 60, 0.0))
+
+    result = compute_risk_score(window, _work_weight_for(window))
+
+    assert not any("diversity" in reason.lower() for reason in result["reasons"])
+
+
+def test_evenly_spread_destinations_add_diversity_reason():
+    window = StatisticsWindow()
+    for i in range(10):
+        window.update(PacketRecord("sent", f"10.0.0.{i}", 80, "S", 60, 0.0))
+
+    result = compute_risk_score(window, _work_weight_for(window))
+
+    assert any("diversity" in reason.lower() for reason in result["reasons"])
+
+
+def test_port_sweep_on_single_host_adds_port_sweep_reason():
+    window = StatisticsWindow()
+    for port in range(20):
+        window.update(PacketRecord("sent", "10.0.0.1", port, "S", 60, 0.0))
+
+    result = compute_risk_score(window, _work_weight_for(window))
+
+    assert any("Port sweep" in reason for reason in result["reasons"])
+
+
 def test_score_is_capped_at_100():
     window = StatisticsWindow()
     for i in range(200):
