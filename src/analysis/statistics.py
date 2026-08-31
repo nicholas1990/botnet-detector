@@ -22,6 +22,10 @@ class StatisticsWindow:
         # serve a distinguere "molte destinazioni, stessa porta ciascuna"
         # (normale) da "una destinazione sondata su molte porte" (port sweep).
         self.ports_by_destination = defaultdict(Counter)
+        # Timestamp dei SYN inviati per destinazione (Time Between Flows,
+        # specifiche sez. 4-5): serve a misurare la regolarita' degli
+        # intervalli tra flow consecutivi verso lo stesso host.
+        self.syn_timestamps_by_destination = defaultdict(list)
 
     def update(self, record):
         if record.direction == "sent":
@@ -29,6 +33,7 @@ class StatisticsWindow:
             self.bytes_sent += record.size
             if "S" in record.flags and "A" not in record.flags:
                 self.syn_sent += 1
+                self.syn_timestamps_by_destination[record.remote_ip].append(record.timestamp)
             if "F" in record.flags:
                 self.fin_sent += 1
         else:
