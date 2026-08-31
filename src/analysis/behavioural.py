@@ -1,12 +1,20 @@
 """Indicatori comportamentali: destinazioni, porte, frequenza, rapporto SYN/SYN-ACK."""
 
-from src.analysis.diversity import diversity_index
+from collections import Counter
+
+from src.analysis.diversity import diversity_index, simpson_index
+from src.analysis.timing import inter_arrival_bins_ms
 from src.config import WINDOW_SIZE
 
 # Sotto questa soglia di pacchetti verso una singola destinazione, la sua
 # diversita' di porte non e' affidabile (vedi specifiche sez. 3) e viene
 # esclusa dal calcolo del DDP per-destinazione.
 MIN_PACKETS_PER_DESTINATION_FOR_DDP = 3
+
+# Servono almeno due delta (tre flow) verso la stessa destinazione per
+# giudicare se gli intervalli sono regolari; con un solo delta la
+# concentrazione sarebbe massima per definizione e non significativa.
+MIN_FLOWS_PER_DESTINATION_FOR_TBF = 3
 
 
 def compute_single_target_port_diversity(ports_by_destination):
@@ -22,6 +30,22 @@ def compute_single_target_port_diversity(ports_by_destination):
         if sum(port_counts.values()) >= MIN_PACKETS_PER_DESTINATION_FOR_DDP
     ]
     return max(reliable_diversities, default=0.0)
+
+
+def compute_beaconing_score(syn_timestamps_by_destination):
+    """TBF (specifiche sez. 4-5): regolarita' massima degli intervalli tra
+    flow consecutivi verso una stessa destinazione (concentrazione di Simpson
+    sui delta binnati a 100ms), tra le destinazioni con dati sufficienti.
+
+    Alto = intervalli quasi identici (beaconing C&C periodico).
+    Basso = intervalli irregolari (traffico umano/normale).
+    """
+    reliable_scores = [
+        simpson_index(Counter(inter_arrival_bins_ms(timestamps)).values())
+        for timestamps in syn_timestamps_by_destination.values()
+        if len(timestamps) >= MIN_FLOWS_PER_DESTINATION_FOR_TBF
+    ]
+    return max(reliable_scores, default=0.0)
 
 
 def compute_behavioural_indicators(stats):
@@ -42,4 +66,5 @@ def compute_behavioural_indicators(stats):
         "single_target_port_diversity": compute_single_target_port_diversity(
             stats.ports_by_destination
         ),
+        "beaconing_score": compute_beaconing_score(stats.syn_timestamps_by_destination),
     }

@@ -1,4 +1,5 @@
 from src.analysis.behavioural import (
+    compute_beaconing_score,
     compute_behavioural_indicators,
     compute_single_target_port_diversity,
 )
@@ -71,3 +72,32 @@ def test_single_target_port_diversity_ignores_destinations_with_too_few_packets(
     ports_by_destination = {"10.0.0.1": {80: 1, 443: 1}}
 
     assert compute_single_target_port_diversity(ports_by_destination) == 0.0
+
+
+def test_beaconing_score_is_high_for_regular_intervals():
+    # 5 SYN a intervalli di 10s esatti: delta identici -> massima concentrazione.
+    window = StatisticsWindow()
+    for i in range(5):
+        window.update(PacketRecord("sent", "10.0.0.1", 443, "S", 60, i * 10.0))
+
+    indicators = compute_behavioural_indicators(window)
+
+    assert indicators["beaconing_score"] > 0.9
+
+
+def test_beaconing_score_is_low_for_irregular_intervals():
+    # Delta molto diversi tra loro: nessun bin domina, bassa concentrazione.
+    window = StatisticsWindow()
+    timestamps = [0.0, 0.3, 5.0, 5.4, 20.0]
+    for i, ts in enumerate(timestamps):
+        window.update(PacketRecord("sent", "10.0.0.1", 443, "S", 60, ts))
+
+    indicators = compute_behavioural_indicators(window)
+
+    assert indicators["beaconing_score"] < 0.5
+
+
+def test_beaconing_score_ignores_destinations_with_too_few_flows():
+    syn_timestamps_by_destination = {"10.0.0.1": [0.0, 10.0]}
+
+    assert compute_beaconing_score(syn_timestamps_by_destination) == 0.0
