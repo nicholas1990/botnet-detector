@@ -2,12 +2,16 @@
 
 import time
 
+from src.analysis.diversity import diversity_index
+
 SEPARATOR = "=" * 50
 
 
 def format_window_report(result):
     stats = result["stats"]
     total_tcp_packets = stats.packets_sent + stats.packets_received
+    ip_diversity = diversity_index(stats.unique_destination_ips.values())
+    port_diversity = diversity_index(stats.unique_destination_ports.values())
 
     window_start = time.strftime("%H:%M:%S", time.localtime(result["window_start"]))
     window_end = time.strftime("%H:%M:%S", time.localtime(result["window_end"]))
@@ -27,6 +31,8 @@ def format_window_report(result):
         "",
         f"Unique destination IP: {len(stats.unique_destination_ips)}",
         f"Unique destination port: {len(stats.unique_destination_ports)}",
+        f"Destination IP diversity (Simpson): {ip_diversity:.2f}",
+        f"Destination port diversity (Simpson): {port_diversity:.2f}",
         "",
         f"TCP Work Weight:      {result['work_weight'] * 100:.1f}%",
         f"Risk Score:           {result['score']}/100",
