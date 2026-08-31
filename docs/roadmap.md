@@ -26,11 +26,11 @@ documento resta una evoluzione separata (vedi "Evoluzioni future").
 - [x] `compute_behavioural_indicators` esteso con `destination_ip_diversity`, `destination_port_diversity` e `single_target_port_diversity` (DDP per-coppia src/dst)
 - [x] `compute_risk_score` — bonus additivo per fan-out orizzontale (diversità IP, scan di rete) e port sweep verticale su singola destinazione
 - [x] Report console — visualizzazione dei due indici di diversità
+- [x] Time Between Flows (TBF) (`src/analysis/timing.py`, `compute_beaconing_score` in `src/analysis/behavioural.py`) — binning a 100ms degli intervalli tra SYN consecutivi verso la stessa destinazione, concentrazione di Simpson come indice di regolarità/beaconing, bonus nel risk score e riga dedicata nel report console ([`specifiche_botanalyzer_netflow.md`](specifiche_botanalyzer_netflow.md) sez. 4-5)
 
 ## Da fare
 
 - [ ] Dashboard opzionale — Flask/FastAPI/Streamlit (sez. 11)
-- [ ] Time Between Flows (TBF) — diversità di regolarità temporale tra connessioni, per rilevare beaconing C&C periodico ([`specifiche_botanalyzer_netflow.md`](specifiche_botanalyzer_netflow.md) sez. 4-5)
 - [ ] Whitelist servizi legittimi (DNS/DHCP/NTP/Kerberos/VPN) con TTL, per ridurre falsi positivi ([`specifiche_botanalyzer_netflow.md`](specifiche_botanalyzer_netflow.md) sez. 14)
 
 ## Evoluzioni future (fuori dalla v1)
