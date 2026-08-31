@@ -71,6 +71,16 @@ def test_port_sweep_on_single_host_adds_port_sweep_reason():
     assert any("Port sweep" in reason for reason in result["reasons"])
 
 
+def test_periodic_beaconing_adds_beaconing_reason():
+    window = StatisticsWindow()
+    for i in range(5):
+        window.update(PacketRecord("sent", "10.0.0.1", 443, "S", 60, i * 10.0))
+
+    result = compute_risk_score(window, _work_weight_for(window))
+
+    assert any("beaconing" in reason.lower() for reason in result["reasons"])
+
+
 def test_score_is_capped_at_100():
     window = StatisticsWindow()
     for i in range(200):

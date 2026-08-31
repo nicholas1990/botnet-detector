@@ -23,6 +23,12 @@ DESTINATION_IP_DIVERSITY_MAX_POINTS = 10
 # (vedi nota nel modulo behavioural).
 SINGLE_TARGET_PORT_DIVERSITY_MAX_POINTS = 10
 
+# Bonus TBF (specifiche sez. 4-5): intervalli quasi identici tra flow
+# consecutivi verso la stessa destinazione, tipici di beaconing C&C
+# periodico. Qui, a differenza degli altri bonus, e' la CONCENTRAZIONE
+# (bassa diversita') ad essere il segnale di anomalia.
+BEACONING_MAX_POINTS = 10
+
 # Sotto questa soglia di pacchetti totali l'indice di diversita' non e'
 # affidabile (poche osservazioni, vedi specifiche sez. 3) e viene ignorato
 # nello scoring, pur restando calcolato e visibile negli indicatori.
@@ -42,6 +48,7 @@ HIGH_CONNECTION_RATE_THRESHOLD = 5.0
 LOW_SYN_ACK_RATIO_THRESHOLD = 0.3
 HIGH_DESTINATION_IP_DIVERSITY_THRESHOLD = 0.8
 HIGH_SINGLE_TARGET_PORT_DIVERSITY_THRESHOLD = 0.8
+HIGH_BEACONING_THRESHOLD = 0.8
 
 
 def compute_risk_score(stats, work_weight):
@@ -67,6 +74,7 @@ def compute_risk_score(stats, work_weight):
     if diversity_reliable:
         score += indicators["destination_ip_diversity"] * DESTINATION_IP_DIVERSITY_MAX_POINTS
     score += indicators["single_target_port_diversity"] * SINGLE_TARGET_PORT_DIVERSITY_MAX_POINTS
+    score += indicators["beaconing_score"] * BEACONING_MAX_POINTS
 
     score = round(min(score, 100))
 
@@ -99,6 +107,11 @@ def compute_risk_score(stats, work_weight):
         reasons.append(
             f"Port sweep against a single destination, diversity index "
             f"{indicators['single_target_port_diversity']:.2f}"
+        )
+    if indicators["beaconing_score"] > HIGH_BEACONING_THRESHOLD:
+        reasons.append(
+            f"Periodic beaconing pattern detected, regularity index "
+            f"{indicators['beaconing_score']:.2f}"
         )
 
     if score >= RISK_THRESHOLD_HIGH:
