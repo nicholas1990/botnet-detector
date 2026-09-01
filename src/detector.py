@@ -4,22 +4,34 @@ from src.analysis.statistics import StatisticsWindow
 from src.analysis.work_weight import compute_work_weight
 from src.capture.parser import parse_packet
 from src.capture.sniffer import start_capture
-from src.config import WINDOW_SIZE
+from src.config import WHITELIST_PATH, WINDOW_SIZE
 from src.scoring.risk_score import compute_risk_score
+from src.whitelist import load_whitelist
 
 
 class Detector:
-    def __init__(self, local_ip, interface=None, window_size=WINDOW_SIZE, on_window_complete=None):
+    def __init__(
+        self,
+        local_ip,
+        interface=None,
+        window_size=WINDOW_SIZE,
+        on_window_complete=None,
+        whitelist=None,
+    ):
         self.local_ip = local_ip
         self.interface = interface
         self.window_size = window_size
         self.on_window_complete = on_window_complete
+        self.whitelist = whitelist if whitelist is not None else load_whitelist(WHITELIST_PATH)
         self.window = StatisticsWindow()
         self.window_start = None
 
     def process_packet(self, packet):
         record = parse_packet(packet, self.local_ip)
         if record is None:
+            return
+
+        if self.whitelist.is_whitelisted(record.remote_ip, record.remote_port):
             return
 
         if self.window_start is None:

@@ -1,8 +1,10 @@
+import time
 from unittest.mock import patch
 
 from scapy.layers.inet import IP, TCP
 
 from src.detector import Detector
+from src.whitelist import Whitelist, WhitelistEntry
 
 LOCAL_IP = "192.168.1.10"
 REMOTE_IP = "203.0.113.5"
@@ -55,6 +57,18 @@ def test_window_closes_and_reports_result_after_window_size_elapsed():
 
     # the packet that triggered the rotation starts accumulating the new window
     assert detector.window.syn_sent == 1
+
+
+def test_whitelisted_traffic_is_excluded_from_statistics():
+    whitelist = Whitelist(
+        [WhitelistEntry(ip=REMOTE_IP, port=443, service="test", added_at=time.time(), ttl_days=30)]
+    )
+    detector = Detector(local_ip=LOCAL_IP, window_size=30, whitelist=whitelist)
+
+    detector.process_packet(_tcp_packet(LOCAL_IP, REMOTE_IP, 1, 443, "S", 0.0))
+
+    assert detector.window.packets_sent == 0
+    assert detector.window.syn_sent == 0
 
 
 def test_run_delegates_to_start_capture_and_closes_final_window():
