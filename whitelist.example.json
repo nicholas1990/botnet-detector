@@ -1,0 +1,23 @@
+{
+  "entries": [
+    {
+      "ip": "10.0.0.53",
+      "port": 53,
+      "service": "DNS interno (over TCP)",
+      "added_at": 1735689600,
+      "ttl_days": 30
+    },
+    {
+      "port": 88,
+      "service": "Kerberos",
+      "added_at": 1735689600,
+      "ttl_days": 30
+    },
+    {
+      "ip": "203.0.113.10",
+      "service": "VPN aziendale (OpenVPN su TCP)",
+      "added_at": 1735689600,
+      "ttl_days": 30
+    }
+  ]
+}

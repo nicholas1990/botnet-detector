@@ -10,3 +10,4 @@ env/
 *.log
 data/samples/*
 !data/samples/.gitkeep
+whitelist.json
