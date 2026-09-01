@@ -1,5 +1,6 @@
 import time
 
+from src.analysis.behavioural import compute_behavioural_indicators
 from src.analysis.statistics import StatisticsWindow
 from src.capture.parser import PacketRecord
 from src.reporting.console import format_window_report
@@ -13,6 +14,7 @@ def _build_result():
 
     return {
         "stats": stats,
+        "indicators": compute_behavioural_indicators(stats),
         "work_weight": 0.787,
         "score": 82,
         "status": "HIGH RISK",
