@@ -27,11 +27,11 @@ documento resta una evoluzione separata (vedi "Evoluzioni future").
 - [x] `compute_risk_score` — bonus additivo per fan-out orizzontale (diversità IP, scan di rete) e port sweep verticale su singola destinazione
 - [x] Report console — visualizzazione dei due indici di diversità
 - [x] Time Between Flows (TBF) (`src/analysis/timing.py`, `compute_beaconing_score` in `src/analysis/behavioural.py`) — binning a 100ms degli intervalli tra SYN consecutivi verso la stessa destinazione, concentrazione di Simpson come indice di regolarità/beaconing, bonus nel risk score e riga dedicata nel report console ([`specifiche_botanalyzer_netflow.md`](specifiche_botanalyzer_netflow.md) sez. 4-5)
+- [x] Whitelist servizi legittimi TCP (`src/whitelist.py`, `whitelist.example.json`) — entry per IP/porta/coppia con TTL esplicito (`added_at`/`ttl_days`, default 30gg), niente auto-apprendimento; traffico whitelisted escluso a monte in `Detector.process_packet` prima che entri nelle statistiche. Limitata a TCP finché la cattura resta TCP-only (vedi "Supporto UDP" sotto); DNS/DHCP/NTP restano fuori scope perché su UDP non vengono catturati a prescindere ([`specifiche_botanalyzer_netflow.md`](specifiche_botanalyzer_netflow.md) sez. 14)
 
 ## Da fare
 
 - [ ] Dashboard opzionale — Flask/FastAPI/Streamlit (sez. 11)
-- [ ] Whitelist servizi legittimi TCP (Kerberos, DNS-over-TCP, VPN/NetBIOS su TCP) con TTL, per ridurre falsi positivi — limitata a TCP finché la cattura resta TCP-only (vedi "Supporto UDP" sotto); DNS/DHCP/NTP restano fuori scope perché su UDP non vengono catturati a prescindere ([`specifiche_botanalyzer_netflow.md`](specifiche_botanalyzer_netflow.md) sez. 14)
 
 ## Evoluzioni future (fuori dalla v1)
 
