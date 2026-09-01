@@ -13,7 +13,7 @@ class StatisticsWindow:
         self.packets_received = 0
         self.bytes_sent = 0
         self.bytes_received = 0
-        # Counter invece di set: len() da' comunque il numero di destinazioni
+        # Counter invece di set: len() dà comunque il numero di destinazioni
         # distinte, ma le frequenze servono anche per il Simpson Diversity
         # Index (vedi src/analysis/diversity.py).
         self.unique_destination_ips = Counter()
@@ -23,7 +23,7 @@ class StatisticsWindow:
         # (normale) da "una destinazione sondata su molte porte" (port sweep).
         self.ports_by_destination = defaultdict(Counter)
         # Timestamp dei SYN inviati per destinazione (Time Between Flows,
-        # specifiche sez. 4-5): serve a misurare la regolarita' degli
+        # specifiche sez. 4-5): serve a misurare la regolarità degli
         # intervalli tra flow consecutivi verso lo stesso host.
         self.syn_timestamps_by_destination = defaultdict(list)
 

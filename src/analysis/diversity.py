@@ -1,8 +1,8 @@
 """Simpson's Diversity Index (specifiche sez. 5).
 
-D = sum(p_i^2), dove p_i e' la proporzione di elementi nella categoria i.
-D vicino a 1 indica traffico concentrato su poche categorie (bassa diversita');
-D vicino a 0 indica traffico distribuito su molte categorie (alta diversita').
+D = sum(p_i^2), dove p_i è la proporzione di elementi nella categoria i.
+D vicino a 1 indica traffico concentrato su poche categorie (bassa diversità);
+D vicino a 0 indica traffico distribuito su molte categorie (alta diversità).
 """
 
 

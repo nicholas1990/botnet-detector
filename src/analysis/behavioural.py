@@ -12,11 +12,11 @@ from src.config import (
 
 
 def compute_single_target_port_diversity(ports_by_destination):
-    """DDP per-coppia (specifiche sez. 4/6): diversita' massima delle porte
+    """DDP per-coppia (specifiche sez. 4/6): diversità massima delle porte
     verso una singola destinazione, tra le destinazioni con dati sufficienti.
 
     Alto = una destinazione sondata su molte porte diverse (port sweep).
-    Basso = ogni destinazione e' raggiunta sempre sulla stessa porta (normale).
+    Basso = ogni destinazione è raggiunta sempre sulla stessa porta (normale).
     """
     reliable_diversities = [
         diversity_index(port_counts.values())
@@ -27,7 +27,7 @@ def compute_single_target_port_diversity(ports_by_destination):
 
 
 def compute_beaconing_score(syn_timestamps_by_destination):
-    """TBF (specifiche sez. 4-5): regolarita' massima degli intervalli tra
+    """TBF (specifiche sez. 4-5): regolarità massima degli intervalli tra
     flow consecutivi verso una stessa destinazione (concentrazione di Simpson
     sui delta binnati a 100ms), tra le destinazioni con dati sufficienti.
 
@@ -52,7 +52,7 @@ def compute_behavioural_indicators(stats):
         "unique_destination_ports": len(stats.unique_destination_ports),
         "connections_per_second": stats.syn_sent / WINDOW_SIZE,
         "syn_ack_ratio": syn_ack_ratio,
-        # Simpson Diversity Index (specifiche sez. 5): quanto il traffico e'
+        # Simpson Diversity Index (specifiche sez. 5): quanto il traffico è
         # disperso (1.0) o concentrato (0.0) su poche destinazioni/porte.
         # Affianca i conteggi sopra, non li sostituisce.
         "destination_ip_diversity": diversity_index(stats.unique_destination_ips.values()),

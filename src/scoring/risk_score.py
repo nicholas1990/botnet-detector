@@ -23,14 +23,14 @@ DESTINATION_IP_DIVERSITY_MAX_POINTS = 10
 
 # Bonus DDP per-coppia (specifiche sez. 4/6): una singola destinazione
 # sondata su molte porte diverse (port sweep verticale), a differenza della
-# diversita' di porta aggregata sull'intera finestra che non e' affidabile
+# diversità di porta aggregata sull'intera finestra che non è affidabile
 # (vedi nota nel modulo behavioural).
 SINGLE_TARGET_PORT_DIVERSITY_MAX_POINTS = 10
 
 # Bonus TBF (specifiche sez. 4-5): intervalli quasi identici tra flow
 # consecutivi verso la stessa destinazione, tipici di beaconing C&C
-# periodico. Qui, a differenza degli altri bonus, e' la CONCENTRAZIONE
-# (bassa diversita') ad essere il segnale di anomalia.
+# periodico. Qui, a differenza degli altri bonus, è la CONCENTRAZIONE
+# (bassa diversità) ad essere il segnale di anomalia.
 BEACONING_MAX_POINTS = 10
 
 # Scale di normalizzazione: valore oltre il quale l'indicatore
@@ -72,13 +72,13 @@ def compute_risk_score(stats, work_weight):
     diversity_reliable = total_packets >= MIN_PACKETS_FOR_DIVERSITY
     if diversity_reliable:
         score += indicators["destination_ip_diversity"] * DESTINATION_IP_DIVERSITY_MAX_POINTS
-    # "single_target_port_diversity" e "beaconing_score" sono gia' filtrati a
-    # monte per affidabilita' (MIN_PACKETS_PER_DESTINATION_FOR_DDP /
+    # "single_target_port_diversity" e "beaconing_score" sono già filtrati a
+    # monte per affidabilità (MIN_PACKETS_PER_DESTINATION_FOR_DDP /
     # MIN_FLOWS_PER_DESTINATION_FOR_TBF in src/analysis/behavioural.py, soglie
-    # in src/config.py): un default 0.0 puo' significare sia "dato
-    # insufficiente" sia "misurato e concentrato/disperso al minimo". E'
-    # sicuro solo perche' le soglie HIGH_*_THRESHOLD sotto sono tutte "> X":
-    # un nuovo indicatore con soglia "< X" dovrebbe gestire l'ambiguita'
+    # in src/config.py): un default 0.0 può significare sia "dato
+    # insufficiente" sia "misurato e concentrato/disperso al minimo". È
+    # sicuro solo perché le soglie HIGH_*_THRESHOLD sotto sono tutte "> X":
+    # un nuovo indicatore con soglia "< X" dovrebbe gestire l'ambiguità
     # esplicitamente invece di affidarsi a questo stesso default.
     score += indicators["single_target_port_diversity"] * SINGLE_TARGET_PORT_DIVERSITY_MAX_POINTS
     score += indicators["beaconing_score"] * BEACONING_MAX_POINTS

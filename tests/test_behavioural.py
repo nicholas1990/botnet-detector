@@ -35,7 +35,7 @@ def test_scanning_like_traffic_has_low_syn_ack_ratio_and_many_destinations():
     assert indicators["syn_ack_ratio"] == 1 / 100
     assert indicators["connections_per_second"] == 100 / WINDOW_SIZE
     # 100 destinazioni colpite quasi uniformemente (una riceve anche il
-    # SYN-ACK): diversita' molto alta, fan-out tipico di uno scan.
+    # SYN-ACK): diversità molto alta, fan-out tipico di uno scan.
     assert indicators["destination_ip_diversity"] > 0.95
 
 

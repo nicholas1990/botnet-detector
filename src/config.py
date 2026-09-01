@@ -9,7 +9,7 @@ RISK_THRESHOLD_HIGH = 60
 # File assente -> whitelist no-op, nessun impatto sul comportamento esistente.
 WHITELIST_PATH = "whitelist.json"
 
-# Soglie minime di campione sotto le quali un indice di diversita' non e'
+# Soglie minime di campione sotto le quali un indice di diversità non è
 # affidabile (specifiche sez. 3) e va ignorato. Centralizzate qui anche se
 # applicate in punti diversi (src/analysis/behavioural.py per il filtro
 # per-destinazione, src/scoring/risk_score.py per il controllo aggregato)

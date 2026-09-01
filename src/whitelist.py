@@ -2,7 +2,7 @@
 
 Le entry vanno aggiunte manualmente (niente auto-apprendimento) e devono
 riportare `added_at` esplicito: allo scadere del `ttl_days` l'entry smette
-di valere finche' non viene rinnovata a mano, per evitare il
+di valere finché non viene rinnovata a mano, per evitare il
 "blind-whitelisting permanente" citato nello spec (un host legittimo
 compromesso non deve restare invisibile per sempre).
 """
