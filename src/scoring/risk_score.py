@@ -1,7 +1,11 @@
 """Calcolo del Risk Score e classificazione del comportamento."""
 
 from src.analysis.behavioural import compute_behavioural_indicators
-from src.config import RISK_THRESHOLD_HIGH, RISK_THRESHOLD_SUSPICIOUS
+from src.config import (
+    MIN_PACKETS_FOR_DIVERSITY,
+    RISK_THRESHOLD_HIGH,
+    RISK_THRESHOLD_SUSPICIOUS,
+)
 
 # Punti massimi assegnabili per ciascun indicatore. Il totale supera 100:
 # il punteggio finale viene comunque troncato a 100 (vedi sotto).
@@ -28,11 +32,6 @@ SINGLE_TARGET_PORT_DIVERSITY_MAX_POINTS = 10
 # periodico. Qui, a differenza degli altri bonus, e' la CONCENTRAZIONE
 # (bassa diversita') ad essere il segnale di anomalia.
 BEACONING_MAX_POINTS = 10
-
-# Sotto questa soglia di pacchetti totali l'indice di diversita' non e'
-# affidabile (poche osservazioni, vedi specifiche sez. 3) e viene ignorato
-# nello scoring, pur restando calcolato e visibile negli indicatori.
-MIN_PACKETS_FOR_DIVERSITY = 5
 
 # Scale di normalizzazione: valore oltre il quale l'indicatore
 # contribuisce con il massimo dei punti.
@@ -73,6 +72,14 @@ def compute_risk_score(stats, work_weight):
     diversity_reliable = total_packets >= MIN_PACKETS_FOR_DIVERSITY
     if diversity_reliable:
         score += indicators["destination_ip_diversity"] * DESTINATION_IP_DIVERSITY_MAX_POINTS
+    # "single_target_port_diversity" e "beaconing_score" sono gia' filtrati a
+    # monte per affidabilita' (MIN_PACKETS_PER_DESTINATION_FOR_DDP /
+    # MIN_FLOWS_PER_DESTINATION_FOR_TBF in src/analysis/behavioural.py, soglie
+    # in src/config.py): un default 0.0 puo' significare sia "dato
+    # insufficiente" sia "misurato e concentrato/disperso al minimo". E'
+    # sicuro solo perche' le soglie HIGH_*_THRESHOLD sotto sono tutte "> X":
+    # un nuovo indicatore con soglia "< X" dovrebbe gestire l'ambiguita'
+    # esplicitamente invece di affidarsi a questo stesso default.
     score += indicators["single_target_port_diversity"] * SINGLE_TARGET_PORT_DIVERSITY_MAX_POINTS
     score += indicators["beaconing_score"] * BEACONING_MAX_POINTS
 

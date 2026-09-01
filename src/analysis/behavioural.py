@@ -4,17 +4,11 @@ from collections import Counter
 
 from src.analysis.diversity import diversity_index, simpson_index
 from src.analysis.timing import inter_arrival_bins_ms
-from src.config import WINDOW_SIZE
-
-# Sotto questa soglia di pacchetti verso una singola destinazione, la sua
-# diversita' di porte non e' affidabile (vedi specifiche sez. 3) e viene
-# esclusa dal calcolo del DDP per-destinazione.
-MIN_PACKETS_PER_DESTINATION_FOR_DDP = 3
-
-# Servono almeno due delta (tre flow) verso la stessa destinazione per
-# giudicare se gli intervalli sono regolari; con un solo delta la
-# concentrazione sarebbe massima per definizione e non significativa.
-MIN_FLOWS_PER_DESTINATION_FOR_TBF = 3
+from src.config import (
+    MIN_FLOWS_PER_DESTINATION_FOR_TBF,
+    MIN_PACKETS_PER_DESTINATION_FOR_DDP,
+    WINDOW_SIZE,
+)
 
 
 def compute_single_target_port_diversity(ports_by_destination):
