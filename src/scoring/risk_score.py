@@ -121,4 +121,4 @@ def compute_risk_score(stats, work_weight):
     else:
         status = "NORMAL"
 
-    return {"score": score, "status": status, "reasons": reasons}
+    return {"score": score, "status": status, "reasons": reasons, "indicators": indicators}
