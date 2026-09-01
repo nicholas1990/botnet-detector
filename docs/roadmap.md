@@ -31,10 +31,11 @@ documento resta una evoluzione separata (vedi "Evoluzioni future").
 ## Da fare
 
 - [ ] Dashboard opzionale — Flask/FastAPI/Streamlit (sez. 11)
-- [ ] Whitelist servizi legittimi (DNS/DHCP/NTP/Kerberos/VPN) con TTL, per ridurre falsi positivi ([`specifiche_botanalyzer_netflow.md`](specifiche_botanalyzer_netflow.md) sez. 14)
+- [ ] Whitelist servizi legittimi TCP (Kerberos, DNS-over-TCP, VPN/NetBIOS su TCP) con TTL, per ridurre falsi positivi — limitata a TCP finché la cattura resta TCP-only (vedi "Supporto UDP" sotto); DNS/DHCP/NTP restano fuori scope perché su UDP non vengono catturati a prescindere ([`specifiche_botanalyzer_netflow.md`](specifiche_botanalyzer_netflow.md) sez. 14)
 
 ## Evoluzioni future (fuori dalla v1)
 
+- [ ] **Supporto UDP nella cattura** — oggi il sistema è deliberatamente TCP-only (`specifiche_botnet_detector.md` sez. 2/4: "identificare i pacchetti TCP"), quindi DNS/DHCP/NTP/Kerberos-UDP sono del tutto invisibili al detector, whitelist o meno. Richiede: estendere il filtro BPF in `src/capture/sniffer.py` (oggi `"tcp"`) a `"tcp or udp"`, un ramo di parsing UDP in `src/capture/parser.py` (niente flag SYN/FIN/RST, quindi il TCP Work Weight resta TCP-specifico per definizione), e una `StatisticsWindow` che distingua i due protocolli. Gli indicatori già protocol-agnostic (Simpson Diversity Index, `single_target_port_diversity`, TBF/beaconing — non dipendono dai flag TCP) si estenderebbero naturalmente al traffico UDP, utile per rilevare C&C su DNS tunneling o beaconing via NTP. Richiede un redesign del layer di cattura/statistiche; non si innesta incrementalmente sul codice attuale.
 - [ ] Rilevamento comportamento anomalo su traffico cifrato via metadati (sez. 16.A)
 - [ ] Classificatore ML sulle statistiche raccolte (sez. 16.B)
 - [ ] Architettura NetFlow/IPFIX multi-host con Horizontal Fingerprint Clustering ([`specifiche_botanalyzer_netflow.md`](specifiche_botanalyzer_netflow.md)) — pienamente implementabile ma richiede un redesign del layer di cattura (NetFlow invece di sniffing locale) e correlazione tra più host; non si innesta incrementalmente sul codice attuale
