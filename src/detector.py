@@ -6,7 +6,7 @@ from src.capture.parser import parse_packet
 from src.capture.sniffer import start_capture
 from src.config import WHITELIST_PATH, WINDOW_SIZE
 from src.scoring.risk_score import compute_risk_score
-from src.whitelist import load_whitelist
+from src.filtering.whitelist import load_whitelist
 
 
 class Detector:

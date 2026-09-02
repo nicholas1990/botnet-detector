@@ -4,7 +4,7 @@ from unittest.mock import patch
 from scapy.layers.inet import IP, TCP
 
 from src.detector import Detector
-from src.whitelist import Whitelist, WhitelistEntry
+from src.filtering.whitelist import Whitelist, WhitelistEntry
 
 LOCAL_IP = "192.168.1.10"
 REMOTE_IP = "203.0.113.5"

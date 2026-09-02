@@ -34,11 +34,13 @@ botnet-detector/
 │   ├── main.py
 │   ├── config.py
 │   ├── detector.py
-│   ├── whitelist.py
 │   │
 │   ├── capture/
 │   │   ├── sniffer.py
 │   │   └── parser.py
+│   │
+│   ├── filtering/
+│   │   └── whitelist.py
 │   │
 │   ├── analysis/
 │   │   ├── statistics.py

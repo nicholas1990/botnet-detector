@@ -1,6 +1,6 @@
 import json
 
-from src.whitelist import Whitelist, WhitelistEntry, load_whitelist
+from src.filtering.whitelist import Whitelist, WhitelistEntry, load_whitelist
 
 NOW = 1_700_000_000.0
 DAY = 86400
