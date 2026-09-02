@@ -1,7 +1,7 @@
 """Calcolo del Risk Score e classificazione del comportamento."""
 
 from dataclasses import dataclass
-from typing import Callable, Optional
+from typing import TYPE_CHECKING, Callable, Optional
 
 from src.analysis.behavioural import compute_behavioural_indicators
 from src.config import (
@@ -9,6 +9,9 @@ from src.config import (
     RISK_THRESHOLD_HIGH,
     RISK_THRESHOLD_SUSPICIOUS,
 )
+
+if TYPE_CHECKING:
+    from src.analysis.statistics import StatisticsWindow
 
 # Punti massimi assegnabili per ciascun indicatore. Il totale supera 100:
 # il punteggio finale viene comunque troncato a 100 (vedi sotto).
