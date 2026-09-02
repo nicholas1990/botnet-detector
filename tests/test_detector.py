@@ -45,7 +45,7 @@ def test_window_closes_and_reports_result_after_window_size_elapsed():
 
     detector.process_packet(_tcp_packet(LOCAL_IP, REMOTE_IP, 1, 443, "S", 0.0))
     detector.process_packet(_tcp_packet(LOCAL_IP, REMOTE_IP, 1, 443, "S", 10.0))
-    # this packet is outside the first 30s window -> closes it
+    # questo pacchetto è fuori dalla prima finestra di 30s -> la chiude
     detector.process_packet(_tcp_packet(LOCAL_IP, REMOTE_IP, 1, 443, "S", 31.0))
 
     assert len(results) == 1
@@ -55,7 +55,7 @@ def test_window_closes_and_reports_result_after_window_size_elapsed():
     assert "score" in closed_window_result
     assert "status" in closed_window_result
 
-    # the packet that triggered the rotation starts accumulating the new window
+    # il pacchetto che ha innescato la rotazione inizia ad accumulare la nuova finestra
     assert detector.window.syn_sent == 1
 
 
