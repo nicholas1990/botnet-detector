@@ -31,7 +31,11 @@ documento resta una evoluzione separata (vedi "Evoluzioni future").
 
 ## Da fare
 
-- [ ] Dashboard opzionale — Flask/FastAPI/Streamlit (sez. 11)
+- [ ] Dashboard opzionale (sez. 11) — decisioni prese, implementazione da fare:
+  - **Tecnologia: Streamlit** (puro Python, niente secondo linguaggio/toolchain, primitive già pronte per serie temporali e refresh live). Scartate React Native (pensato per app mobile, irrilevante per un tool locale che richiede root sulla stessa macchina monitorata) e Angular (SPA multi-vista, sproporzionato per un'unica schermata con ~6 metriche). FastAPI + frontend statico minimale resta l'alternativa se in futuro servirà più controllo sull'interfaccia di quanto Streamlit offra.
+  - **Posizione: `dashboard/` a livello radice** (sibling di `src/`/`tests/`/`docs/`), non dentro `src/`. Non è un componente della pipeline di rilevamento (capture→analysis→scoring→reporting): è una seconda superficie eseguibile a sé, avviata con comando proprio (`streamlit run dashboard/app.py`), concettualmente più vicina a `main.py` (entry point) che a `reporting/console.py` (funzione pura chiamata da `Detector`). Importerà comunque da `src.*` come fa `main.py` oggi.
+  - **Open point da risolvere prima di implementare:** `Detector.run()` è un loop bloccante (`scapy.sniff`); una dashboard live richiede che la cattura giri in background mentre l'interfaccia web serve richieste. Da decidere come far comunicare i due: (a) cattura in un thread separato con uno store condiviso in memoria, (b) `Detector` scrive i risultati per finestra su file/SQLite e la dashboard li legge periodicamente, o (c) processo `main.py` separato interrogato dalla dashboard. Nessuna delle tre è ancora stata scelta.
+  - Non è un no-op sul codice esistente: introdurre questo meccanismo di condivisione dati va progettato prima di scrivere la UI, non in parallelo.
 
 ## Evoluzioni future (fuori dalla v1)
 
