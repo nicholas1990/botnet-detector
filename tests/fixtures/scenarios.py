@@ -53,7 +53,16 @@ def scenario_b_many_connections():
 
 
 def scenario_c_scanning():
-    """SYN scan: molti SYN verso molte destinazioni, poche risposte SYN-ACK."""
+    """SYN scan: molti SYN verso molte destinazioni, poche risposte SYN-ACK.
+
+    `host_index` conta le connessioni in totale attraverso entrambe le porte,
+    senza resettarsi tra un `port` e l'altro: solo le primissime iterazioni in
+    assoluto (quelle sulla prima porta) ricevono SYN-ACK, tutto il resto —
+    incluse tutte le connessioni sulla seconda porta — riceve RST. Va bene per
+    lo scopo del test (simulare uno scan quasi-completamente respinto), ma
+    non garantisce "N host aperti per porta"; se in futuro serve quel
+    controllo più preciso, `host_index` va resettato a ogni iterazione di `port`.
+    """
     ports = [445, 3389]
     records = []
     t = 0.0

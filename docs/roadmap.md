@@ -20,7 +20,7 @@ documento resta una evoluzione separata (vedi "Evoluzioni future").
 - [x] `Detector` (`src/detector.py`) — rotazione finestra basata sul timestamp dei pacchetti, chiama `on_window_complete` con stats/work weight/risk score
 - [x] Output console nel formato di specifica (`src/reporting/console.py`, sez. 10)
 - [x] `main.py` — entry point, parsing argomenti (interfaccia, durata finestra), risoluzione IP locale via Scapy
-- [x] Dataset di test controllato (`tests/fixtures/scenarios.py`, `tests/test_scenarios.py`) — scenari A/B/C (sez. 14): A=NORMAL, B=SUSPICIOUS, C=HIGH RISK, con punteggio crescente A < B < C
+- [x] Dataset di test controllato (`tests/fixtures/scenarios.py`, `tests/test_scenarios.py`) — scenari A/B/C (sez. 14): A=NORMAL, B=SUSPICIOUS, C=HIGH RISK, con punteggio crescente A < B < C. Nota: nello scenario C il conteggio degli host "aperti" (`open_hosts`) è globale sulle due porte simulate, non per-porta — sufficiente per verificare "quasi tutto respinto", non per un controllo preciso "N host aperti per ciascuna porta" (vedi commento in `scenarios.py`)
 - [x] Simpson Diversity Index (`src/analysis/diversity.py`) — `simpson_index`/`diversity_index`, ispirato a [`specifiche_botanalyzer_netflow.md`](specifiche_botanalyzer_netflow.md) sez. 5
 - [x] `StatisticsWindow` — frequenza per destinazione/porta (`Counter`) e porte per singola destinazione (`ports_by_destination`), base per DSP/DDP
 - [x] `compute_behavioural_indicators` esteso con `destination_ip_diversity`, `destination_port_diversity` e `single_target_port_diversity` (DDP per-coppia src/dst)
