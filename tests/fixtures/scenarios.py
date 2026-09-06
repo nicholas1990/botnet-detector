@@ -6,6 +6,9 @@ Scenario B: molte connessioni legittime verso un insieme controllato di
 host/porte (handshake completo, nessuna anomalia nel rapporto SYN/SYN-ACK).
 Scenario C: simulazione di scanning (molti SYN verso molte destinazioni,
 quasi nessuna risposta SYN-ACK, molti RST).
+Scenario D: comportamento combinato nella stessa finestra — beaconing
+periodico verso un host di C&C e port sweep verticale verso un altro
+(backlog "test end-to-end su scenari combinati").
 """
 
 from src.capture.parser import PacketRecord
@@ -82,4 +85,31 @@ def scenario_c_scanning():
                 )
             host_index += 1
             t += 0.02
+    return records
+
+
+def scenario_d_beaconing_and_port_sweep():
+    """Beaconing periodico verso un host + port sweep verticale verso un
+    altro, nella stessa finestra: due pattern anomali indipendenti che
+    devono essere rilevati entrambi (TBF e DDP, sez. 4-5) senza mascherarsi
+    a vicenda.
+    """
+    records = []
+
+    # Beaconing: SYN a intervalli regolari (5s) verso lo stesso host/porta,
+    # tipico di un canale C&C con keep-alive periodico.
+    beacon_ip, beacon_port = "203.0.113.50", 4444
+    for i in range(6):
+        t = i * 5.0
+        records.append(PacketRecord("sent", beacon_ip, beacon_port, "S", 60, t))
+        records.append(PacketRecord("received", beacon_ip, beacon_port, "RA", 60, t + 0.01))
+
+    # Port sweep verticale: molte porte diverse sondate sulla stessa
+    # destinazione, quasi nessuna aperta.
+    sweep_ip = "203.0.113.99"
+    for port in range(1, 21):
+        t = port * 0.05
+        records.append(PacketRecord("sent", sweep_ip, port, "S", 60, t))
+        records.append(PacketRecord("received", sweep_ip, port, "RA", 60, t + 0.01))
+
     return records
