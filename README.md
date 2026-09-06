@@ -53,7 +53,8 @@ botnet-detector/
 │   │   └── risk_score.py
 │   │
 │   └── reporting/
-│       └── console.py
+│       ├── console.py
+│       └── persistence.py
 │
 ├── tests/
 │   ├── fixtures/
@@ -70,6 +71,8 @@ botnet-detector/
 │   ├── test_whitelist.py
 │   ├── test_risk_score.py
 │   ├── test_console.py
+│   ├── test_persistence.py
+│   ├── test_dashboard_app.py
 │   └── test_scenarios.py
 │
 ├── data/
@@ -92,19 +95,27 @@ pip install -r requirements.txt
 ## Uso
 
 ```bash
-sudo python -m src.main [-i INTERFACE] [-w WINDOW]
+sudo python -m src.main [-i INTERFACE] [-w WINDOW] [--dashboard-db PATH]
 ```
 
 Whitelist opzionale: copia `whitelist.example.json` in `whitelist.json`
 (ignorato da git) nella root del progetto e personalizza le voci — vedi
 `docs/roadmap.md` sez. whitelist per il formato.
 
+Dashboard opzionale: avvia il detector con `--dashboard-db dashboard.db` per
+scrivere i risultati per finestra su SQLite, poi in un secondo terminale
+(senza privilegi elevati):
+
+```bash
+streamlit run dashboard/app.py
+```
+
 ## Stato del progetto
 
 Cattura, parsing, statistiche, indicatori comportamentali (inclusi diversità
-e beaconing), Risk Score, whitelist TCP e report console sono implementati e
-testati (`pytest`). Dashboard opzionale e supporto UDP restano da fare — vedi
-[`docs/roadmap.md`](docs/roadmap.md).
+e beaconing), Risk Score, whitelist TCP, report console e dashboard opzionale
+(Streamlit, dati condivisi via SQLite) sono implementati e testati
+(`pytest`). Supporto UDP resta da fare — vedi [`docs/roadmap.md`](docs/roadmap.md).
 
 ## Sicurezza ed etica
 
