@@ -9,6 +9,11 @@ RISK_THRESHOLD_HIGH = 60
 # File assente -> whitelist no-op, nessun impatto sul comportamento esistente.
 WHITELIST_PATH = "whitelist.json"
 
+# Percorso suggerito per il database SQLite condiviso con la dashboard
+# (sez. 11): usato come default nella UI di dashboard/app.py. Il detector
+# scrive qui solo se avviato con --dashboard-db (opt-in, vedi src/main.py).
+DASHBOARD_DB_PATH = "dashboard.db"
+
 # Soglie minime di campione sotto le quali un indice di diversità non è
 # affidabile (specifiche sez. 3) e va ignorato. Centralizzate qui anche se
 # applicate in punti diversi (src/analysis/behavioural.py per il filtro

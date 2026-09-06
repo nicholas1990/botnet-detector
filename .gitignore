@@ -11,3 +11,6 @@ env/
 data/samples/*
 !data/samples/.gitkeep
 whitelist.json
+*.db
+*.db-wal
+*.db-shm
