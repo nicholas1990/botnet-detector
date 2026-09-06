@@ -24,6 +24,12 @@ from src.reporting.persistence import fetch_recent_results
 REFRESH_SECONDS = 5
 HISTORY_LIMIT = 100
 
+STATUS_COLORS = {
+    "NORMAL": "green",
+    "SUSPICIOUS": "orange",
+    "HIGH RISK": "red",
+}
+
 
 def _format_time(timestamp):
     return time.strftime("%H:%M:%S", time.localtime(timestamp))
@@ -45,7 +51,9 @@ def render(db_path):
 
     col1, col2, col3 = st.columns(3)
     col1.metric("Risk Score", f"{latest['score']}/100")
-    col2.metric("Status", latest["status"])
+    with col2:
+        st.caption("Status")
+        st.badge(latest["status"], color=STATUS_COLORS.get(latest["status"], "gray"))
     col3.metric("TCP Work Weight", f"{latest['work_weight'] * 100:.1f}%")
 
     if latest["reasons"]:

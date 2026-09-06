@@ -51,8 +51,17 @@ def test_dashboard_shows_latest_result_metrics(tmp_path):
     assert not at.exception
     metric_values = [metric.value for metric in at.metric]
     assert "42/100" in metric_values
-    assert "SUSPICIOUS" in metric_values
     assert "50.0%" in metric_values
+
+
+def test_dashboard_shows_color_coded_status_badge(tmp_path):
+    db_path = tmp_path / "dashboard.db"
+    save_window_result(db_path, _build_result())
+
+    at = _run_app_with_db(db_path)
+
+    assert not at.exception
+    assert any(m.value == ":orange-badge[SUSPICIOUS]" for m in at.markdown)
 
 
 def test_dashboard_shows_human_readable_window_time(tmp_path):
