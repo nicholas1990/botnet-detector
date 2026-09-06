@@ -5,7 +5,7 @@ import argparse
 from scapy.arch import get_if_addr
 from scapy.config import conf
 
-from src.config import WINDOW_SIZE
+from src.config import DASHBOARD_DB_PATH, WINDOW_SIZE
 from src.detector import Detector
 from src.reporting.console import print_window_report
 from src.reporting.persistence import save_window_result
@@ -29,7 +29,10 @@ def build_arg_parser():
     parser.add_argument(
         "--dashboard-db",
         default=None,
-        help="Percorso del database SQLite per la dashboard (default: disabilitato)",
+        help=(
+            "Percorso del database SQLite per la dashboard (default: disabilitato; "
+            f"se abilitato, la dashboard si aspetta '{DASHBOARD_DB_PATH}' salvo diversa configurazione)"
+        ),
     )
     return parser
 
