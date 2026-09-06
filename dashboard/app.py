@@ -10,6 +10,7 @@ Richiede il detector avviato con: sudo python -m src.main --dashboard-db <path>
 """
 
 import sys
+import time
 from pathlib import Path
 
 import pandas as pd
@@ -22,6 +23,10 @@ from src.reporting.persistence import fetch_recent_results
 
 REFRESH_SECONDS = 5
 HISTORY_LIMIT = 100
+
+
+def _format_time(timestamp):
+    return time.strftime("%H:%M:%S", time.localtime(timestamp))
 
 
 @st.fragment(run_every=REFRESH_SECONDS)
@@ -48,17 +53,17 @@ def render(db_path):
 
     chart_data = pd.DataFrame(
         {
-            "window_start": [entry["window_start"] for entry in history],
+            "Orario": [_format_time(entry["window_start"]) for entry in history],
             "Risk Score": [entry["score"] for entry in history],
         }
-    ).set_index("window_start")
+    ).set_index("Orario")
     st.line_chart(chart_data)
 
     st.subheader("Ultime finestre")
     table_data = pd.DataFrame(
         [
             {
-                "Inizio finestra": entry["window_start"],
+                "Inizio finestra": _format_time(entry["window_start"]),
                 "Score": entry["score"],
                 "Status": entry["status"],
                 "TCP packets": entry["tcp_packets"],

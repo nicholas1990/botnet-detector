@@ -1,3 +1,4 @@
+import time
 from pathlib import Path
 
 from streamlit.testing.v1 import AppTest
@@ -52,3 +53,15 @@ def test_dashboard_shows_latest_result_metrics(tmp_path):
     assert "42/100" in metric_values
     assert "SUSPICIOUS" in metric_values
     assert "50.0%" in metric_values
+
+
+def test_dashboard_shows_human_readable_window_time(tmp_path):
+    db_path = tmp_path / "dashboard.db"
+    save_window_result(db_path, _build_result())
+
+    at = _run_app_with_db(db_path)
+
+    assert not at.exception
+    expected_time = time.strftime("%H:%M:%S", time.localtime(1000.0))
+    table = at.dataframe[0].value
+    assert table["Inizio finestra"].iloc[0] == expected_time
