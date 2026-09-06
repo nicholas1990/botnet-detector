@@ -3,6 +3,7 @@ from pathlib import Path
 
 from streamlit.testing.v1 import AppTest
 
+from dashboard.app import _format_staleness
 from src.analysis.behavioural import compute_behavioural_indicators
 from src.analysis.statistics import StatisticsWindow
 from src.capture.parser import PacketRecord
@@ -74,3 +75,25 @@ def test_dashboard_shows_human_readable_window_time(tmp_path):
     expected_time = time.strftime("%H:%M:%S", time.localtime(1000.0))
     table = at.dataframe[0].value
     assert table["Inizio finestra"].iloc[0] == expected_time
+
+
+def test_format_staleness_scales_across_units():
+    assert _format_staleness(5) == "5s fa"
+    assert _format_staleness(59) == "59s fa"
+    assert _format_staleness(60) == "1m fa"
+    assert _format_staleness(3599) == "59m fa"
+    assert _format_staleness(3600) == "1h fa"
+    assert _format_staleness(86399) == "23h fa"
+    assert _format_staleness(86400) == "1g fa"
+    assert _format_staleness(-5) == "0s fa"
+
+
+def test_dashboard_shows_staleness_caption(tmp_path):
+    db_path = tmp_path / "dashboard.db"
+    save_window_result(db_path, _build_result())
+
+    at = _run_app_with_db(db_path)
+
+    assert not at.exception
+    caption_values = [c.value for c in at.caption]
+    assert any(c.startswith("Ultimo aggiornamento:") and c.endswith("fa") for c in caption_values)

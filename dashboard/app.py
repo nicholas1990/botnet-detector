@@ -35,6 +35,20 @@ def _format_time(timestamp):
     return time.strftime("%H:%M:%S", time.localtime(timestamp))
 
 
+def _format_staleness(elapsed_seconds):
+    elapsed = max(0, int(elapsed_seconds))
+    if elapsed < 60:
+        return f"{elapsed}s fa"
+    minutes = elapsed // 60
+    if minutes < 60:
+        return f"{minutes}m fa"
+    hours = minutes // 60
+    if hours < 24:
+        return f"{hours}h fa"
+    days = hours // 24
+    return f"{days}g fa"
+
+
 @st.fragment(run_every=REFRESH_SECONDS)
 def render(db_path):
     results = fetch_recent_results(db_path, limit=HISTORY_LIMIT)
@@ -55,6 +69,8 @@ def render(db_path):
         st.caption("Status")
         st.badge(latest["status"], color=STATUS_COLORS.get(latest["status"], "gray"))
     col3.metric("TCP Work Weight", f"{latest['work_weight'] * 100:.1f}%")
+
+    st.caption(f"Ultimo aggiornamento: {_format_staleness(time.time() - latest['window_end'])}")
 
     if latest["reasons"]:
         st.warning("\n".join(f"- {reason}" for reason in latest["reasons"]))
