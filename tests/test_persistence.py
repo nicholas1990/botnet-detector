@@ -59,3 +59,14 @@ def test_fetch_recent_results_returns_empty_list_for_new_database(tmp_path):
     db_path = tmp_path / "does_not_exist_yet.db"
 
     assert fetch_recent_results(db_path) == []
+
+
+def test_save_window_result_prunes_rows_beyond_retention_limit(tmp_path):
+    db_path = tmp_path / "dashboard.db"
+
+    for window_start in (1000.0, 1030.0, 1060.0, 1090.0, 1120.0):
+        save_window_result(db_path, _build_result(window_start), retention_rows=3)
+
+    fetched = fetch_recent_results(db_path, limit=100)
+
+    assert [entry["window_start"] for entry in fetched] == [1120.0, 1090.0, 1060.0]

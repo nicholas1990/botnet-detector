@@ -10,6 +10,8 @@ diretta tra i due processi.
 import json
 import sqlite3
 
+from src.config import DASHBOARD_RETENTION_ROWS
+
 CREATE_TABLE_SQL = """
 CREATE TABLE IF NOT EXISTS window_results (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -38,6 +40,13 @@ INSERT INTO window_results (
 ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 """
 
+PRUNE_SQL = """
+DELETE FROM window_results
+WHERE id NOT IN (
+    SELECT id FROM window_results ORDER BY window_start DESC LIMIT ?
+)
+"""
+
 SELECT_RECENT_SQL = """
 SELECT window_start, window_end, score, status, work_weight,
        tcp_packets, syn_sent, syn_ack_received, fin_sent, rst_received,
@@ -57,8 +66,12 @@ def _connect(db_path):
     return connection
 
 
-def save_window_result(db_path, result):
-    """Scrive un risultato di finestra (vedi Detector._close_window) su SQLite."""
+def save_window_result(db_path, result, retention_rows=DASHBOARD_RETENTION_ROWS):
+    """Scrive un risultato di finestra (vedi Detector._close_window) su SQLite.
+
+    Dopo l'inserimento, elimina le righe più vecchie oltre `retention_rows`
+    per evitare che il file cresca indefinitamente su esecuzioni lunghe.
+    """
     stats = result["stats"]
     total_tcp_packets = stats.packets_sent + stats.packets_received
 
@@ -82,6 +95,7 @@ def save_window_result(db_path, result):
                 json.dumps(result["indicators"]),
             ),
         )
+        connection.execute(PRUNE_SQL, (retention_rows,))
 
 
 def fetch_recent_results(db_path, limit=50):
