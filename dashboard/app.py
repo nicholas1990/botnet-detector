@@ -49,9 +49,8 @@ def _format_staleness(elapsed_seconds):
     return f"{days}g fa"
 
 
-@st.fragment(run_every=REFRESH_SECONDS)
-def render(db_path):
-    results = fetch_recent_results(db_path, limit=HISTORY_LIMIT)
+def render(db_path, history_limit):
+    results = fetch_recent_results(db_path, limit=history_limit)
 
     if not results:
         st.info(
@@ -107,9 +106,15 @@ def main():
     st.title("Host Network Anomaly Detector")
 
     db_path = st.sidebar.text_input("Database dashboard", value=DASHBOARD_DB_PATH)
-    st.sidebar.caption(f"Aggiornamento automatico ogni {REFRESH_SECONDS}s")
+    refresh_seconds = st.sidebar.number_input(
+        "Intervallo di aggiornamento (s)", min_value=1, max_value=300, value=REFRESH_SECONDS
+    )
+    history_limit = st.sidebar.number_input(
+        "Finestre storiche mostrate", min_value=1, max_value=1000, value=HISTORY_LIMIT
+    )
 
-    render(db_path)
+    render_fragment = st.fragment(run_every=refresh_seconds)(render)
+    render_fragment(db_path, history_limit)
 
 
 if __name__ == "__main__":

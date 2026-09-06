@@ -3,7 +3,7 @@ from pathlib import Path
 
 from streamlit.testing.v1 import AppTest
 
-from dashboard.app import _format_staleness
+from dashboard.app import HISTORY_LIMIT, REFRESH_SECONDS, _format_staleness
 from src.analysis.behavioural import compute_behavioural_indicators
 from src.analysis.statistics import StatisticsWindow
 from src.capture.parser import PacketRecord
@@ -12,10 +12,10 @@ from src.reporting.persistence import save_window_result
 APP_PATH = Path(__file__).resolve().parent.parent / "dashboard" / "app.py"
 
 
-def _build_result():
+def _build_result(window_start=1000.0):
     stats = StatisticsWindow()
-    stats.update(PacketRecord("sent", "1.2.3.4", 443, "S", 60, 0.0))
-    stats.update(PacketRecord("received", "1.2.3.4", 443, "SA", 60, 1.0))
+    stats.update(PacketRecord("sent", "1.2.3.4", 443, "S", 60, window_start))
+    stats.update(PacketRecord("received", "1.2.3.4", 443, "SA", 60, window_start + 1))
 
     return {
         "stats": stats,
@@ -24,8 +24,8 @@ def _build_result():
         "score": 42,
         "status": "SUSPICIOUS",
         "reasons": ["test reason"],
-        "window_start": 1000.0,
-        "window_end": 1030.0,
+        "window_start": window_start,
+        "window_end": window_start + 30,
     }
 
 
@@ -97,3 +97,24 @@ def test_dashboard_shows_staleness_caption(tmp_path):
     assert not at.exception
     caption_values = [c.value for c in at.caption]
     assert any(c.startswith("Ultimo aggiornamento:") and c.endswith("fa") for c in caption_values)
+
+
+def test_sidebar_has_refresh_and_history_controls_with_defaults(tmp_path):
+    at = _run_app_with_db(tmp_path / "does_not_exist.db")
+
+    assert not at.exception
+    assert at.sidebar.number_input[0].value == REFRESH_SECONDS
+    assert at.sidebar.number_input[1].value == HISTORY_LIMIT
+
+
+def test_history_limit_control_limits_displayed_rows(tmp_path):
+    db_path = tmp_path / "dashboard.db"
+    for window_start in (1000.0, 1030.0, 1060.0):
+        save_window_result(db_path, _build_result(window_start))
+
+    at = _run_app_with_db(db_path)
+    at.sidebar.number_input[1].set_value(2).run(timeout=15)
+
+    assert not at.exception
+    table = at.dataframe[0].value
+    assert len(table) == 2
