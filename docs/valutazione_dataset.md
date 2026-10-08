@@ -145,13 +145,66 @@ assegnati in modo continuo anche sotto la soglia testuale (24 finestre
 sono in alert senza alcun reason). È il candidato naturale per la
 prossima ricalibrazione.
 
+## Ricalibrazione del conteggio IP di destinazione (2026-10-08)
+
+Numero di IP di destinazione distinti per finestra:
+
+| | p10 | p25 | p50 | p75 | p90 | p95 | p99 |
+|---|---|---|---|---|---|---|---|
+| Normal-20 | 7 | 10 | 19 | 30 | 44 | 48 | 83 |
+| Neris | 20 | 22 | 23 | 26 | 28 | 30 | 35 |
+
+Il conteggio grezzo qui discrimina al contrario: nella coda alta il
+browsing contatta più host di Neris. Con la scala lineare 0→50 IP il
+browsing intenso prendeva quasi tutti i 25 punti della regola.
+
+| Variante | False positive | Detection | HIGH RISK su Neris |
+|---|---|---|---|
+| Attuale (lineare 0→50 IP) | 11.4% | 99.3% | 76.1% |
+| Regola rimossa | 0.0% | 98.8% | 8.2% |
+| Punti solo sopra 50 IP | 4.4% | 98.8% | 8.2% |
+| Rampa 30→100 IP | 1.1% | 98.8% | 8.3% |
+| Rampa 50→150 IP | 0.0% | 98.8% | 8.2% |
+| Solo con rapporto SYN/SYN-ACK basso | 0.3% | 99.1% | 76.1% |
+| **Ibrida: fallite 0→50, riuscite 50→150** | **0.3%** | **99.1%** | **76.1%** |
+
+Scelta l'ibrida. Ha gli stessi numeri della variante condizionata al
+rapporto SYN/SYN-ACK, ma non rende la regola cieca a un fan-out enorme con
+connessioni riuscite (es. flood HTTP, click fraud): oltre 50 IP i punti
+crescono comunque, fino al massimo a 150 (`SUCCESSFUL_FAN_OUT_IPS_SCALE`).
+Con connessioni riuscite il reason compare solo oltre 100 IP
+(`LARGE_SUCCESSFUL_FAN_OUT_IPS_THRESHOLD`), cioè quando la regola assegna
+almeno metà dei punti; prima scattava in 17 finestre normali che lo score
+non considerava anomale.
+
+Risultato misurato:
+
+| | Prima | Dopo |
+|---|---|---|
+| False positive rate (Normal-20) | 11.4% | **0.3%** (1 finestra su 367) |
+| Detection rate (Neris) | 99.3% | 99.1% |
+| Score medio Normal-20 | 16.5 | 6.1 |
+
+Effetto sugli scenari sintetici: lo scenario B (40 connessioni riuscite
+verso host diversi) passa da SUSPICIOUS (43) a NORMAL (23). Coerente con la
+sua definizione di "connessioni legittime"; l'ordinamento A < B < C
+richiesto dalle specifiche (sez. 14) resta valido (6 < 23 < 98).
+
+**Attenzione al sovradattamento.** Dopo tre ricalibrazioni sugli stessi
+due dataset, 0.3% e 99.1% sono numeri di training, non di test: le soglie
+sono state scelte guardando proprio queste catture. Inoltre la severità
+(HIGH RISK) e buona parte della detection dipendono ora dal rapporto
+SYN/SYN-ACK. Un bot che completa le connessioni (C&C HTTPS, beaconing
+silenzioso) passerebbe con pochi punti. Il passo successivo
+indispensabile è validare su catture nuove, mai usate per la taratura.
+
 ## Conclusioni per la roadmap
 
 1. ~~**Correggere il TBF (priorità alta, costo basso).**~~ Fatto: vedi
    "Dopo il fix del TBF" sopra.
 2. ~~**Ricalibrare la diversità IP.**~~ Fatto: vedi "Ricalibrazione della
-   diversità IP" sopra. Prossimo candidato: il conteggio degli IP di
-   destinazione.
+   diversità IP" sopra. Fatto anche il conteggio degli IP di destinazione
+   (vedi "Ricalibrazione del conteggio IP di destinazione").
 3. **Memoria tra finestre: non giustificata da questi dati.** Neris è già
    rilevato senza; la periodicità lunga, da sola, non discrimina. Ha senso
    solo insieme a feature complementari (dimensioni dei flow simili,
