@@ -29,3 +29,12 @@ DASHBOARD_RETENTION_ROWS = 5000
 MIN_PACKETS_FOR_DIVERSITY = 5
 MIN_PACKETS_PER_DESTINATION_FOR_DDP = 3
 MIN_FLOWS_PER_DESTINATION_FOR_TBF = 3
+
+# TBF: SYN verso la stessa destinazione distanti meno di così (dal SYN
+# precedente) vengono fusi in un unico evento prima di calcolare gli
+# intervalli. Senza questo raggruppamento le connessioni parallele aperte
+# dal browser nello stesso istante producono delta tutti nel bin 0ms e
+# vengono scambiate per beaconing perfettamente regolare (vedi
+# docs/valutazione_dataset.md). Un C&C che si ricollega più di una volta al
+# secondo non è un caso realistico di beaconing.
+TBF_MERGE_GAP_SECONDS = 1.0

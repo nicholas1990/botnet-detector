@@ -3,7 +3,7 @@
 from collections import Counter
 
 from src.analysis.diversity import diversity_index, simpson_index
-from src.analysis.timing import inter_arrival_bins_ms
+from src.analysis.timing import group_flow_events, inter_arrival_bins_ms
 from src.config import (
     MIN_FLOWS_PER_DESTINATION_FOR_TBF,
     MIN_PACKETS_PER_DESTINATION_FOR_DDP,
@@ -33,11 +33,18 @@ def compute_beaconing_score(syn_timestamps_by_destination):
 
     Alto = intervalli quasi identici (beaconing C&C periodico).
     Basso = intervalli irregolari (traffico umano/normale).
+
+    I SYN ravvicinati vengono prima fusi in eventi (`group_flow_events`):
+    altrimenti le connessioni parallele verso lo stesso host darebbero delta
+    tutti nel bin 0ms, scambiati per regolarità massima.
     """
+    events_by_destination = [
+        group_flow_events(timestamps) for timestamps in syn_timestamps_by_destination.values()
+    ]
     reliable_scores = [
-        simpson_index(Counter(inter_arrival_bins_ms(timestamps)).values())
-        for timestamps in syn_timestamps_by_destination.values()
-        if len(timestamps) >= MIN_FLOWS_PER_DESTINATION_FOR_TBF
+        simpson_index(Counter(inter_arrival_bins_ms(events)).values())
+        for events in events_by_destination
+        if len(events) >= MIN_FLOWS_PER_DESTINATION_FOR_TBF
     ]
     return max(reliable_scores, default=0.0)
 

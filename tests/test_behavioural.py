@@ -88,13 +88,32 @@ def test_beaconing_score_is_high_for_regular_intervals():
 def test_beaconing_score_is_low_for_irregular_intervals():
     # Delta molto diversi tra loro: nessun bin domina, bassa concentrazione.
     window = StatisticsWindow()
-    timestamps = [0.0, 0.3, 5.0, 5.4, 20.0]
+    timestamps = [0.0, 3.7, 5.0, 12.2, 20.0]
     for i, ts in enumerate(timestamps):
         window.update(PacketRecord("sent", "10.0.0.1", 443, "S", 60, ts))
 
     indicators = compute_behavioural_indicators(window)
 
     assert indicators["beaconing_score"] < 0.5
+
+
+def test_beaconing_score_ignores_parallel_connections_opened_together():
+    # Caso reale (CTU-Normal-20): il browser apre più socket verso lo stesso
+    # host nello stesso istante. Senza raggruppamento i delta cadrebbero
+    # tutti nel bin 0ms -> regolarità 1.0, falso beaconing.
+    syn_timestamps_by_destination = {"10.0.0.1": [0.0, 0.01, 0.02, 0.03, 0.04]}
+
+    assert compute_beaconing_score(syn_timestamps_by_destination) == 0.0
+
+
+def test_beaconing_score_survives_parallel_connections_on_each_beacon():
+    # Beacon ogni 10s, ciascuno con 2 connessioni parallele: il periodo
+    # deve emergere comunque.
+    syn_timestamps_by_destination = {
+        "10.0.0.1": [t + offset for t in (0.0, 10.0, 20.0, 30.0) for offset in (0.0, 0.02)]
+    }
+
+    assert compute_beaconing_score(syn_timestamps_by_destination) > 0.9
 
 
 def test_beaconing_score_ignores_destinations_with_too_few_flows():
