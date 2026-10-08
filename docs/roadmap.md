@@ -39,11 +39,12 @@ documento resta una evoluzione separata (vedi "Evoluzioni future").
 
 - [x] Replay offline di PCAP (`main.py --pcap PATH --local-ip IP`, `start_capture(pcap_path=...)`) e strumento di validazione su dataset etichettati (`evaluation/evaluate.py`, manifest `evaluation/datasets.json`): detection rate sulle finestre botnet, false positive rate sulle finestre normali, conteggio dei reasons per etichetta. Prima esecuzione su CTU-13 Neris + CTU-Normal-20: detection 99.5%, falsi positivi 35.7% — risultati e analisi in [`valutazione_dataset.md`](valutazione_dataset.md)
 
+- [x] Fix TBF/beaconing: scattava solo su connessioni parallele (bin dominante 0ms in tutte le finestre in cui scattava). Ora i SYN verso la stessa destinazione a meno di `TBF_MERGE_GAP_SECONDS` (1s) dal precedente sono fusi in un unico evento (`group_flow_events` in `src/analysis/timing.py`) prima di calcolare gli intervalli. False positive rate su CTU-Normal-20 dal 35.7% al 27.2%, detection invariata (99.5%). Limite residuo: con il minimo di 3 eventi bastano 2 intervalli uguali, e le poche hit rimaste sono tentativi ripetuti su connessioni fallite, non C&C (vedi [`valutazione_dataset.md`](valutazione_dataset.md))
+
 ## Da fare
 
 Priorità derivate dalla prima validazione su dataset reali ([`valutazione_dataset.md`](valutazione_dataset.md)):
 
-- [ ] **Fix TBF/beaconing:** oggi scatta solo su connessioni parallele (bin dominante 0ms in tutte le finestre in cui scatta, sia su traffico normale che su Neris), non su periodicità reale. Raggruppare i SYN ravvicinati verso la stessa destinazione prima di calcolare gli intervalli
 - [ ] **Ricalibrare la diversità IP:** mediana 0.79 sul browsing normale contro soglia 0.8, principale causa di falsi positivi (174 finestre su 367). Senza questo bonus e senza il beaconing a 0ms il false positive rate stimato scende dal 35.7% al 9.0% con detection invariata (99.1%)
 - [ ] **Allargare i dataset di validazione:** almeno un bot con C&C a basso rumore e più catture normali, prima di decidere su memoria tra finestre e feature per flow (non giustificate dai dati attuali)
 
