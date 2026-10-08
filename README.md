@@ -102,6 +102,13 @@ Whitelist opzionale: copia `whitelist.example.json` in `whitelist.json`
 (ignorato da git) nella root del progetto e personalizza le voci — vedi
 `docs/roadmap.md` sez. whitelist per il formato.
 
+Replay offline di un file PCAP (nessun privilegio richiesto): `--local-ip`
+indica l'host monitorato quando la cattura proviene da un'altra macchina.
+
+```bash
+python -m src.main --pcap capture.pcap --local-ip 147.32.84.165
+```
+
 Dashboard opzionale: avvia il detector con `--dashboard-db dashboard.db` per
 scrivere i risultati per finestra su SQLite, poi in un secondo terminale
 (senza privilegi elevati):

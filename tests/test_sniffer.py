@@ -21,3 +21,14 @@ def test_start_capture_defaults_to_no_specific_interface():
     mock_sniff.assert_called_once_with(
         iface=None, filter="tcp", prn=None, store=False
     )
+
+
+def test_start_capture_reads_pcap_offline_without_bpf_filter():
+    callback = object()
+
+    with patch("src.capture.sniffer.sniff") as mock_sniff:
+        start_capture(packet_callback=callback, pcap_path="capture.pcap")
+
+    mock_sniff.assert_called_once_with(
+        offline="capture.pcap", prn=callback, store=False
+    )

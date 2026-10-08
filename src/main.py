@@ -34,10 +34,28 @@ def build_arg_parser():
             f"se abilitato, la dashboard si aspetta '{DASHBOARD_DB_PATH}' salvo diversa configurazione)"
         ),
     )
+    parser.add_argument(
+        "--pcap",
+        default=None,
+        help=(
+            "Rilegge un file PCAP invece di catturare in live (nessun privilegio "
+            "richiesto, utile per la validazione su dataset registrati)"
+        ),
+    )
+    parser.add_argument(
+        "--local-ip",
+        default=None,
+        help=(
+            "IP dell'host monitorato (default: IP dell'interfaccia). Necessario con "
+            "--pcap quando la cattura proviene da un'altra macchina"
+        ),
+    )
     return parser
 
 
-def resolve_local_ip(interface):
+def resolve_local_ip(interface, local_ip=None):
+    if local_ip is not None:
+        return local_ip
     return get_if_addr(interface or conf.iface)
 
 
@@ -57,13 +75,14 @@ def build_on_window_complete(dashboard_db):
 
 def main(argv=None):
     args = build_arg_parser().parse_args(argv)
-    local_ip = resolve_local_ip(args.interface)
+    local_ip = resolve_local_ip(args.interface, args.local_ip)
 
     detector = Detector(
         local_ip=local_ip,
         interface=args.interface,
         window_size=args.window,
         on_window_complete=build_on_window_complete(args.dashboard_db),
+        pcap_path=args.pcap,
     )
     detector.run()
 

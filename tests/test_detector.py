@@ -74,12 +74,25 @@ def test_whitelisted_traffic_is_excluded_from_statistics():
 def test_run_delegates_to_start_capture_and_closes_final_window():
     detector = Detector(local_ip=LOCAL_IP, interface="eth0")
 
-    def fake_start_capture(interface, packet_callback):
+    def fake_start_capture(interface, packet_callback, pcap_path):
         packet_callback(_tcp_packet(LOCAL_IP, REMOTE_IP, 1, 443, "S", 0.0))
 
     with patch("src.detector.start_capture", side_effect=fake_start_capture) as mock_start:
         with patch.object(detector, "_close_window") as mock_close:
             detector.run()
 
-    mock_start.assert_called_once_with(interface="eth0", packet_callback=detector.process_packet)
+    mock_start.assert_called_once_with(
+        interface="eth0", packet_callback=detector.process_packet, pcap_path=None
+    )
     mock_close.assert_called_once()
+
+
+def test_run_forwards_pcap_path_for_offline_replay():
+    detector = Detector(local_ip=LOCAL_IP, pcap_path="capture.pcap")
+
+    with patch("src.detector.start_capture") as mock_start:
+        detector.run()
+
+    mock_start.assert_called_once_with(
+        interface=None, packet_callback=detector.process_packet, pcap_path="capture.pcap"
+    )

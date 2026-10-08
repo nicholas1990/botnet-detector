@@ -17,9 +17,11 @@ class Detector:
         window_size=WINDOW_SIZE,
         on_window_complete=None,
         whitelist=None,
+        pcap_path=None,
     ):
         self.local_ip = local_ip
         self.interface = interface
+        self.pcap_path = pcap_path
         self.window_size = window_size
         self.on_window_complete = on_window_complete
         self.whitelist = whitelist if whitelist is not None else load_whitelist(WHITELIST_PATH)
@@ -63,7 +65,11 @@ class Detector:
 
     def run(self):
         try:
-            start_capture(interface=self.interface, packet_callback=self.process_packet)
+            start_capture(
+                interface=self.interface,
+                packet_callback=self.process_packet,
+                pcap_path=self.pcap_path,
+            )
         finally:
             if self.window.packets_sent or self.window.packets_received:
                 self._close_window()

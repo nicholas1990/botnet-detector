@@ -1,7 +1,7 @@
 from unittest.mock import patch
 
 from src.config import WINDOW_SIZE
-from src.main import build_arg_parser, build_on_window_complete, main
+from src.main import build_arg_parser, build_on_window_complete, main, resolve_local_ip
 from src.reporting.console import print_window_report
 
 
@@ -11,6 +11,8 @@ def test_arg_parser_defaults():
     assert args.interface is None
     assert args.window == WINDOW_SIZE
     assert args.dashboard_db is None
+    assert args.pcap is None
+    assert args.local_ip is None
 
 
 def test_arg_parser_custom_values():
@@ -25,12 +27,13 @@ def test_main_wires_detector_with_resolved_ip_and_runs_it():
          patch("src.main.Detector") as mock_detector_cls:
         main(["--interface", "eth0", "--window", "10"])
 
-    mock_resolve.assert_called_once_with("eth0")
+    mock_resolve.assert_called_once_with("eth0", None)
     mock_detector_cls.assert_called_once_with(
         local_ip="192.168.1.10",
         interface="eth0",
         window_size=10,
         on_window_complete=print_window_report,
+        pcap_path=None,
     )
     mock_detector_cls.return_value.run.assert_called_once()
 
@@ -64,3 +67,19 @@ def test_main_wires_dashboard_db_into_detector():
 
     on_window_complete = mock_detector_cls.call_args.kwargs["on_window_complete"]
     assert on_window_complete is not print_window_report
+
+
+def test_resolve_local_ip_prefers_explicit_value_over_interface():
+    with patch("src.main.get_if_addr") as mock_get_if_addr:
+        assert resolve_local_ip("eth0", "147.32.84.165") == "147.32.84.165"
+
+    mock_get_if_addr.assert_not_called()
+
+
+def test_main_wires_pcap_replay_with_explicit_local_ip():
+    with patch("src.main.Detector") as mock_detector_cls:
+        main(["--pcap", "capture.pcap", "--local-ip", "147.32.84.165"])
+
+    kwargs = mock_detector_cls.call_args.kwargs
+    assert kwargs["pcap_path"] == "capture.pcap"
+    assert kwargs["local_ip"] == "147.32.84.165"
