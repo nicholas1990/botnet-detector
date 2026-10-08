@@ -73,13 +73,18 @@ botnet-detector/
 │   ├── test_console.py
 │   ├── test_persistence.py
 │   ├── test_dashboard_app.py
+│   ├── test_evaluate.py
 │   └── test_scenarios.py
 │
 ├── data/
 │   └── samples/
 │
-└── dashboard/
-    └── app.py
+├── dashboard/
+│   └── app.py
+│
+└── evaluation/
+    ├── datasets.json
+    └── evaluate.py
 ```
 
 ## Requisiti
@@ -107,6 +112,14 @@ indica l'host monitorato quando la cattura proviene da un'altra macchina.
 
 ```bash
 python -m src.main --pcap capture.pcap --local-ip 147.32.84.165
+```
+
+Validazione su dataset etichettati: scarica i PCAP elencati in
+`evaluation/datasets.json` (campo `source`) nel percorso indicato dal campo
+`pcap` (`data/samples/`, ignorato da git), poi:
+
+```bash
+python -m evaluation.evaluate [--manifest PATH] [-w WINDOW] [--json OUT]
 ```
 
 Dashboard opzionale: avvia il detector con `--dashboard-db dashboard.db` per

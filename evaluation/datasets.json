@@ -1,0 +1,18 @@
+{
+  "datasets": [
+    {
+      "name": "CTU-13 scenario 1 (Neris)",
+      "label": "botnet",
+      "pcap": "data/samples/ctu13-1-neris.pcap",
+      "local_ip": "147.32.84.165",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-42/botnet-capture-20110810-neris.pcap"
+    },
+    {
+      "name": "CTU-Normal-20 (Windows, browsing HTTPS)",
+      "label": "normal",
+      "pcap": "data/samples/ctu-normal-20-win.pcap",
+      "local_ip": "10.0.2.15",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Normal-20/2017-04-30_win-normal.pcap"
+    }
+  ]
+}
