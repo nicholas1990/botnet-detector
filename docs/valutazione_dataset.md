@@ -98,14 +98,60 @@ finestre da 30s restringerebbe ancora di più i periodi osservabili (4
 eventi -> periodo massimo 10s): è lo stesso limite che motiva la memoria
 tra finestre, da rivalutare con dataset più ampi.
 
+## Ricalibrazione della diversità IP (2026-10-08)
+
+Distribuzione della diversità di Simpson degli IP di destinazione per
+finestra:
+
+| | p10 | p25 | p50 | p75 | p90 |
+|---|---|---|---|---|---|
+| Normal-20 | 0.43 | 0.66 | 0.79 | 0.90 | 0.94 |
+| Neris | 0.75 | 0.78 | 0.82 | 0.85 | 0.88 |
+
+Le distribuzioni si sovrappongono: la coda alta del browsing supera
+Neris. Varianti provate sugli stessi dati (what-if sul contributo della
+sola regola):
+
+| Variante | False positive | Detection | HIGH RISK su Neris |
+|---|---|---|---|
+| Attuale (contributo continuo) | 27.2% | 99.5% | 76.1% |
+| Soglia 0.8 (punti solo sopra soglia) | 22.1% | 99.1% | 60.8% |
+| Soglia 0.9 | 18.0% | 99.1% | 18.4% |
+| Soglia 0.95 | 13.1% | 99.1% | 17.4% |
+| Regola rimossa | 10.1% | 99.1% | 17.4% |
+| **Solo con rapporto SYN/SYN-ACK basso** | **10.1%** | **99.3%** | **76.1%** |
+
+Scelta l'ultima: un fan-out uniforme è sospetto quando le connessioni
+falliscono (scan, spam), normale quando riescono (browsing su più CDN).
+Combina due feature invece di alzare una soglia, come suggerisce il paper
+(§12-13). Rimuovere la regola darebbe gli stessi falsi positivi ma
+toglierebbe severità ai casi davvero anomali (HIGH RISK su Neris dal 76%
+al 17%).
+
+Attenzione: la condizione usa lo stesso indicatore (SYN/SYN-ACK) su cui
+già poggia la detection di Neris, quindi la diversità IP diventa un
+moltiplicatore di severità, non un segnale indipendente.
+
+Risultato misurato dopo la modifica:
+
+| | Prima | Dopo |
+|---|---|---|
+| False positive rate (Normal-20) | 27.2% | **11.4%** |
+| Detection rate (Neris) | 99.5% | 99.3% |
+
+**Falsi positivi rimasti (42 finestre).** Sono guidati dal conteggio
+degli IP di destinazione: in media 22.5 punti su 30 in quelle finestre,
+assegnati in modo continuo anche sotto la soglia testuale (24 finestre
+sono in alert senza alcun reason). È il candidato naturale per la
+prossima ricalibrazione.
+
 ## Conclusioni per la roadmap
 
 1. ~~**Correggere il TBF (priorità alta, costo basso).**~~ Fatto: vedi
    "Dopo il fix del TBF" sopra.
-2. **Ricalibrare la diversità IP.** Soglia e peso attuali non separano
-   browsing e bot. Da valutare: alzare la soglia, usarla solo in
-   combinazione con un rapporto SYN/SYN-ACK basso, o rimuovere il
-   contributo continuo sotto soglia.
+2. ~~**Ricalibrare la diversità IP.**~~ Fatto: vedi "Ricalibrazione della
+   diversità IP" sopra. Prossimo candidato: il conteggio degli IP di
+   destinazione.
 3. **Memoria tra finestre: non giustificata da questi dati.** Neris è già
    rilevato senza; la periodicità lunga, da sola, non discrimina. Ha senso
    solo insieme a feature complementari (dimensioni dei flow simili,
