@@ -51,7 +51,8 @@ def test_diversity_bonus_is_ignored_with_too_few_packets():
     assert not any("diversity" in reason.lower() for reason in result["reasons"])
 
 
-def test_evenly_spread_destinations_add_diversity_reason():
+def test_evenly_spread_failing_destinations_add_diversity_reason():
+    # Fan-out uniforme senza risposte: scan/spam.
     window = StatisticsWindow()
     for i in range(10):
         window.update(PacketRecord("sent", f"10.0.0.{i}", 80, "S", 60, 0.0))
@@ -59,6 +60,20 @@ def test_evenly_spread_destinations_add_diversity_reason():
     result = compute_risk_score(window, _work_weight_for(window))
 
     assert any("diversity" in reason.lower() for reason in result["reasons"])
+
+
+def test_evenly_spread_successful_destinations_get_no_diversity_bonus():
+    # Stesso fan-out uniforme ma ogni connessione riceve SYN-ACK: è il
+    # browsing verso più host (CDN), non deve pesare sul punteggio.
+    window = StatisticsWindow()
+    for i in range(10):
+        window.update(PacketRecord("sent", f"10.0.0.{i}", 443, "S", 60, 0.0))
+        window.update(PacketRecord("received", f"10.0.0.{i}", 443, "SA", 60, 0.0))
+
+    result = compute_risk_score(window, _work_weight_for(window))
+
+    assert not any("diversity" in reason.lower() for reason in result["reasons"])
+    assert result["score"] < RISK_THRESHOLD_SUSPICIOUS
 
 
 def test_port_sweep_on_single_host_adds_port_sweep_reason():

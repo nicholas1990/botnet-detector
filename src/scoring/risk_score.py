@@ -25,6 +25,10 @@ SYN_ACK_MAX_POINTS = 10
 # Bonus basato sul Simpson Diversity Index (specifiche sez. 5): rinforza il
 # segnale "molte destinazioni" quando sono anche colpite in modo uniforme
 # (fan-out tipico di scan/botnet), invece di limitarsi al conteggio grezzo.
+# Assegnato solo se le connessioni falliscono (rapporto SYN/SYN-ACK basso):
+# da sola la diversità non distingue il browsing verso molte CDN (mediana
+# 0.79 su CTU-Normal-20) da un bot (0.82 su Neris) ed era la prima causa di
+# falsi positivi (vedi docs/valutazione_dataset.md).
 DESTINATION_IP_DIVERSITY_MAX_POINTS = 10
 
 # Bonus DDP per-coppia (specifiche sez. 4/6): una singola destinazione
@@ -111,15 +115,26 @@ def _syn_ack_reason(indicators, stats, work_weight):
     return None
 
 
+def _is_failing_fan_out(indicators, stats):
+    """Fan-out da considerare: campione sufficiente e connessioni per lo più
+    senza risposta (scan, spam). Fan-out con connessioni riuscite è il
+    normale browsing su più host."""
+    return (
+        _is_diversity_reliable(stats)
+        and stats.syn_sent > 0
+        and indicators["syn_ack_ratio"] < LOW_SYN_ACK_RATIO_THRESHOLD
+    )
+
+
 def _destination_ip_diversity_value(indicators, stats, work_weight):
-    if not _is_diversity_reliable(stats):
+    if not _is_failing_fan_out(indicators, stats):
         return 0.0
     return indicators["destination_ip_diversity"]
 
 
 def _destination_ip_diversity_reason(indicators, stats, work_weight):
     if (
-        _is_diversity_reliable(stats)
+        _is_failing_fan_out(indicators, stats)
         and indicators["destination_ip_diversity"] > HIGH_DESTINATION_IP_DIVERSITY_THRESHOLD
     ):
         return (
