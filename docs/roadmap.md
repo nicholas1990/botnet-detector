@@ -40,12 +40,13 @@ documento resta una evoluzione separata (vedi "Evoluzioni future").
 - [x] Replay offline di PCAP (`main.py --pcap PATH --local-ip IP`, `start_capture(pcap_path=...)`) e strumento di validazione su dataset etichettati (`evaluation/evaluate.py`, manifest `evaluation/datasets.json`): detection rate sulle finestre botnet, false positive rate sulle finestre normali, conteggio dei reasons per etichetta. Prima esecuzione su CTU-13 Neris + CTU-Normal-20: detection 99.5%, falsi positivi 35.7% — risultati e analisi in [`valutazione_dataset.md`](valutazione_dataset.md)
 
 - [x] Fix TBF/beaconing: scattava solo su connessioni parallele (bin dominante 0ms in tutte le finestre in cui scattava). Ora i SYN verso la stessa destinazione a meno di `TBF_MERGE_GAP_SECONDS` (1s) dal precedente sono fusi in un unico evento (`group_flow_events` in `src/analysis/timing.py`) prima di calcolare gli intervalli. False positive rate su CTU-Normal-20 dal 35.7% al 27.2%, detection invariata (99.5%). Limite residuo: con il minimo di 3 eventi bastano 2 intervalli uguali, e le poche hit rimaste sono tentativi ripetuti su connessioni fallite, non C&C (vedi [`valutazione_dataset.md`](valutazione_dataset.md))
+- [x] Ricalibrazione diversità IP: il bonus (`_destination_ip_diversity_value` in `src/scoring/risk_score.py`) è assegnato solo quando anche il rapporto SYN/SYN-ACK è basso (fan-out con connessioni fallite = scan/spam; con connessioni riuscite = browsing). Le distribuzioni normale/bot si sovrapponevano (mediane 0.79/0.82), nessuna soglia le separava. False positive rate su CTU-Normal-20 dal 27.2% all'11.4%, detection 99.3%, quota HIGH RISK su Neris invariata (76%) — varianti confrontate in [`valutazione_dataset.md`](valutazione_dataset.md)
 
 ## Da fare
 
 Priorità derivate dalla prima validazione su dataset reali ([`valutazione_dataset.md`](valutazione_dataset.md)):
 
-- [ ] **Ricalibrare la diversità IP:** mediana 0.79 sul browsing normale contro soglia 0.8, principale causa di falsi positivi (174 finestre su 367). Senza questo bonus e senza il beaconing a 0ms il false positive rate stimato scende dal 35.7% al 9.0% con detection invariata (99.1%)
+- [ ] **Ricalibrare il conteggio IP di destinazione:** causa principale dei falsi positivi rimasti (42 finestre su 367 di CTU-Normal-20, in media 22.5 punti su 30, contributo continuo anche sotto soglia; 24 finestre in alert senza reason)
 - [ ] **Allargare i dataset di validazione:** almeno un bot con C&C a basso rumore e più catture normali, prima di decidere su memoria tra finestre e feature per flow (non giustificate dai dati attuali)
 
 ## Evoluzioni future (fuori dalla v1)
