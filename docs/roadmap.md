@@ -37,9 +37,15 @@ documento resta una evoluzione separata (vedi "Evoluzioni future").
     - **Alternative valutate e scartate:** (a) thread in background nello stesso processo con store in memoria — scartata perché costringerebbe l'intero server web a girare come root; variante di (a) con drop dei privilegi dopo l'apertura del socket di cattura — scartata perché il comportamento del drop dei privilegi è fragile e diverso tra Linux/macOS (BPF)/Windows (Npcap), e romperebbe la scelta deliberatamente cross-platform di `src/capture/sniffer.py`; (c) processo `main.py` separato con API/socket locale interrogato dalla dashboard — scartata perché aggiunge complessità sproporzionata dato che la granularità delle finestre (30s) rende il polling su file/DB già adeguato; (d) broker esterno tipo Redis pub/sub — scartato come dipendenza esterna sproporzionata per uno strumento locale single-host.
   - **Rifiniture successive (2026-09-06):** orario delle finestre formattato `HH:MM:SS` invece dell'epoch grezzo (grafico e tabella); badge colorato per lo status (`st.badge`, verde/arancio/rosso su NORMAL/SUSPICIOUS/HIGH RISK) al posto del testo semplice; indicatore "Ultimo aggiornamento: X fa" con scala automatica secondi/minuti/ore/giorni; retention automatica in `persistence.py` (`DASHBOARD_RETENTION_ROWS`, default 5000 righe, pruning ad ogni scrittura) per non far crescere il DB indefinitamente su esecuzioni lunghe; intervallo di refresh e numero di finestre storiche mostrate ora configurabili da sidebar (`st.fragment(run_every=...)` ri-applicato dinamicamente ad ogni run invece che fissato a import-time).
 
+- [x] Replay offline di PCAP (`main.py --pcap PATH --local-ip IP`, `start_capture(pcap_path=...)`) e strumento di validazione su dataset etichettati (`evaluation/evaluate.py`, manifest `evaluation/datasets.json`): detection rate sulle finestre botnet, false positive rate sulle finestre normali, conteggio dei reasons per etichetta. Prima esecuzione su CTU-13 Neris + CTU-Normal-20: detection 99.5%, falsi positivi 35.7% — risultati e analisi in [`valutazione_dataset.md`](valutazione_dataset.md)
+
 ## Da fare
 
-Nessuna voce aperta nella v1 oltre alle evoluzioni future sotto — vedi le priorità concordate per i prossimi passi (test end-to-end su scenari combinati, poi supporto UDP).
+Priorità derivate dalla prima validazione su dataset reali ([`valutazione_dataset.md`](valutazione_dataset.md)):
+
+- [ ] **Fix TBF/beaconing:** oggi scatta solo su connessioni parallele (bin dominante 0ms in tutte le finestre in cui scatta, sia su traffico normale che su Neris), non su periodicità reale. Raggruppare i SYN ravvicinati verso la stessa destinazione prima di calcolare gli intervalli
+- [ ] **Ricalibrare la diversità IP:** mediana 0.79 sul browsing normale contro soglia 0.8, principale causa di falsi positivi (174 finestre su 367). Senza questo bonus e senza il beaconing a 0ms il false positive rate stimato scende dal 35.7% al 9.0% con detection invariata (99.1%)
+- [ ] **Allargare i dataset di validazione:** almeno un bot con C&C a basso rumore e più catture normali, prima di decidere su memoria tra finestre e feature per flow (non giustificate dai dati attuali)
 
 ## Evoluzioni future (fuori dalla v1)
 
