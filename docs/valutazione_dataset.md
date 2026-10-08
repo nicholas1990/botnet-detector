@@ -74,11 +74,34 @@ Il beaconing con periodo > 15s è in effetti invisibile alla finestra da
 positivi quanti veri positivi, come avverte il paper (§6, "Limite
 fondamentale").
 
+## Dopo il fix del TBF (2026-10-08)
+
+I SYN verso la stessa destinazione a meno di 1s dal precedente vengono ora
+fusi in un unico evento prima di calcolare gli intervalli
+(`group_flow_events`, `TBF_MERGE_GAP_SECONDS` in `src/config.py`).
+
+| | Prima | Dopo |
+|---|---|---|
+| False positive rate (Normal-20) | 35.7% | **27.2%** |
+| Detection rate (Neris) | 99.5% | 99.5% |
+| Finestre con beaconing (Normal-20 / Neris) | 68 / 10 | 2 / 9 |
+
+La stima what-if era 24.8%: lo scarto viene dalle 2 finestre normali in
+cui il beaconing scatta ancora e dai contributi sotto soglia che restano.
+
+**Limite residuo.** Le hit rimaste non sono beaconing C&C: quasi tutte
+hanno esattamente 3 eventi (cioè 2 intervalli uguali) a 1-3s, e su Neris
+corrispondono a tentativi ripetuti verso host che non rispondono. Due
+intervalli uguali sono un'evidenza debole. Alzare il minimo di eventi
+(`MIN_FLOWS_PER_DESTINATION_FOR_TBF`) ridurrebbe il rumore, ma con
+finestre da 30s restringerebbe ancora di più i periodi osservabili (4
+eventi -> periodo massimo 10s): è lo stesso limite che motiva la memoria
+tra finestre, da rivalutare con dataset più ampi.
+
 ## Conclusioni per la roadmap
 
-1. **Correggere il TBF (priorità alta, costo basso).** Raggruppare i SYN
-   ravvicinati (connessioni parallele, ritrasmissioni) prima di calcolare
-   gli intervalli. Oggi l'indicatore misura altro da quello che dichiara.
+1. ~~**Correggere il TBF (priorità alta, costo basso).**~~ Fatto: vedi
+   "Dopo il fix del TBF" sopra.
 2. **Ricalibrare la diversità IP.** Soglia e peso attuali non separano
    browsing e bot. Da valutare: alzare la soglia, usarla solo in
    combinazione con un rapporto SYN/SYN-ACK basso, o rimuovere il
