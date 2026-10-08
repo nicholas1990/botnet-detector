@@ -104,3 +104,38 @@ def test_score_is_capped_at_100():
     result = compute_risk_score(window, work_weight=1.0)
 
     assert result["score"] <= 100
+
+
+def _successful_fan_out(destinations):
+    window = StatisticsWindow()
+    for i in range(destinations):
+        remote_ip = f"10.{i // 250}.0.{i % 250 + 1}"
+        window.update(PacketRecord("sent", remote_ip, 443, "S", 60, 0.0))
+        window.update(PacketRecord("received", remote_ip, 443, "SA", 60, 0.0))
+    return window
+
+
+def test_successful_fan_out_within_browsing_range_adds_no_destination_points():
+    # 45 destinazioni tutte con SYN-ACK: browsing intenso, non scan.
+    result = compute_risk_score(_successful_fan_out(45), 0.0)
+
+    assert result["score"] < RISK_THRESHOLD_SUSPICIOUS
+    assert not any("destination IPs" in reason for reason in result["reasons"])
+
+
+def test_successful_fan_out_reason_requires_more_destinations_than_failing_one():
+    # 80 destinazioni riuscite: pochi punti, nessun reason (prima scattava
+    # oltre 50 a prescindere dall'esito delle connessioni).
+    result = compute_risk_score(_successful_fan_out(80), 0.0)
+
+    assert not any("destination IPs" in reason for reason in result["reasons"])
+
+
+def test_very_large_successful_fan_out_is_still_scored():
+    # Oltre SUCCESSFUL_FAN_OUT_IPS_SCALE destinazioni riuscite in una
+    # finestra: anomalo anche senza connessioni fallite (es. flood HTTP).
+    small = compute_risk_score(_successful_fan_out(45), 0.0)
+    large = compute_risk_score(_successful_fan_out(200), 0.0)
+
+    assert large["score"] >= small["score"] + 25
+    assert any("destination IPs" in reason for reason in large["reasons"])

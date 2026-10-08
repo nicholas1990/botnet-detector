@@ -46,12 +46,21 @@ BEACONING_MAX_POINTS = 10
 # Scale di normalizzazione: valore oltre il quale l'indicatore
 # contribuisce con il massimo dei punti.
 DESTINATION_IPS_SCALE = 50
+# Fan-out con connessioni riuscite: il browsing normale arriva a decine di
+# IP per finestra (p99 83 su CTU-Normal-20, più di Neris), quindi i punti
+# partono solo oltre DESTINATION_IPS_SCALE e arrivano al massimo a
+# SUCCESSFUL_FAN_OUT_IPS_SCALE (vedi docs/valutazione_dataset.md).
+SUCCESSFUL_FAN_OUT_IPS_SCALE = 150
 DESTINATION_PORTS_SCALE = 15
 CONNECTION_RATE_SCALE = 5.0
 
 # Soglie per generare le motivazioni testuali del punteggio.
 HIGH_WORK_WEIGHT_THRESHOLD = 0.5
 LARGE_DESTINATION_IPS_THRESHOLD = 50
+# Con connessioni riuscite il reason compare solo quando la regola assegna
+# almeno metà dei suoi punti, per non segnalare come anomalo un fan-out che
+# lo score considera normale.
+LARGE_SUCCESSFUL_FAN_OUT_IPS_THRESHOLD = 100
 LARGE_DESTINATION_PORTS_THRESHOLD = 15
 HIGH_CONNECTION_RATE_THRESHOLD = 5.0
 LOW_SYN_ACK_RATIO_THRESHOLD = 0.3
@@ -75,12 +84,27 @@ def _work_weight_reason(indicators, stats, work_weight):
     return None
 
 
+def _connections_mostly_fail(indicators, stats):
+    return stats.syn_sent > 0 and indicators["syn_ack_ratio"] < LOW_SYN_ACK_RATIO_THRESHOLD
+
+
 def _destination_ips_value(indicators, stats, work_weight):
-    return min(indicators["unique_destination_ips"] / DESTINATION_IPS_SCALE, 1.0)
+    """Molte destinazioni pesano subito se le connessioni falliscono (scan,
+    spam); se riescono contano solo i fan-out ben oltre il browsing normale."""
+    destinations = indicators["unique_destination_ips"]
+    if _connections_mostly_fail(indicators, stats):
+        return min(destinations / DESTINATION_IPS_SCALE, 1.0)
+    excess = max(destinations - DESTINATION_IPS_SCALE, 0)
+    return min(excess / (SUCCESSFUL_FAN_OUT_IPS_SCALE - DESTINATION_IPS_SCALE), 1.0)
 
 
 def _destination_ips_reason(indicators, stats, work_weight):
-    if indicators["unique_destination_ips"] > LARGE_DESTINATION_IPS_THRESHOLD:
+    threshold = (
+        LARGE_DESTINATION_IPS_THRESHOLD
+        if _connections_mostly_fail(indicators, stats)
+        else LARGE_SUCCESSFUL_FAN_OUT_IPS_THRESHOLD
+    )
+    if indicators["unique_destination_ips"] > threshold:
         return f"Large number of destination IPs ({indicators['unique_destination_ips']})"
     return None
 
@@ -110,7 +134,7 @@ def _syn_ack_value(indicators, stats, work_weight):
 
 
 def _syn_ack_reason(indicators, stats, work_weight):
-    if stats.syn_sent > 0 and indicators["syn_ack_ratio"] < LOW_SYN_ACK_RATIO_THRESHOLD:
+    if _connections_mostly_fail(indicators, stats):
         return "Low SYN/SYN-ACK response ratio"
     return None
 
@@ -119,11 +143,7 @@ def _is_failing_fan_out(indicators, stats):
     """Fan-out da considerare: campione sufficiente e connessioni per lo più
     senza risposta (scan, spam). Fan-out con connessioni riuscite è il
     normale browsing su più host."""
-    return (
-        _is_diversity_reliable(stats)
-        and stats.syn_sent > 0
-        and indicators["syn_ack_ratio"] < LOW_SYN_ACK_RATIO_THRESHOLD
-    )
+    return _is_diversity_reliable(stats) and _connections_mostly_fail(indicators, stats)
 
 
 def _destination_ip_diversity_value(indicators, stats, work_weight):
