@@ -226,7 +226,7 @@ generato con `python -m evaluation.build_manifest` in
 
 Riproducibile con
 `python -m evaluation.evaluate --manifest evaluation/stratosphere.json -j 10`
-(circa 1h su 10 core).
+(circa 1.5h su 10 core).
 
 ### Risultati complessivi (split holdout)
 
@@ -326,8 +326,8 @@ abbassarla non basterebbe.
    (vedi "Ricalibrazione del conteggio IP di destinazione").
 3. **Memoria tra finestre: non giustificata dai primi due dataset**, ma
    giustificata dalla validazione su catture nuove (vedi sopra: 27% dei
-   bot silenziosi rilevati). Neris è già
-   rilevato senza; la periodicità lunga, da sola, non discrimina. Ha senso
+   bot silenziosi rilevati). Neris è già rilevato senza; la periodicità
+   lunga, da sola, non discrimina. Ha senso
    solo insieme a feature complementari (dimensioni dei flow simili,
    punto "feature per flow") e va rivalutata su un bot silenzioso.
 4. ~~**Allargare i dataset.**~~ Fatto: vedi "Validazione su catture
