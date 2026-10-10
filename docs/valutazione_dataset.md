@@ -375,6 +375,75 @@ Le catture normali difficili (Normal-21/22 e il P2P) sono finite in
 holdout. Il false positive rate del holdout è quindi più severo di quello
 del tuning: chi tara sul tuning non vede quei casi, ed è giusto così.
 
+## Memoria tra finestre (2026-10-10)
+
+**Problema.** Un bot silenzioso contatta il C&C ogni pochi minuti con
+connessioni che riescono: ogni finestra di 30s contiene al più un flow e
+nessun indicatore per finestra lo distingue dal browsing.
+
+**Cosa fa.** [`src/analysis/history.py`](../src/analysis/history.py)
+ricorda, per ogni coppia (IP, porta), gli ultimi eventi di connessione
+anche tra finestre diverse (SYN ravvicinati meno di 1s fusi in un evento,
+come nel TBF). La destinazione è segnalata quando gli ultimi 8 eventi:
+
+- hanno periodo medio tra 15s e un'ora;
+- hanno intervalli regolari (coefficiente di variazione ≤ 0.2);
+- inviano circa gli stessi byte (coefficiente di variazione ≤ 0.2).
+
+La regola vale 30 punti: da sola porta la finestra a SUSPICIOUS, non a HIGH
+RISK. Le destinazioni silenziose da più di un'ora sono dimenticate, e al
+massimo se ne ricordano 50.000 (fan-out degli scan).
+
+**Taratura (solo split "tuning").** Simulazione offline sugli eventi
+estratti dalle 128 catture di tuning:
+
+| Variante | False positive | Bot silenziosi rilevati | Normali con serie regolari |
+|---|---|---|---|
+| Nessuna memoria | 3.4% | 24/78 | |
+| 4 eventi, senza vincolo sui byte | 7.8% | 42/78 | 7/7 |
+| 6 eventi, CV 0.1, byte | 4.0% | 40/78 | 5/7 |
+| **8 eventi, CV 0.2, byte (scelta)** | **3.6%** | **38/78** | **2/7** |
+| 8 eventi, 20 punti invece di 30 | 3.4% | 27/78 | 2/7 |
+
+Le serie regolari nelle catture normali di tuning sono quasi tutte verso
+la porta 80 ogni circa 300s, con 1226 byte inviati sempre uguali
+(probabilmente un controllo automatico del browser o del sistema). Si è
+scelta la variante che le tocca in meno catture, a costo di 2 bot
+silenziosi in meno.
+
+**Risultati** (valutazione completa, misurata una sola volta sul holdout):
+
+| | Tuning prima | Tuning dopo | Holdout prima | Holdout dopo |
+|---|---|---|---|---|
+| Detection (finestre) | 22.3% | 34.8% | 50.0% | 71.9% |
+| Bot rumorosi rilevati | 38/38 | 38/38 | 57/57 | 57/57 |
+| Bot silenziosi rilevati (> 1% di finestre) | 24/78 | 37/78 | 28/117 | **63/117** |
+| Bot silenziosi con almeno un alert | 45/78 | 48/78 | 54/117 | 72/117 |
+| False positive (finestre) | 3.4% | 3.5% | 12.3% | **13.6%** |
+
+Sul holdout i bot silenziosi rilevati passano da 24% a 54%, più che sul
+tuning: la regola generalizza e non è un effetto della taratura.
+
+**Falsi positivi nuovi sul holdout** (27 finestre su 2045):
+
+- Normal-7 (P2P, 43 finestre): da 53.5% a 83.7%. I peer BitTorrent su
+  porte alte (51413, 54081) ricevono keep-alive periodici di dimensione
+  fissa, indistinguibili da un beacon per questa regola. Rafforza il punto
+  della roadmap sul P2P come caso d'uso.
+- Normal-24: da 0.3% a 4.6%, 14 finestre per un'unica destinazione
+  Cloudflare (104.16.127.228:443).
+- Normal-29: una finestra.
+
+Le altre 6 catture normali del holdout non cambiano. Le soglie non sono
+state ritoccate dopo aver visto questi numeri: farlo trasformerebbe il
+holdout in un secondo set di taratura.
+
+**Limiti.** Il 46% dei bot silenziosi del holdout resta sotto l'1% di
+finestre: C&C con periodo irregolare (jitter), richieste di dimensione
+variabile, periodi oltre un'ora o destinazioni che cambiano IP. Servono
+feature per flow (durata, rapporto byte inviati/ricevuti) o
+un'aggregazione per dominio invece che per IP.
+
 ## Conclusioni per la roadmap
 
 1. ~~**Correggere il TBF (priorità alta, costo basso).**~~ Fatto: vedi
@@ -382,12 +451,9 @@ del tuning: chi tara sul tuning non vede quei casi, ed è giusto così.
 2. ~~**Ricalibrare la diversità IP.**~~ Fatto: vedi "Ricalibrazione della
    diversità IP" sopra. Fatto anche il conteggio degli IP di destinazione
    (vedi "Ricalibrazione del conteggio IP di destinazione").
-3. **Memoria tra finestre: non giustificata dai primi due dataset**, ma
-   giustificata dalla validazione su catture nuove (vedi sopra: 27% dei
-   bot silenziosi rilevati). Neris è già rilevato senza; la periodicità
-   lunga, da sola, non discrimina. Ha senso
-   solo insieme a feature complementari (dimensioni dei flow simili,
-   punto "feature per flow") e va rivalutata su un bot silenzioso.
+3. ~~**Memoria tra finestre.**~~ Fatto: vedi "Memoria tra finestre" sopra.
+   Bot silenziosi del holdout rilevati da 28/117 a 63/117, false positive
+   da 12.3% a 13.6% (quasi tutto sul P2P). Restano i C&C irregolari.
 4. ~~**Allargare i dataset.**~~ Fatto: vedi "Validazione su catture
    nuove". Testo originale: un solo bot rumoroso e una sola cattura normale
    non bastano: servono un bot con C&C a basso rumore (es. HTTPS
