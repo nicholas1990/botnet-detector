@@ -119,7 +119,7 @@ Validazione su dataset etichettati: scarica i PCAP elencati in
 `pcap` (`data/samples/`, ignorato da git), poi:
 
 ```bash
-python -m evaluation.evaluate [--manifest PATH] [-w WINDOW] [--json OUT]
+python -m evaluation.evaluate [--manifest PATH] [-w WINDOW] [-j JOBS] [--json OUT]
 ```
 
 Dashboard opzionale: avvia il detector con `--dashboard-db dashboard.db` per

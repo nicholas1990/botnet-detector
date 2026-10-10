@@ -95,3 +95,49 @@ def test_evaluate_skips_missing_pcaps_and_labels_results(tmp_path):
     assert [d["name"] for d in report["datasets"]] == ["scan"]
     assert report["metrics"]["detection_rate"] == 1.0
     assert "false_positive_rate" not in report["metrics"]
+
+
+def test_compute_metrics_reports_capture_level_rates_excluding_empty_captures():
+    metrics = compute_metrics({
+        "botnet": [
+            {"windows": 10, "alert_rate": 0.1},
+            {"windows": 5, "alert_rate": 0.0},
+            {"windows": 0, "alert_rate": 0.0},
+        ],
+        "normal": [
+            {"windows": 20, "alert_rate": 0.0},
+            {"windows": 20, "alert_rate": 0.05},
+        ],
+    })
+
+    assert metrics["botnet"]["captures"] == 3
+    assert metrics["botnet"]["captures_with_traffic"] == 2
+    assert metrics["capture_detection_rate"] == 0.5
+    assert metrics["capture_false_positive_rate"] == 0.5
+
+
+def test_evaluate_reports_metrics_per_split(tmp_path):
+    _scan_pcap(tmp_path / "scan.pcap")
+    datasets = [
+        {"name": "tuned", "pcap": "scan.pcap", "local_ip": LOCAL_IP, "label": "botnet", "split": "tuning"},
+        {"name": "fresh", "pcap": "scan.pcap", "local_ip": LOCAL_IP, "label": "botnet"},
+    ]
+
+    report = evaluate(datasets, window_size=30, base_dir=tmp_path)
+
+    assert set(report["metrics_by_split"]) == {"tuning", "holdout"}
+    assert report["metrics_by_split"]["holdout"]["botnet"]["captures"] == 1
+    assert report["metrics"]["botnet"]["captures"] == 2
+
+
+def test_evaluate_in_parallel_matches_sequential(tmp_path):
+    _scan_pcap(tmp_path / "scan.pcap")
+    datasets = [
+        {"name": f"scan-{i}", "pcap": "scan.pcap", "local_ip": LOCAL_IP, "label": "botnet"}
+        for i in range(2)
+    ]
+
+    sequential = evaluate(datasets, window_size=30, base_dir=tmp_path)
+    parallel = evaluate(datasets, window_size=30, base_dir=tmp_path, jobs=2)
+
+    assert parallel["datasets"] == sequential["datasets"]
