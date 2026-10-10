@@ -251,26 +251,36 @@ Distribuzione per cattura del tasso di alert:
 | Normali | 0.3% | 2.3% | 13.5% | 76.3% | 11/15 |
 | Malware | 0.0% | 1.1% | 57.5% | 98.9% | 146/289 |
 
-### Falsi positivi: dipendono dal tipo di host
+### Falsi positivi: dipendono dall'host
 
-| Tipo di cattura normale | False positive (finestre) |
-|---|---|
-| Navigazione interattiva Windows/Linux (11 catture) | **1.8%** |
-| Navigazione automatica top-1000 Alexa/Quantcast da Kali (Normal-21, 22, 32) | 36.6% |
-| P2P con Deluge (Normal-7) | 53.5% |
+Le catture normali, secondo i rispettivi README:
 
-- **Crawler.** Normal-21, 22 e 32 visitano in sequenza centinaia di
-  siti: oltre 100 IP di destinazione per finestra con connessioni
-  riuscite, quindi scatta il ramo "fan-out riuscito molto ampio" della
-  regola sul conteggio IP, insieme alla frequenza di connessione. È il
-  comportamento che quel ramo vuole cogliere (flood, click fraud), e senza
-  contenuto applicativo è indistinguibile.
-- **P2P.** Normal-7 ha molte connessioni fallite verso molte porte: per gli
-  indicatori del detector è uno scan. È il falso positivo atteso
+| Catture normali | Cosa contengono | False positive (finestre) |
+|---|---|---|
+| Normal-23…32 (10 catture), VM 10.0.2.15 | navigazione sui siti più visitati (Alexa, Moz, Quantcast) con Kali | **3.3%** |
+| Normal-14, 33 | utente Windows 7 che usa il web normalmente | **2.3%** |
+| Normal-21, 22, host 192.168.1.191 | stessa navigazione sui siti più visitati, da Kali su una macchina della LAN | 87.8% |
+| Normal-7 | P2P con Deluge su Debian | 53.5% |
+
+*Correzione:* una versione precedente di questa sezione chiamava
+"navigazione interattiva" le prime e "crawler" Normal-21, 22 e 32. I
+README dicono che quasi tutte le catture 20–32 seguono lo stesso protocollo
+(navigazione su una lista di siti molto visitati).
+
+- **Normal-21 e 22.** La differenza non è il tipo di uso ma l'host. In
+  queste due catture la navigazione supera i 100 IP di destinazione per
+  finestra con connessioni riuscite, quindi scatta il ramo "fan-out
+  riuscito molto ampio" della regola sul conteggio IP, insieme alla
+  frequenza di connessione. Perché questo host contatti molti più IP della
+  VM (ritmo di navigazione, traffico di fondo della macchina) non è stato
+  verificato.
+- **P2P (Normal-7).** Ha molte connessioni fallite verso molte porte: per
+  gli indicatori del detector è uno scan. È il falso positivo atteso
   dall'analisi dello stato dell'arte; serve una whitelist o una feature
   dedicata.
-- **Navigazione interattiva.** 1.8%, più dello 0.3% di Normal-20 ma
-  nello stesso ordine di grandezza.
+- **Le altre 12 catture** stanno tra il 2% e il 3%, più dello 0.3% di
+  Normal-20 ma nello stesso ordine di grandezza (Normal-32 è la peggiore,
+  13.5%).
 
 ### Detection: la dipendenza dal rapporto SYN/SYN-ACK
 
@@ -313,9 +323,57 @@ abbassarla non basterebbe.
 2. **Non ritarare sulle catture di holdout.** Ogni ritocco va fatto su un
    sottoinsieme separato e verificato sul resto, altrimenti si ripete il
    sovradattamento misurato qui.
-3. **Falsi positivi:** P2P e crawler vanno gestiti come casi d'uso
-   distinti (whitelist per applicazione, o contesto dell'host), non con
-   soglie globali.
+3. **Falsi positivi:** il P2P e host come quello di Normal-21/22 vanno
+   gestiti come casi d'uso distinti (whitelist per applicazione, o
+   contesto dell'host), non con soglie globali.
+
+## Divisione taratura / verifica (2026-10-10)
+
+Per non ripetere il sovradattamento, le catture Stratosphere sono divise in
+due parti con `python -m evaluation.split_manifest` (campo `split` in
+[`evaluation/stratosphere.json`](../evaluation/stratosphere.json)): le
+soglie si tarano solo su "tuning", e "holdout" serve solo a misurare.
+
+**Unità della divisione.** Non la singola cattura ma il gruppo, così la
+stessa famiglia o lo stesso host non compare da entrambe le parti:
+
+- malware di famiglia nota: un gruppo per famiglia, con gli alias uniti
+  (TrickBot/Trickster, Emotet/Geodo, Zbot/Zeus, Cridex/Dridex). Il nome
+  viene dal campo "Probable name" dei README, salvato in
+  [`evaluation/stratosphere_names.json`](../evaluation/stratosphere_names.json);
+- malware identificato solo dall'MD5: un gruppo per MD5;
+- nome assente o generico ("Artemis", "Trojan.Agent"): un gruppo per
+  esperimento (le sotto-catture `Botnet-140-1`, `-2` insieme);
+- catture normali: un gruppo per cattura, tranne Normal-21 e 22 (stesso
+  host, stessa sessione).
+
+**Assegnazione.** I gruppi di Neris e Normal-20, già usati per tarare,
+restano in "tuning". Gli altri sono presi in ordine di hash del nome del
+gruppo, quindi deterministico e indipendente dai risultati, finché
+"tuning" non arriva al 40% delle catture.
+
+**Limite.** I nomi generici possono nascondere la stessa famiglia in due
+gruppi diversi.
+
+| | Tuning | Holdout |
+|---|---|---|
+| Catture di malware (gruppi) | 121 (58) | 180 (110) |
+| Catture normali | 7 | 9 |
+| Famiglie principali | TrickBot, WannaCry, NotPetya, Neris, Tinba, Upatre, Rbot, Conficker | Emotet, Dridex, Zeus, Locky, Bunitu, Kelihos, Sality, Virut |
+
+**Punto di partenza** (soglie attuali, ricalcolato dai risultati per
+cattura della validazione sopra):
+
+| | Tuning | Holdout |
+|---|---|---|
+| Detection (finestre) | 22.3% | 50.0% |
+| Bot rumorosi rilevati | 38/38 | 57/57 |
+| Bot silenziosi rilevati | 24/78 | 28/117 |
+| False positive (finestre) | 3.4% | 12.3% |
+
+Le catture normali difficili (Normal-21/22 e il P2P) sono finite in
+holdout. Il false positive rate del holdout è quindi più severo di quello
+del tuning: chi tara sul tuning non vede quei casi, ed è giusto così.
 
 ## Conclusioni per la roadmap
 
