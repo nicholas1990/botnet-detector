@@ -74,6 +74,7 @@ botnet-detector/
 │   ├── test_persistence.py
 │   ├── test_dashboard_app.py
 │   ├── test_evaluate.py
+│   ├── test_build_manifest.py
 │   └── test_scenarios.py
 │
 ├── data/
@@ -84,6 +85,7 @@ botnet-detector/
 │
 └── evaluation/
     ├── datasets.json
+    ├── build_manifest.py
     └── evaluate.py
 ```
 
@@ -121,6 +123,10 @@ Validazione su dataset etichettati: scarica i PCAP elencati in
 ```bash
 python -m evaluation.evaluate [--manifest PATH] [-w WINDOW] [-j JOBS] [--json OUT]
 ```
+
+Per molte catture Stratosphere scaricate in `ROOT/<dataset>/<file>.pcap`,
+`python -m evaluation.build_manifest ROOT OUT.json [-j JOBS]` genera il
+manifest deducendo etichetta, split e host monitorato (vedi docstring).
 
 Dashboard opzionale: avvia il detector con `--dashboard-db dashboard.db` per
 scrivere i risultati per finestra su SQLite, poi in un secondo terminale
