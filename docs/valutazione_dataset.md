@@ -198,6 +198,125 @@ SYN/SYN-ACK. Un bot che completa le connessioni (C&C HTTPS, beaconing
 silenzioso) passerebbe con pochi punti. Il passo successivo
 indispensabile è validare su catture nuove, mai usate per la taratura.
 
+## Validazione su catture nuove (2026-10-10)
+
+Soglie invariate rispetto alle ricalibrazioni precedenti: nessun parametro
+è stato toccato dopo aver visto questi dati.
+
+### Dataset
+
+Tutte le catture pubbliche Stratosphere (https://mcfp.felk.cvut.cz/publicDatasets/)
+che entrano nei limiti pratici: 398 PCAP scaricati (47GB), manifest
+generato con `python -m evaluation.build_manifest` in
+[`evaluation/stratosphere.json`](../evaluation/stratosphere.json).
+
+- **Escluse a priori:** catture di malware sopra i 500MB (87, circa
+  420GB), catture normali con solo DNS o quasi vuote, CTU-Normal-12
+  (filtrata senza la porta 80), dataset CTU-Mixed-* (senza etichetta per
+  cattura), spezzoni duplicati e la cattura normale dello scenario
+  CTU-13 9.
+- **Scartate dal generatore** perché senza un host monitorato chiaramente
+  dominante: 63 catture di malware e CTU-Normal-18.
+- **Restano:**
+  - 300 catture di malware dal 2011 al 2022, di cui 289 con traffico TCP
+    dell'host infetto. Le famiglie più rappresentate: TrickBot, WannaCry e
+    NotPetya, Dridex, Zbot, Emotet, Sality, Kelihos, Bunitu, Locky, oltre
+    agli scenari CTU-13 non usati per la taratura.
+  - 15 catture normali.
+
+Riproducibile con
+`python -m evaluation.evaluate --manifest evaluation/stratosphere.json -j 10`
+(circa 1h su 10 core).
+
+### Risultati complessivi (split holdout)
+
+| | Per finestra | Per cattura |
+|---|---|---|
+| Detection | 39.2% di 3.43M finestre | 66.8% di 289 (almeno un alert) |
+| False positive | **8.0%** di 4176 finestre | 80.0% di 15 (almeno un alert) |
+
+Sui dati di taratura gli stessi numeri erano 99.1% e 0.3%: il
+sovradattamento temuto è confermato. Le metriche aggregate vanno però lette
+con cautela:
+
+- le catture di malware durano da pochi minuti a 72 giorni, quindi il tasso
+  per finestra è dominato dalle catture lunghe (le 10 più lunghe sono il
+  29% delle finestre);
+- "almeno un alert" è un criterio debole su catture di ore.
+
+Distribuzione per cattura del tasso di alert:
+
+| | p25 | p50 | p75 | p90 | catture con alert > 1% |
+|---|---|---|---|---|---|
+| Normali | 0.3% | 2.3% | 13.5% | 76.3% | 11/15 |
+| Malware | 0.0% | 1.1% | 57.5% | 98.9% | 146/289 |
+
+### Falsi positivi: dipendono dal tipo di host
+
+| Tipo di cattura normale | False positive (finestre) |
+|---|---|
+| Navigazione interattiva Windows/Linux (11 catture) | **1.8%** |
+| Navigazione automatica top-1000 Alexa/Quantcast da Kali (Normal-21, 22, 32) | 36.6% |
+| P2P con Deluge (Normal-7) | 53.5% |
+
+- **Crawler.** Normal-21, 22 e 32 visitano in sequenza centinaia di
+  siti: oltre 100 IP di destinazione per finestra con connessioni
+  riuscite, quindi scatta il ramo "fan-out riuscito molto ampio" della
+  regola sul conteggio IP, insieme alla frequenza di connessione. È il
+  comportamento che quel ramo vuole cogliere (flood, click fraud), e senza
+  contenuto applicativo è indistinguibile.
+- **P2P.** Normal-7 ha molte connessioni fallite verso molte porte: per gli
+  indicatori del detector è uno scan. È il falso positivo atteso
+  dall'analisi dello stato dell'arte; serve una whitelist o una feature
+  dedicata.
+- **Navigazione interattiva.** 1.8%, più dello 0.3% di Normal-20 ma
+  nello stesso ordine di grandezza.
+
+### Detection: la dipendenza dal rapporto SYN/SYN-ACK
+
+Dividendo le catture di malware in base alla quota di finestre con
+rapporto SYN/SYN-ACK basso:
+
+| Catture di malware | Catture | Rilevate (alert > 1%) |
+|---|---|---|
+| Rumorose (SYN/SYN-ACK basso in ≥ 20% delle finestre) | 94 | **94 (100%)** |
+| Silenziose (connessioni per lo più riuscite) | 195 | **52 (27%)**, alert mediano 0.0% |
+
+Questa è la misura del limite previsto in "Attenzione al sovradattamento".
+Il detector rileva bene ciò che fallisce le connessioni:
+- worm che scansionano SMB, come WannaCry e NotPetya (alert mediano 95%);
+- spam bot come Kelihos, Donbot e Neris (scenario CTU-13 2: 96.8%);
+- Sality e Upatre.
+
+Non vede invece i bot con C&C su connessioni riuscite:
+- TrickBot (alert mediano 1.1%);
+- Emotet, Locky e Bunitu (circa 0%);
+- buona parte dei trojan bancari.
+
+Nelle 52 catture silenziose rilevate, il beaconing è il reason più
+frequente in 8: la periodicità entro la finestra di 30s contribuisce, ma
+non abbastanza. Le catture silenziose non rilevate hanno score medio
+mediano 6.5 e massimo mediano 20: non sono vicine alla soglia, quindi
+abbassarla non basterebbe.
+
+### Cosa cambia per la roadmap
+
+1. **Il limite principale è strutturale, non di taratura.** Su 195 bot
+   silenziosi il detector per finestra non ha segnale. Servono le feature
+   indicate come mancanti dall'analisi dello stato dell'arte:
+   - memoria tra finestre (beaconing con periodo > 15s, persistenza
+     verso la stessa destinazione);
+   - feature per flow (durata, byte, regolarità delle dimensioni).
+
+   Questi dati giustificano ora quel lavoro, che prima non era giustificato
+   (vedi conclusioni sotto).
+2. **Non ritarare sulle catture di holdout.** Ogni ritocco va fatto su un
+   sottoinsieme separato e verificato sul resto, altrimenti si ripete il
+   sovradattamento misurato qui.
+3. **Falsi positivi:** P2P e crawler vanno gestiti come casi d'uso
+   distinti (whitelist per applicazione, o contesto dell'host), non con
+   soglie globali.
+
 ## Conclusioni per la roadmap
 
 1. ~~**Correggere il TBF (priorità alta, costo basso).**~~ Fatto: vedi
@@ -205,11 +324,14 @@ indispensabile è validare su catture nuove, mai usate per la taratura.
 2. ~~**Ricalibrare la diversità IP.**~~ Fatto: vedi "Ricalibrazione della
    diversità IP" sopra. Fatto anche il conteggio degli IP di destinazione
    (vedi "Ricalibrazione del conteggio IP di destinazione").
-3. **Memoria tra finestre: non giustificata da questi dati.** Neris è già
+3. **Memoria tra finestre: non giustificata dai primi due dataset**, ma
+   giustificata dalla validazione su catture nuove (vedi sopra: 27% dei
+   bot silenziosi rilevati). Neris è già
    rilevato senza; la periodicità lunga, da sola, non discrimina. Ha senso
    solo insieme a feature complementari (dimensioni dei flow simili,
    punto "feature per flow") e va rivalutata su un bot silenzioso.
-4. **Allargare i dataset.** Un solo bot rumoroso e una sola cattura normale
+4. ~~**Allargare i dataset.**~~ Fatto: vedi "Validazione su catture
+   nuove". Testo originale: un solo bot rumoroso e una sola cattura normale
    non bastano: servono un bot con C&C a basso rumore (es. HTTPS
    beaconing, dataset Stratosphere più recenti) e più catture normali
    (CTU-Normal-21/22, Linux) per stimare il false positive rate in modo
