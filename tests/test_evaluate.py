@@ -141,3 +141,12 @@ def test_evaluate_in_parallel_matches_sequential(tmp_path):
     parallel = evaluate(datasets, window_size=30, base_dir=tmp_path, jobs=2)
 
     assert parallel["datasets"] == sequential["datasets"]
+
+
+def test_evaluate_reports_progress_with_gigabytes(tmp_path, capsys):
+    _scan_pcap(tmp_path / "scan.pcap")
+    datasets = [{"name": "scan", "pcap": "scan.pcap", "local_ip": LOCAL_IP, "label": "botnet"}]
+
+    evaluate(datasets, window_size=30, base_dir=tmp_path)
+
+    assert "[1/1, 0.0/0.0 GB] scan" in capsys.readouterr().err

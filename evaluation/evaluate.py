@@ -21,7 +21,7 @@ import json
 import statistics
 import sys
 from collections import Counter
-from concurrent.futures import ProcessPoolExecutor
+from concurrent.futures import ProcessPoolExecutor, as_completed
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -141,18 +141,36 @@ def evaluate(datasets, window_size=WINDOW_SIZE, base_dir=Path("."), jobs=1):
             continue
         tasks.append((dataset, pcap_path))
 
+    total_bytes = sum(p.stat().st_size for _, p in tasks)
+    done_bytes = 0
+
+    def report_progress(done, pcap_path, name):
+        nonlocal done_bytes
+        done_bytes += pcap_path.stat().st_size
+        print(
+            f"[{done}/{len(tasks)}, {done_bytes / 1e9:.1f}/{total_bytes / 1e9:.1f} GB] {name}",
+            file=sys.stderr,
+        )
+
     if jobs > 1:
+        # Progresso in ordine di completamento: in ordine di manifest una
+        # cattura grande bloccherebbe il contatore anche a lavoro quasi finito.
         with ProcessPoolExecutor(max_workers=jobs) as pool:
-            futures = [pool.submit(_replay_and_summarize, d, p, window_size) for d, p in tasks]
-            results = []
-            for i, future in enumerate(futures, start=1):
-                results.append(future.result())
-                print(f"[{i}/{len(tasks)}] {results[-1]['name']}", file=sys.stderr)
+            futures = {
+                pool.submit(_replay_and_summarize, d, p, window_size): i
+                for i, (d, p) in enumerate(tasks)
+            }
+            by_index = {}
+            for done, future in enumerate(as_completed(futures), start=1):
+                index = futures[future]
+                by_index[index] = future.result()
+                report_progress(done, tasks[index][1], by_index[index]["name"])
+            results = [by_index[i] for i in range(len(tasks))]
     else:
         results = []
-        for dataset, pcap_path in tasks:
-            print(f"[replay] {dataset['name']} ({pcap_path})", file=sys.stderr)
+        for done, (dataset, pcap_path) in enumerate(tasks, start=1):
             results.append(_replay_and_summarize(dataset, pcap_path, window_size))
+            report_progress(done, pcap_path, dataset["name"])
 
     splits = sorted({r["split"] for r in results})
     return {
