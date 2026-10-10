@@ -8,7 +8,8 @@ Basato sul **TCP Work Weight** descritto nel paper *An Algorithm for Botnet
 Detection* (Odai Marashdeh), adattato dal contesto di monitoraggio multi-host
 a quello di un singolo host, ed esteso con analisi comportamentale
 (destinazioni uniche, porte uniche, frequenza connessioni, rapporto
-SYN/SYN-ACK), Simpson Diversity Index, Time Between Flows (beaconing) e
+SYN/SYN-ACK), Simpson Diversity Index, Time Between Flows (beaconing), memoria tra
+finestre per il beaconing a lungo periodo e
 whitelist TCP con TTL, oltre al Risk Score.
 
 Le specifiche implementate sono in [`docs/specifiche_botnet_detector.md`](docs/specifiche_botnet_detector.md);
@@ -47,7 +48,8 @@ botnet-detector/
 │   │   ├── work_weight.py
 │   │   ├── behavioural.py
 │   │   ├── diversity.py
-│   │   └── timing.py
+│   │   ├── timing.py
+│   │   └── history.py
 │   │
 │   ├── scoring/
 │   │   └── risk_score.py
@@ -68,6 +70,7 @@ botnet-detector/
 │   ├── test_behavioural.py
 │   ├── test_diversity.py
 │   ├── test_timing.py
+│   ├── test_history.py
 │   ├── test_whitelist.py
 │   ├── test_risk_score.py
 │   ├── test_console.py

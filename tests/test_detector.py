@@ -96,3 +96,21 @@ def test_run_forwards_pcap_path_for_offline_replay():
     mock_start.assert_called_once_with(
         interface=None, packet_callback=detector.process_packet, pcap_path="capture.pcap"
     )
+
+
+def test_detector_remembers_destinations_across_windows():
+    results = []
+    detector = Detector(
+        local_ip=LOCAL_IP, window_size=30, whitelist=Whitelist(), on_window_complete=results.append
+    )
+
+    for i in range(9):
+        start = i * 120.0
+        detector.process_packet(_tcp_packet(LOCAL_IP, REMOTE_IP, 40000 + i, 443, "S", start))
+        detector.process_packet(_tcp_packet(REMOTE_IP, LOCAL_IP, 443, 40000 + i, "SA", start + 0.1))
+        detector.process_packet(_tcp_packet(LOCAL_IP, REMOTE_IP, 40000 + i, 443, "A", start + 0.2))
+
+    statuses = [r["status"] for r in results]
+    assert statuses[:7] == ["NORMAL"] * 7
+    assert statuses[7] == "SUSPICIOUS"
+    assert any(reason.startswith("Long-period beaconing") for reason in results[7]["reasons"])

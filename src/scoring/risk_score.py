@@ -43,6 +43,12 @@ SINGLE_TARGET_PORT_DIVERSITY_MAX_POINTS = 10
 # (bassa diversità) ad essere il segnale di anomalia.
 BEACONING_MAX_POINTS = 10
 
+# Beaconing a lungo periodo osservato tra finestre (src/analysis/history.py):
+# basta da solo a rendere la finestra SUSPICIOUS, perché un bot silenzioso
+# non accumula punti dagli altri indicatori. Con 10 o 20 punti lo split di
+# taratura non guadagnava quasi nulla (vedi docs/valutazione_dataset.md).
+LONG_PERIOD_BEACONING_MAX_POINTS = 30
+
 # Scale di normalizzazione: valore oltre il quale l'indicatore
 # contribuisce con il massimo dei punti.
 DESTINATION_IPS_SCALE = 50
@@ -198,6 +204,19 @@ def _beaconing_reason(indicators, stats, work_weight):
     return None
 
 
+def _long_period_beaconing_value(indicators, stats, work_weight):
+    return 1.0 if indicators["periodic_destinations"] else 0.0
+
+
+def _long_period_beaconing_reason(indicators, stats, work_weight):
+    destinations = indicators["periodic_destinations"]
+    if not destinations:
+        return None
+    ip, port = destinations[0]
+    others = f" and {len(destinations) - 1} more" if len(destinations) > 1 else ""
+    return f"Long-period beaconing across windows to {ip}:{port}{others}"
+
+
 @dataclass(frozen=True)
 class ScoringRule:
     """Un indicatore: quanto pesa (`max_points`) e la sua logica custom
@@ -229,11 +248,19 @@ SCORING_RULES = [
         _single_target_port_diversity_reason,
     ),
     ScoringRule(BEACONING_MAX_POINTS, _beaconing_value, _beaconing_reason),
+    ScoringRule(
+        LONG_PERIOD_BEACONING_MAX_POINTS,
+        _long_period_beaconing_value,
+        _long_period_beaconing_reason,
+    ),
 ]
 
 
-def compute_risk_score(stats, work_weight):
+def compute_risk_score(stats, work_weight, periodic_destinations=()):
+    """`periodic_destinations`: coppie (IP, porta) segnalate dalla memoria tra
+    finestre del Detector; vuoto quando si valuta una finestra isolata."""
     indicators = compute_behavioural_indicators(stats)
+    indicators["periodic_destinations"] = list(periodic_destinations)
 
     score = 0.0
     reasons = []

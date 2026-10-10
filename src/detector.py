@@ -1,5 +1,6 @@
 """Orchestrazione: cattura -> parsing -> statistiche -> scoring -> alert."""
 
+from src.analysis.history import DestinationHistory
 from src.analysis.statistics import StatisticsWindow
 from src.analysis.work_weight import compute_work_weight
 from src.capture.parser import parse_packet
@@ -27,6 +28,8 @@ class Detector:
         self.whitelist = whitelist if whitelist is not None else load_whitelist(WHITELIST_PATH)
         self.window = StatisticsWindow()
         self.window_start = None
+        # Sopravvive alla chiusura delle finestre: vedi src/analysis/history.py.
+        self.history = DestinationHistory()
 
     def process_packet(self, packet):
         record = parse_packet(packet, self.local_ip)
@@ -43,6 +46,7 @@ class Detector:
             self.window_start = record.timestamp
 
         self.window.update(record)
+        self.history.update(record)
 
     def _close_window(self):
         total_tcp_packets = self.window.packets_sent + self.window.packets_received
@@ -52,11 +56,13 @@ class Detector:
             rst_received=self.window.rst_received,
             total_tcp_packets=total_tcp_packets,
         )
-        result = compute_risk_score(self.window, work_weight)
+        window_end = self.window_start + self.window_size
+        periodic_destinations = self.history.close_window(window_end)
+        result = compute_risk_score(self.window, work_weight, periodic_destinations)
         result["work_weight"] = work_weight
         result["stats"] = self.window
         result["window_start"] = self.window_start
-        result["window_end"] = self.window_start + self.window_size
+        result["window_end"] = window_end
 
         if self.on_window_complete:
             self.on_window_complete(result)

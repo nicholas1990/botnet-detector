@@ -38,3 +38,23 @@ MIN_FLOWS_PER_DESTINATION_FOR_TBF = 3
 # docs/valutazione_dataset.md). Un C&C che si ricollega più di una volta al
 # secondo non è un caso realistico di beaconing.
 TBF_MERGE_GAP_SECONDS = 1.0
+
+# Memoria tra finestre (beaconing a lungo periodo, src/analysis/history.py):
+# un C&C con connessioni riuscite si ricollega ogni minuti o ore, quindi in
+# una finestra di 30s non lascia traccia. Si segnala una destinazione
+# (IP, porta) quando gli ultimi LONG_BEACONING_MIN_EVENTS eventi di
+# connessione hanno periodo medio tra MIN e MAX_PERIOD_SECONDS, intervalli
+# regolari (coefficiente di variazione <= MAX_INTERVAL_CV) e byte inviati
+# per evento simili (<= MAX_BYTES_CV). Valori tarati solo sullo split
+# "tuning" delle catture Stratosphere (vedi docs/valutazione_dataset.md):
+# 8 eventi e byte simili escludono quasi tutte le destinazioni periodiche
+# del browsing normale, che con 4-6 eventi comparivano in quasi ogni cattura.
+LONG_BEACONING_MIN_EVENTS = 8
+LONG_BEACONING_MIN_PERIOD_SECONDS = 15
+LONG_BEACONING_MAX_PERIOD_SECONDS = 3600
+LONG_BEACONING_MAX_INTERVAL_CV = 0.2
+LONG_BEACONING_MAX_BYTES_CV = 0.2
+# Limite alle destinazioni ricordate: uno scan ne genera migliaia l'ora e
+# senza limite la memoria crescerebbe con il fan-out. Si scartano le meno
+# recenti, che non possono comunque essere beaconing in corso.
+LONG_BEACONING_MAX_TRACKED_DESTINATIONS = 50000

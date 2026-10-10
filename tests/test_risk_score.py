@@ -139,3 +139,16 @@ def test_very_large_successful_fan_out_is_still_scored():
 
     assert large["score"] >= small["score"] + 25
     assert any("destination IPs" in reason for reason in large["reasons"])
+
+
+def test_long_period_beaconing_alone_makes_window_suspicious():
+    window = StatisticsWindow()
+    window.update(PacketRecord("sent", "198.51.100.7", 443, "PA", 300, 0.0))
+
+    quiet = compute_risk_score(window, 0.0)
+    beaconing = compute_risk_score(window, 0.0, [("198.51.100.7", 443), ("203.0.113.9", 80)])
+
+    assert quiet["status"] == "NORMAL"
+    assert beaconing["status"] == "SUSPICIOUS"
+    assert "Long-period beaconing across windows to 198.51.100.7:443 and 1 more" in beaconing["reasons"]
+
