@@ -75,6 +75,7 @@ botnet-detector/
 │   ├── test_dashboard_app.py
 │   ├── test_evaluate.py
 │   ├── test_build_manifest.py
+│   ├── test_split_manifest.py
 │   └── test_scenarios.py
 │
 ├── data/
@@ -86,6 +87,9 @@ botnet-detector/
 └── evaluation/
     ├── datasets.json
     ├── build_manifest.py
+    ├── split_manifest.py
+    ├── stratosphere.json
+    ├── stratosphere_names.json
     └── evaluate.py
 ```
 
@@ -126,7 +130,10 @@ python -m evaluation.evaluate [--manifest PATH] [-w WINDOW] [-j JOBS] [--json OU
 
 Per molte catture Stratosphere scaricate in `ROOT/<dataset>/<file>.pcap`,
 `python -m evaluation.build_manifest ROOT OUT.json [-j JOBS]` genera il
-manifest deducendo etichetta, split e host monitorato (vedi docstring).
+manifest deducendo etichetta e host monitorato (vedi docstring).
+`python -m evaluation.split_manifest MANIFEST evaluation/stratosphere_names.json`
+lo divide in "tuning" e "holdout" per famiglia di malware e per host,
+senza gruppi a cavallo: le soglie si tarano solo su "tuning".
 
 Dashboard opzionale: avvia il detector con `--dashboard-db dashboard.db` per
 scrivere i risultati per finestra su SQLite, poi in un secondo terminale
