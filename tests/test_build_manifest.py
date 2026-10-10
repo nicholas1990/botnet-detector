@@ -1,7 +1,7 @@
 from scapy.layers.inet import IP, TCP
 from scapy.utils import wrpcap
 
-from evaluation.build_manifest import build_manifest, ip_shares, monitored_hosts
+from evaluation.build_manifest import build_manifest, ip_shares, is_excluded, monitored_hosts
 
 
 def _write(path, pairs):
@@ -49,3 +49,18 @@ def test_build_manifest_labels_and_splits_by_dataset(tmp_path):
     malware = by_name["CTU-Malware-Capture-Botnet-99/m.pcap"]
     assert (malware["label"], malware["split"]) == ("botnet", "holdout")
     assert malware["source"].endswith("/CTU-Malware-Capture-Botnet-99/m.pcap")
+
+
+def test_is_excluded_skips_mixed_datasets_slices_and_normal_captures_in_malware_dirs():
+    assert is_excluded("CTU-Mixed-Capture-1", "capture.pcap")
+    assert is_excluded("CTU-Malware-Capture-Botnet-353-1", "353-1.1000p.pcap")
+    assert is_excluded("CTU-Malware-Capture-Botnet-353-1", "353-1.0-5000.pcap")
+    assert is_excluded("CTU-Malware-Capture-Botnet-50", "normal-capture-20110817.pcap")
+    assert not is_excluded("CTU-Malware-Capture-Botnet-353-1", "2018-05-07_capture.pcap")
+    assert not is_excluded("CTU-Normal-21", "2017-05-02_kali-normal.pcap")
+
+
+def test_build_manifest_ignores_excluded_captures(tmp_path):
+    _write(tmp_path / "CTU-Mixed-Capture-1" / "m.pcap", [("10.0.2.15", "1.1.1.1")])
+
+    assert build_manifest(tmp_path)["datasets"] == []

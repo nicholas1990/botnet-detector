@@ -14,6 +14,11 @@ cattura:
   Le catture senza un host chiaramente dominante vengono scartate ed
   elencate su stderr, invece di indovinare.
 
+Escluse a priori (`is_excluded`): i dataset CTU-Mixed-* (traffico normale e
+malware insieme, senza un'etichetta per cattura), gli spezzoni pubblicati
+accanto alla cattura completa (`*.1000p.pcap`, `*.0-5000.pcap`, duplicati) e
+le catture normali dentro le cartelle di malware (es. CTU-13 scenario 9).
+
 Le catture usate per tarare le soglie (vedi docs/valutazione_dataset.md)
 sono marcate split "tuning", tutte le altre "holdout".
 
@@ -22,6 +27,7 @@ Avvio: python -m evaluation.build_manifest ROOT OUT.json [-j JOBS]
 
 import argparse
 import json
+import re
 import sys
 from collections import Counter
 from concurrent.futures import ProcessPoolExecutor
@@ -36,6 +42,15 @@ MULTI_HOST_MIN_SHARE = 0.05
 CTU13_BOT_PREFIX = "147.32.84."
 SOURCE_URL = "https://mcfp.felk.cvut.cz/publicDatasets/{dataset}/{file}"
 TUNING_DATASETS = {"CTU-Malware-Capture-Botnet-42", "CTU-Normal-20"}
+SLICE_PATTERN = re.compile(r"\.(\d+p|\d+-\d+)\.pcap$")
+
+
+def is_excluded(dataset, file_name):
+    if dataset.startswith("CTU-Mixed-"):
+        return True
+    if SLICE_PATTERN.search(file_name):
+        return True
+    return "Normal" not in dataset and "normal" in file_name.lower()
 
 
 def ip_shares(pcap_path, sample_packets=SAMPLE_PACKETS):
@@ -93,7 +108,10 @@ def _entries_for(pcap_path, root):
 
 
 def build_manifest(root, jobs=1):
-    pcaps = sorted(Path(root).glob("*/*.pcap"))
+    pcaps = [
+        pcap for pcap in sorted(Path(root).glob("*/*.pcap"))
+        if not is_excluded(pcap.parent.name, pcap.name)
+    ]
     datasets = []
     with ProcessPoolExecutor(max_workers=jobs) as pool:
         for pcap_path, entries in pool.map(_entries_for, pcaps, [root] * len(pcaps)):

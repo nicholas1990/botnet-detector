@@ -1,0 +1,2540 @@
+{
+  "datasets": [
+    {
+      "name": "CTU-Malware-Capture-Botnet-10/2013-08-20_capture-win10.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-10/2013-08-20_capture-win10.pcap",
+      "local_ip": "10.0.2.24",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-10/2013-08-20_capture-win10.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-10/2013-08-20_capture-win7.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-10/2013-08-20_capture-win7.pcap",
+      "local_ip": "10.0.2.21",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-10/2013-08-20_capture-win7.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-10/2013-08-20_capture-win9.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-10/2013-08-20_capture-win9.pcap",
+      "local_ip": "10.0.2.23",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-10/2013-08-20_capture-win9.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-100/2014-12-20_capture-win5.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-100/2014-12-20_capture-win5.pcap",
+      "local_ip": "10.0.2.105",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-100/2014-12-20_capture-win5.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-101/2014-12-20_capture-win8.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-101/2014-12-20_capture-win8.pcap",
+      "local_ip": "10.0.2.108",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-101/2014-12-20_capture-win8.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-102/capture-win2.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-102/capture-win2.pcap",
+      "local_ip": "10.0.2.102",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-102/capture-win2.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-103/2015-03-1_capture-win2.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-103/2015-03-1_capture-win2.pcap",
+      "local_ip": "10.0.2.102",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-103/2015-03-1_capture-win2.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-104-1/2015-03-09_capture_win3.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-104-1/2015-03-09_capture_win3.pcap",
+      "local_ip": "10.0.2.103",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-104-1/2015-03-09_capture_win3.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-105-1/2015-03-09_capture-win4.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-105-1/2015-03-09_capture-win4.pcap",
+      "local_ip": "10.0.2.104",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-105-1/2015-03-09_capture-win4.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-106-1/2015-03-09_capture-win5.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-106-1/2015-03-09_capture-win5.pcap",
+      "local_ip": "10.0.2.105",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-106-1/2015-03-09_capture-win5.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-107-1/2015-03-09_capture-win6.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-107-1/2015-03-09_capture-win6.pcap",
+      "local_ip": "10.0.2.106",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-107-1/2015-03-09_capture-win6.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-108-1/2015-03-09_capture-win7.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-108-1/2015-03-09_capture-win7.pcap",
+      "local_ip": "10.0.2.107",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-108-1/2015-03-09_capture-win7.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-109-1/2015-03-09_capture-win8.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-109-1/2015-03-09_capture-win8.pcap",
+      "local_ip": "10.0.2.108",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-109-1/2015-03-09_capture-win8.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-11/capture-win19.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-11/capture-win19.pcap",
+      "local_ip": "10.0.2.119",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-11/capture-win19.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-110-1/2015-03-09_capture-win9.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-110-1/2015-03-09_capture-win9.pcap",
+      "local_ip": "10.0.2.109",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-110-1/2015-03-09_capture-win9.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-110-2/2014-03-09_capture-win9.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-110-2/2014-03-09_capture-win9.pcap",
+      "local_ip": "10.0.2.109",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-110-2/2014-03-09_capture-win9.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-110-5/2015-04-23_capture-win9.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-110-5/2015-04-23_capture-win9.pcap",
+      "local_ip": "10.0.2.109",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-110-5/2015-04-23_capture-win9.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-111-1/2015-03-09_capture-win10.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-111-1/2015-03-09_capture-win10.pcap",
+      "local_ip": "10.0.2.110",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-111-1/2015-03-09_capture-win10.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-112-1/2015-03-09_capture-win11.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-112-1/2015-03-09_capture-win11.pcap",
+      "local_ip": "10.0.2.111",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-112-1/2015-03-09_capture-win11.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-112-2/2015-04-09_capture-win11.first100000.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-112-2/2015-04-09_capture-win11.first100000.pcap",
+      "local_ip": "10.0.2.111",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-112-2/2015-04-09_capture-win11.first100000.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-112-2/2015-04-09_capture-win11.first200000.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-112-2/2015-04-09_capture-win11.first200000.pcap",
+      "local_ip": "10.0.2.111",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-112-2/2015-04-09_capture-win11.first200000.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-112-3/2015-04-22_capture-win11.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-112-3/2015-04-22_capture-win11.pcap",
+      "local_ip": "10.0.2.111",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-112-3/2015-04-22_capture-win11.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-113-1/2015-03-12_capture-win6.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-113-1/2015-03-12_capture-win6.pcap",
+      "local_ip": "10.0.2.106",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-113-1/2015-03-12_capture-win6.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-114-1/2015-04-09_capture-win2.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-114-1/2015-04-09_capture-win2.pcap",
+      "local_ip": "10.0.2.102",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-114-1/2015-04-09_capture-win2.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-114-2/2015-04-22_capture-win2.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-114-2/2015-04-22_capture-win2.pcap",
+      "local_ip": "10.0.2.102",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-114-2/2015-04-22_capture-win2.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-114-3/2015-06-07_capture-win2.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-114-3/2015-06-07_capture-win2.pcap",
+      "local_ip": "10.0.2.102",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-114-3/2015-06-07_capture-win2.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-114-4/2015-07-08_capture-win2.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-114-4/2015-07-08_capture-win2.pcap",
+      "local_ip": "10.0.2.102",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-114-4/2015-07-08_capture-win2.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-115-1/2015-04-09_capture-win3.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-115-1/2015-04-09_capture-win3.pcap",
+      "local_ip": "10.0.2.103",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-115-1/2015-04-09_capture-win3.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-116-1/2012-05-25-capture-1.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-116-1/2012-05-25-capture-1.pcap",
+      "local_ip": "192.168.0.9",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-116-1/2012-05-25-capture-1.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-117-1/2015-04-11_capture-win3.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-117-1/2015-04-11_capture-win3.pcap",
+      "local_ip": "10.0.2.103",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-117-1/2015-04-11_capture-win3.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-118-1/2015-04-20_capture-win5.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-118-1/2015-04-20_capture-win5.pcap",
+      "local_ip": "10.0.2.105",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-118-1/2015-04-20_capture-win5.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-119-1/2015-04-22_capture-win3.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-119-1/2015-04-22_capture-win3.pcap",
+      "local_ip": "10.0.2.103",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-119-1/2015-04-22_capture-win3.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-119-2/2015-06-07_capture-win3.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-119-2/2015-06-07_capture-win3.pcap",
+      "local_ip": "10.0.2.103",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-119-2/2015-06-07_capture-win3.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-119-3/2015-07-08_capture-win3.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-119-3/2015-07-08_capture-win3.pcap",
+      "local_ip": "10.0.2.103",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-119-3/2015-07-08_capture-win3.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-12/2013-10-17_capture-win10-from-2013-10-17-to-2013-10-18.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-12/2013-10-17_capture-win10-from-2013-10-17-to-2013-10-18.pcap",
+      "local_ip": "10.0.2.110",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-12/2013-10-17_capture-win10-from-2013-10-17-to-2013-10-18.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-12/2013-10-17_capture-win10-until-2013-10-17.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-12/2013-10-17_capture-win10-until-2013-10-17.pcap",
+      "local_ip": "10.0.2.110",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-12/2013-10-17_capture-win10-until-2013-10-17.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-12/2013-10-17_capture-win11-from-2013-10-17-to-2013-10-18.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-12/2013-10-17_capture-win11-from-2013-10-17-to-2013-10-18.pcap",
+      "local_ip": "10.0.2.111",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-12/2013-10-17_capture-win11-from-2013-10-17-to-2013-10-18.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-12/2013-10-17_capture-win11-until-2013-10-17.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-12/2013-10-17_capture-win11-until-2013-10-17.pcap",
+      "local_ip": "10.0.2.111",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-12/2013-10-17_capture-win11-until-2013-10-17.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-120-1/2015-04-22_capture-win4.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-120-1/2015-04-22_capture-win4.pcap",
+      "local_ip": "10.0.2.104",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-120-1/2015-04-22_capture-win4.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-120-2/2015-06-07_capture-win4.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-120-2/2015-06-07_capture-win4.pcap",
+      "local_ip": "10.0.2.104",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-120-2/2015-06-07_capture-win4.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-121-1/2015-04-22_capture-win5.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-121-1/2015-04-22_capture-win5.pcap",
+      "local_ip": "10.0.2.105",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-121-1/2015-04-22_capture-win5.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-122-1/2015-04-22_capture-win6.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-122-1/2015-04-22_capture-win6.pcap",
+      "local_ip": "10.0.2.106",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-122-1/2015-04-22_capture-win6.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-122-2/2015-06-07_capture-win6.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-122-2/2015-06-07_capture-win6.pcap",
+      "local_ip": "10.0.2.106",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-122-2/2015-06-07_capture-win6.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-123-1/2015-04-22_capture-win8.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-123-1/2015-04-22_capture-win8.pcap",
+      "local_ip": "10.0.2.108",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-123-1/2015-04-22_capture-win8.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-124-1/2015-04-30_capture-win5.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-124-1/2015-04-30_capture-win5.pcap",
+      "local_ip": "10.0.2.105",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-124-1/2015-04-30_capture-win5.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-125-2/2015-07-08_capture-win5.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-125-2/2015-07-08_capture-win5.pcap",
+      "local_ip": "10.0.2.105",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-125-2/2015-07-08_capture-win5.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-127-1/2015-06-07_capture-win8.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-127-1/2015-06-07_capture-win8.pcap",
+      "local_ip": "10.0.2.108",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-127-1/2015-06-07_capture-win8.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-127-2/2015-07-08_capture-win8.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-127-2/2015-07-08_capture-win8.pcap",
+      "local_ip": "10.0.2.108",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-127-2/2015-07-08_capture-win8.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-128-1/2015-06-07_capture-win12.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-128-1/2015-06-07_capture-win12.pcap",
+      "local_ip": "10.0.2.112",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-128-1/2015-06-07_capture-win12.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-129-1/2015-06-30_capture-win20.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-129-1/2015-06-30_capture-win20.pcap",
+      "local_ip": "10.0.2.120",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-129-1/2015-06-30_capture-win20.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-13/2014-02-28_capture-win15.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-13/2014-02-28_capture-win15.pcap",
+      "local_ip": "10.0.2.115",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-13/2014-02-28_capture-win15.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-130-1/2015-07-25_capture-win4.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-130-1/2015-07-25_capture-win4.pcap",
+      "local_ip": "10.0.2.104",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-130-1/2015-07-25_capture-win4.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-131-1/2015-07-28_win2.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-131-1/2015-07-28_win2.pcap",
+      "local_ip": "10.0.2.102",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-131-1/2015-07-28_win2.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-132-1/2015-09-09_win3.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-132-1/2015-09-09_win3.pcap",
+      "local_ip": "10.0.2.103",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-132-1/2015-09-09_win3.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-133-1/2015-09-09_capture-win4.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-133-1/2015-09-09_capture-win4.pcap",
+      "local_ip": "10.0.2.104",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-133-1/2015-09-09_capture-win4.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-134-1/2015-10-11_win3.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-134-1/2015-10-11_win3.pcap",
+      "local_ip": "10.0.2.103",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-134-1/2015-10-11_win3.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-135-1/2015-09-10_winlinux.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-135-1/2015-09-10_winlinux.pcap",
+      "local_ip": "10.0.0.41",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-135-1/2015-09-10_winlinux.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-137-1/2015-10-04.win.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-137-1/2015-10-04.win.pcap",
+      "local_ip": "10.0.2.15",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-137-1/2015-10-04.win.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-14/2013-10-18_capture-win15.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-14/2013-10-18_capture-win15.pcap",
+      "local_ip": "10.0.2.115",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-14/2013-10-18_capture-win15.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-140-1/2015-10-23_win11.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-140-1/2015-10-23_win11.pcap",
+      "local_ip": "10.0.2.111",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-140-1/2015-10-23_win11.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-140-2/2015-10-27_capture-win11.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-140-2/2015-10-27_capture-win11.pcap",
+      "local_ip": "10.0.2.111",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-140-2/2015-10-27_capture-win11.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-141-1/2015-23-10_win10.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-141-1/2015-23-10_win10.pcap",
+      "local_ip": "10.0.2.110",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-141-1/2015-23-10_win10.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-141-2/2015-10-23_capture-win10.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-141-2/2015-10-23_capture-win10.pcap",
+      "local_ip": "10.0.2.110",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-141-2/2015-10-23_capture-win10.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-142-1/2015-10-23_win7.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-142-1/2015-10-23_win7.pcap",
+      "local_ip": "10.0.2.107",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-142-1/2015-10-23_win7.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-143-1/2015-10-23_win6.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-143-1/2015-10-23_win6.pcap",
+      "local_ip": "10.0.2.106",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-143-1/2015-10-23_win6.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-144-1/2015-10-23_win5.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-144-1/2015-10-23_win5.pcap",
+      "local_ip": "10.0.2.105",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-144-1/2015-10-23_win5.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-145-1/2015-10-23_win4.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-145-1/2015-10-23_win4.pcap",
+      "local_ip": "10.0.2.104",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-145-1/2015-10-23_win4.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-146-1/2015-10-23_win3.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-146-1/2015-10-23_win3.pcap",
+      "local_ip": "10.0.2.103",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-146-1/2015-10-23_win3.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-147-1/2015-10-23_win2.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-147-1/2015-10-23_win2.pcap",
+      "local_ip": "10.0.2.102",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-147-1/2015-10-23_win2.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-148-1/2015-10-23_capture-win8.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-148-1/2015-10-23_capture-win8.pcap",
+      "local_ip": "10.0.2.108",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-148-1/2015-10-23_capture-win8.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-149-1/2015-12-09_capture-win4.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-149-1/2015-12-09_capture-win4.pcap",
+      "local_ip": "10.0.2.104",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-149-1/2015-12-09_capture-win4.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-149-2/2015-12-09_capture-win4.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-149-2/2015-12-09_capture-win4.pcap",
+      "local_ip": "10.0.2.104",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-149-2/2015-12-09_capture-win4.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-15/2013-09-28_capture-win19.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-15/2013-09-28_capture-win19.pcap",
+      "local_ip": "10.0.2.119",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-15/2013-09-28_capture-win19.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-151-1/2016-01-12-capture_win7.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-151-1/2016-01-12-capture_win7.pcap",
+      "local_ip": "10.0.2.107",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-151-1/2016-01-12-capture_win7.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-152-1/2016-02-12-capture_win9.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-152-1/2016-02-12-capture_win9.pcap",
+      "local_ip": "10.0.2.109",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-152-1/2016-02-12-capture_win9.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-153-1/2016-02-12-capture_win4.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-153-1/2016-02-12-capture_win4.pcap",
+      "local_ip": "10.0.2.104",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-153-1/2016-02-12-capture_win4.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-155-1/2016-03-26_win3-capture.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-155-1/2016-03-26_win3-capture.pcap",
+      "local_ip": "10.0.2.103",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-155-1/2016-03-26_win3-capture.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-156-1/2016-29-4_capture-win4.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-156-1/2016-29-4_capture-win4.pcap",
+      "local_ip": "10.0.2.104",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-156-1/2016-29-4_capture-win4.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-157-1/2015-05-01_linux-1.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-157-1/2015-05-01_linux-1.pcap",
+      "local_ip": "10.0.2.15",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-157-1/2015-05-01_linux-1.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-158-1/2015-05-01_capture-win2.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-158-1/2015-05-01_capture-win2.pcap",
+      "local_ip": "10.0.2.102",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-158-1/2015-05-01_capture-win2.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-159-1/2015-05-01_capture-win4.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-159-1/2015-05-01_capture-win4.pcap",
+      "local_ip": "10.0.2.104",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-159-1/2015-05-01_capture-win4.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-16/2013-08-28_capture-win11.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-16/2013-08-28_capture-win11.pcap",
+      "local_ip": "10.0.2.25",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-16/2013-08-28_capture-win11.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-16/2013-08-28_capture-win5.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-16/2013-08-28_capture-win5.pcap",
+      "local_ip": "10.0.2.19",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-16/2013-08-28_capture-win5.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-160-1/2015-05-01_capture-win8.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-160-1/2015-05-01_capture-win8.pcap",
+      "local_ip": "10.0.2.108",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-160-1/2015-05-01_capture-win8.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-161-1/2015-12-09_capture-win5.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-161-1/2015-12-09_capture-win5.pcap",
+      "local_ip": "10.0.2.105",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-161-1/2015-12-09_capture-win5.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-162-1/2016-05-29_capture-win5.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-162-1/2016-05-29_capture-win5.pcap",
+      "local_ip": "10.0.2.105",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-162-1/2016-05-29_capture-win5.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-162-2/2016-05-29_capture-win5.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-162-2/2016-05-29_capture-win5.pcap",
+      "local_ip": "10.0.2.105",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-162-2/2016-05-29_capture-win5.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-163-1/2016-06-02_capture-win6.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-163-1/2016-06-02_capture-win6.pcap",
+      "local_ip": "10.0.2.106",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-163-1/2016-06-02_capture-win6.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-165-1/2016-05-27_capture-win2.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-165-1/2016-05-27_capture-win2.pcap",
+      "local_ip": "10.0.2.102",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-165-1/2016-05-27_capture-win2.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-166-1/2016-04-29_win-3.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-166-1/2016-04-29_win-3.pcap",
+      "local_ip": "10.0.2.103",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-166-1/2016-04-29_win-3.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-168-2/2016-08-03_win-1.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-168-2/2016-08-03_win-1.pcap",
+      "local_ip": "192.168.1.110",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-168-2/2016-08-03_win-1.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-169-2/2016-09-02_win3.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-169-2/2016-09-02_win3.pcap",
+      "local_ip": "192.168.1.113",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-169-2/2016-09-02_win3.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-169-3/2016-08-03_win4.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-169-3/2016-08-03_win4.pcap",
+      "local_ip": "192.168.1.114",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-169-3/2016-08-03_win4.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-17-1/2013-09-09_capture-win18.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-17-1/2013-09-09_capture-win18.pcap",
+      "local_ip": "10.0.2.118",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-17-1/2013-09-09_capture-win18.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-17-2/2013-09-09_capture-win19.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-17-2/2013-09-09_capture-win19.pcap",
+      "local_ip": "10.0.2.119",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-17-2/2013-09-09_capture-win19.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-170-1/capture-win6.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-170-1/capture-win6.pcap",
+      "local_ip": "10.0.2.106",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-170-1/capture-win6.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-171-1/2016-05-04_capture-win7.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-171-1/2016-05-04_capture-win7.pcap",
+      "local_ip": "10.0.2.107",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-171-1/2016-05-04_capture-win7.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-172-1/2016-01-06_capture-win8.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-172-1/2016-01-06_capture-win8.pcap",
+      "local_ip": "10.0.2.108",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-172-1/2016-01-06_capture-win8.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-175-1/2016-06-11_win9.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-175-1/2016-06-11_win9.pcap",
+      "local_ip": "10.0.2.109",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-175-1/2016-06-11_win9.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-176-1/2016-07-07_win10.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-176-1/2016-07-07_win10.pcap",
+      "local_ip": "10.0.2.110",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-176-1/2016-07-07_win10.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-179-1/2016-06-22_win13.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-179-1/2016-06-22_win13.pcap",
+      "local_ip": "10.0.2.113",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-179-1/2016-06-22_win13.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-180-1/2016-06-22_win14.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-180-1/2016-06-22_win14.pcap",
+      "local_ip": "10.0.2.115",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-180-1/2016-06-22_win14.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-181-1/2016-06-22_win16.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-181-1/2016-06-22_win16.pcap",
+      "local_ip": "10.0.2.116",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-181-1/2016-06-22_win16.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-182-1/2016-06-22_win17.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-182-1/2016-06-22_win17.pcap",
+      "local_ip": "10.0.2.117",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-182-1/2016-06-22_win17.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-183-1/2016-07-29_win.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-183-1/2016-07-29_win.pcap",
+      "local_ip": "192.168.1.102",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-183-1/2016-07-29_win.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-184-1/2016-07-29_winn3.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-184-1/2016-07-29_winn3.pcap",
+      "local_ip": "192.168.1.102",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-184-1/2016-07-29_winn3.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-185-1/2016-09-09_win1.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-185-1/2016-09-09_win1.pcap",
+      "local_ip": "192.168.1.112",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-185-1/2016-09-09_win1.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-186-1/2016-09-14_win18.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-186-1/2016-09-14_win18.pcap",
+      "local_ip": "192.168.1.128",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-186-1/2016-09-14_win18.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-187-2/2016-10-13_capture_win1.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-187-2/2016-10-13_capture_win1.pcap",
+      "local_ip": "192.168.1.110",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-187-2/2016-10-13_capture_win1.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-188-2/2016-09-22_win3.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-188-2/2016-09-22_win3.pcap",
+      "local_ip": "192.168.1.113",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-188-2/2016-09-22_win3.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-188-4/2016-10-27_win6.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-188-4/2016-10-27_win6.pcap",
+      "local_ip": "192.168.1.113",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-188-4/2016-10-27_win6.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-189-2/2017-06-07_win17.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-189-2/2017-06-07_win17.pcap",
+      "local_ip": "192.168.1.127",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-189-2/2017-06-07_win17.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-189-3/2017-045-02_win17.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-189-3/2017-045-02_win17.pcap",
+      "local_ip": "192.168.1.127",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-189-3/2017-045-02_win17.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-190-1/2016-09-28_capture_win17.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-190-1/2016-09-28_capture_win17.pcap",
+      "local_ip": "192.168.1.127",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-190-1/2016-09-28_capture_win17.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-190-2/2016-09-28_capture_win16.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-190-2/2016-09-28_capture_win16.pcap",
+      "local_ip": "192.168.1.126",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-190-2/2016-09-28_capture_win16.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-192-1/2016-09-30_capture_win12.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-192-1/2016-09-30_capture_win12.pcap",
+      "local_ip": "192.168.1.122",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-192-1/2016-09-30_capture_win12.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-192-2/2016-09-30_capture_win13.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-192-2/2016-09-30_capture_win13.pcap",
+      "local_ip": "192.168.1.123",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-192-2/2016-09-30_capture_win13.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-192-3/2016-12-26_win10.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-192-3/2016-12-26_win10.pcap",
+      "local_ip": "192.168.1.120",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-192-3/2016-12-26_win10.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-192-5/2017-05-08_win3.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-192-5/2017-05-08_win3.pcap",
+      "local_ip": "192.168.1.113",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-192-5/2017-05-08_win3.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-193-1/2016-10-12_capture_win20.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-193-1/2016-10-12_capture_win20.pcap",
+      "local_ip": "192.168.1.130",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-193-1/2016-10-12_capture_win20.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-193-2/2016-10-27_capture_win6.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-193-2/2016-10-27_capture_win6.pcap",
+      "local_ip": "192.168.1.116",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-193-2/2016-10-27_capture_win6.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-194-1/2016-10-13_capture_win15.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-194-1/2016-10-13_capture_win15.pcap",
+      "local_ip": "192.168.1.125",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-194-1/2016-10-13_capture_win15.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-196-1/2016-11-4_win9.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-196-1/2016-11-4_win9.pcap",
+      "local_ip": "192.168.1.119",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-196-1/2016-11-4_win9.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-198-1/2016-11-4_win11.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-198-1/2016-11-4_win11.pcap",
+      "local_ip": "192.168.1.121",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-198-1/2016-11-4_win11.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-2/2013-08-20_capture-win2.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-2/2013-08-20_capture-win2.pcap",
+      "local_ip": "10.0.2.16",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-2/2013-08-20_capture-win2.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-201-1/2016-11-17_win15.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-201-1/2016-11-17_win15.pcap",
+      "local_ip": "192.168.1.125",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-201-1/2016-11-17_win15.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-202-1/2016-11-17_win20.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-202-1/2016-11-17_win20.pcap",
+      "local_ip": "192.168.1.113",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-202-1/2016-11-17_win20.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-204-1/2016-11-29_win9.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-204-1/2016-11-29_win9.pcap",
+      "local_ip": "192.168.1.119",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-204-1/2016-11-29_win9.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-207-1/2016-12-12_win1.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-207-1/2016-12-12_win1.pcap",
+      "local_ip": "192.168.1.110",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-207-1/2016-12-12_win1.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-208-2/2016-12-30_win3.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-208-2/2016-12-30_win3.pcap",
+      "local_ip": "192.168.1.113",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-208-2/2016-12-30_win3.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-213-1/2016-12-22_win5.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-213-1/2016-12-22_win5.pcap",
+      "local_ip": "192.168.1.115",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-213-1/2016-12-22_win5.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-214-1/2016-12-30_win12.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-214-1/2016-12-30_win12.pcap",
+      "local_ip": "192.168.1.122",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-214-1/2016-12-30_win12.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-216-1/2017-02-08_win9.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-216-1/2017-02-08_win9.pcap",
+      "local_ip": "192.168.1.119",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-216-1/2017-02-08_win9.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-219-1/capture_win9.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-219-1/capture_win9.pcap",
+      "local_ip": "192.168.1.119",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-219-1/capture_win9.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-219-2/2017-2-22_win3.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-219-2/2017-2-22_win3.pcap",
+      "local_ip": "192.168.1.113",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-219-2/2017-2-22_win3.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-22/2013-11-06_capture-win8.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-22/2013-11-06_capture-win8.pcap",
+      "local_ip": "10.0.2.22",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-22/2013-11-06_capture-win8.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-221-1/capture_win11.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-221-1/capture_win11.pcap",
+      "local_ip": "192.168.1.121",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-221-1/capture_win11.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-222-1/capture_win6.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-222-1/capture_win6.pcap",
+      "local_ip": "192.168.1.116",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-222-1/capture_win6.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-224-1/capture_win11.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-224-1/capture_win11.pcap",
+      "local_ip": "192.168.1.255",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-224-1/capture_win11.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-225-1/capture_win1.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-225-1/capture_win1.pcap",
+      "local_ip": "192.168.1.110",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-225-1/capture_win1.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-228-1/2017-2-27_win13.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-228-1/2017-2-27_win13.pcap",
+      "local_ip": "192.168.1.255",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-228-1/2017-2-27_win13.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-23/2013-11-06_capture-win10.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-23/2013-11-06_capture-win10.pcap",
+      "local_ip": "10.0.2.110",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-23/2013-11-06_capture-win10.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-23/2013-11-06_capture-win12.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-23/2013-11-06_capture-win12.pcap",
+      "local_ip": "10.0.2.112",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-23/2013-11-06_capture-win12.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-230-1/2017-3-8_win5.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-230-1/2017-3-8_win5.pcap",
+      "local_ip": "192.168.1.115",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-230-1/2017-3-8_win5.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-230-2/2018-02-15_win7.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-230-2/2018-02-15_win7.pcap",
+      "local_ip": "192.168.1.117",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-230-2/2018-02-15_win7.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-232-1/2017-02-27_win18.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-232-1/2017-02-27_win18.pcap",
+      "local_ip": "192.168.1.128",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-232-1/2017-02-27_win18.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-233-1/capture_win1.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-233-1/capture_win1.pcap",
+      "local_ip": "192.168.1.110",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-233-1/capture_win1.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-234-1/2017-03-25_win13.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-234-1/2017-03-25_win13.pcap",
+      "local_ip": "192.168.1.123",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-234-1/2017-03-25_win13.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-235-1/2017-03-25_win16.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-235-1/2017-03-25_win16.pcap",
+      "local_ip": "192.168.1.126",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-235-1/2017-03-25_win16.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-236-1/2017-03-26_win20.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-236-1/2017-03-26_win20.pcap",
+      "local_ip": "192.168.1.130",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-236-1/2017-03-26_win20.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-237-1/2017-3-30_win4.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-237-1/2017-3-30_win4.pcap",
+      "local_ip": "192.168.1.114",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-237-1/2017-3-30_win4.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-238-1/2017-3-30_win6.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-238-1/2017-3-30_win6.pcap",
+      "local_ip": "192.168.1.116",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-238-1/2017-3-30_win6.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-239-1/2017-3-30_win7.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-239-1/2017-3-30_win7.pcap",
+      "local_ip": "192.168.1.117",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-239-1/2017-3-30_win7.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-24/2013-11-06_capture-win18.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-24/2013-11-06_capture-win18.pcap",
+      "local_ip": "10.0.2.118",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-24/2013-11-06_capture-win18.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-240-1/2017-3-29_win8.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-240-1/2017-3-29_win8.pcap",
+      "local_ip": "192.168.1.118",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-240-1/2017-3-29_win8.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-241-1/2017-3-30_win9.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-241-1/2017-3-30_win9.pcap",
+      "local_ip": "192.168.1.119",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-241-1/2017-3-30_win9.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-242-1/2017-3-30_win10.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-242-1/2017-3-30_win10.pcap",
+      "local_ip": "192.168.1.120",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-242-1/2017-3-30_win10.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-243-1/2017-04-12_win5.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-243-1/2017-04-12_win5.pcap",
+      "local_ip": "192.168.1.115",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-243-1/2017-04-12_win5.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-244-1/2017-04-12_win11.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-244-1/2017-04-12_win11.pcap",
+      "local_ip": "192.168.1.121",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-244-1/2017-04-12_win11.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-245-1/2017-04-12_win12.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-245-1/2017-04-12_win12.pcap",
+      "local_ip": "192.168.1.122",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-245-1/2017-04-12_win12.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-246-1/2017-04-17_win1.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-246-1/2017-04-17_win1.pcap",
+      "local_ip": "192.168.1.110",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-246-1/2017-04-17_win1.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-247-1/2017-04-17_win14.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-247-1/2017-04-17_win14.pcap",
+      "local_ip": "192.168.1.124",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-247-1/2017-04-17_win14.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-248-1/2017-04-18_win18.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-248-1/2017-04-18_win18.pcap",
+      "local_ip": "192.168.1.128",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-248-1/2017-04-18_win18.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-249-1/2017-04-18_win20.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-249-1/2017-04-18_win20.pcap",
+      "local_ip": "192.168.1.130",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-249-1/2017-04-18_win20.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-25-2/2014-01-25_capture_win3.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-25-2/2014-01-25_capture_win3.pcap",
+      "local_ip": "10.0.2.103",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-25-2/2014-01-25_capture_win3.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-25-3/2014-02-07_capture-win3.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-25-3/2014-02-07_capture-win3.pcap",
+      "local_ip": "10.0.2.103",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-25-3/2014-02-07_capture-win3.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-25-4/2014-02-10_capture-win3.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-25-4/2014-02-10_capture-win3.pcap",
+      "local_ip": "10.0.2.103",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-25-4/2014-02-10_capture-win3.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-25-5/2014-03-12_capture-win3.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-25-5/2014-03-12_capture-win3.pcap",
+      "local_ip": "10.0.2.103",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-25-5/2014-03-12_capture-win3.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-25-6/2014-12-20_capture-win3.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-25-6/2014-12-20_capture-win3.pcap",
+      "local_ip": "10.0.2.103",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-25-6/2014-12-20_capture-win3.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-251-1/2016-05-11_win4.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-251-1/2016-05-11_win4.pcap",
+      "local_ip": "192.168.1.114",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-251-1/2016-05-11_win4.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-252-1/2017-05-14_win10.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-252-1/2017-05-14_win10.pcap",
+      "local_ip": "192.168.1.120",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-252-1/2017-05-14_win10.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-253-1/2017-05-14_win10.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-253-1/2017-05-14_win10.pcap",
+      "local_ip": "192.168.1.120",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-253-1/2017-05-14_win10.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-254-1/capture_win13.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-254-1/capture_win13.pcap",
+      "local_ip": "192.168.1.123",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-254-1/capture_win13.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-255-1/2017-05-15_win7.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-255-1/2017-05-15_win7.pcap",
+      "local_ip": "192.168.1.117",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-255-1/2017-05-15_win7.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-256-1/2017-05-15_win4.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-256-1/2017-05-15_win4.pcap",
+      "local_ip": "192.168.1.114",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-256-1/2017-05-15_win4.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-257-1/2017-05-16_win5.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-257-1/2017-05-16_win5.pcap",
+      "local_ip": "192.168.1.115",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-257-1/2017-05-16_win5.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-258-1/2017-05-16_win4.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-258-1/2017-05-16_win4.pcap",
+      "local_ip": "192.168.1.114",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-258-1/2017-05-16_win4.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-259-1/2017-05-15_win8.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-259-1/2017-05-15_win8.pcap",
+      "local_ip": "192.168.1.118",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-259-1/2017-05-15_win8.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-26/2013-10-30_capture-win10.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-26/2013-10-30_capture-win10.pcap",
+      "local_ip": "10.0.2.110",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-26/2013-10-30_capture-win10.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-260-1/2017-15-05_win11.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-260-1/2017-15-05_win11.pcap",
+      "local_ip": "192.168.1.121",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-260-1/2017-15-05_win11.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-261-1/2017-05-15_win15.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-261-1/2017-05-15_win15.pcap",
+      "local_ip": "192.168.1.125",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-261-1/2017-05-15_win15.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-261-2/2017-06-07_win12.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-261-2/2017-06-07_win12.pcap",
+      "local_ip": "192.168.1.122",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-261-2/2017-06-07_win12.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-261-3/2017-05-08_win14.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-261-3/2017-05-08_win14.pcap",
+      "local_ip": "192.168.1.124",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-261-3/2017-05-08_win14.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-261-4/2017-06-15_win20.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-261-4/2017-06-15_win20.pcap",
+      "local_ip": "192.168.1.130",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-261-4/2017-06-15_win20.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-262-1/2017-05-15_win16.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-262-1/2017-05-15_win16.pcap",
+      "local_ip": "192.168.1.126",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-262-1/2017-05-15_win16.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-263-1/2017-06-24_win2.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-263-1/2017-06-24_win2.pcap",
+      "local_ip": "192.168.1.112",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-263-1/2017-06-24_win2.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-264-2/2017-06-24_win15.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-264-2/2017-06-24_win15.pcap",
+      "local_ip": "192.168.1.125",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-264-2/2017-06-24_win15.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-265-1/2017-06-24_win4.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-265-1/2017-06-24_win4.pcap",
+      "local_ip": "192.168.1.114",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-265-1/2017-06-24_win4.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-266-1/2017-06-24_win5.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-266-1/2017-06-24_win5.pcap",
+      "local_ip": "192.168.1.115",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-266-1/2017-06-24_win5.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-267-1/2017-06-24_win6.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-267-1/2017-06-24_win6.pcap",
+      "local_ip": "192.168.1.116",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-267-1/2017-06-24_win6.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-268-1/2017-06-24_win7.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-268-1/2017-06-24_win7.pcap",
+      "local_ip": "192.168.1.117",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-268-1/2017-06-24_win7.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-269-1/2017-06-24_win8.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-269-1/2017-06-24_win8.pcap",
+      "local_ip": "192.168.1.118",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-269-1/2017-06-24_win8.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-270-1/2017-06-24_win9.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-270-1/2017-06-24_win9.pcap",
+      "local_ip": "192.168.1.119",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-270-1/2017-06-24_win9.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-271-1/2017-06-24_win10.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-271-1/2017-06-24_win10.pcap",
+      "local_ip": "192.168.1.120",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-271-1/2017-06-24_win10.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-272-1/2017-06-24_win11.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-272-1/2017-06-24_win11.pcap",
+      "local_ip": "192.168.1.121",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-272-1/2017-06-24_win11.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-273-1/2017-06-24_win12.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-273-1/2017-06-24_win12.pcap",
+      "local_ip": "192.168.1.122",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-273-1/2017-06-24_win12.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-274-1/2017-04-24_win13.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-274-1/2017-04-24_win13.pcap",
+      "local_ip": "192.168.1.123",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-274-1/2017-04-24_win13.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-275-1/2017-06-24_win14.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-275-1/2017-06-24_win14.pcap",
+      "local_ip": "192.168.1.124",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-275-1/2017-06-24_win14.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-276-1/2017-06-24_win16.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-276-1/2017-06-24_win16.pcap",
+      "local_ip": "192.168.1.126",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-276-1/2017-06-24_win16.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-276-2/2017-06-24_win17.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-276-2/2017-06-24_win17.pcap",
+      "local_ip": "192.168.1.127",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-276-2/2017-06-24_win17.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-277-1/2017-06-24_win18.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-277-1/2017-06-24_win18.pcap",
+      "local_ip": "192.168.1.128",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-277-1/2017-06-24_win18.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-278-1/2017-06-24_win19.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-278-1/2017-06-24_win19.pcap",
+      "local_ip": "192.168.1.129",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-278-1/2017-06-24_win19.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-28/2013-10-21_capture-win4.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-28/2013-10-21_capture-win4.pcap",
+      "local_ip": "10.0.2.104",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-28/2013-10-21_capture-win4.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-28/2013-10-21_capture-win8.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-28/2013-10-21_capture-win8.pcap",
+      "local_ip": "10.0.2.22",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-28/2013-10-21_capture-win8.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-280-1/2017-06-24_win22.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-280-1/2017-06-24_win22.pcap",
+      "local_ip": "192.168.1.106",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-280-1/2017-06-24_win22.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-281-1/2017-07-03_capture-win13.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-281-1/2017-07-03_capture-win13.pcap",
+      "local_ip": "192.168.1.123",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-281-1/2017-07-03_capture-win13.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-282-1/2017-07-06_capture-win3.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-282-1/2017-07-06_capture-win3.pcap",
+      "local_ip": "192.168.1.113",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-282-1/2017-07-06_capture-win3.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-283-1/2017-07-11_capture-win2.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-283-1/2017-07-11_capture-win2.pcap",
+      "local_ip": "192.168.1.112",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-283-1/2017-07-11_capture-win2.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-284-1/2017-07-11_capture-win2.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-284-1/2017-07-11_capture-win2.pcap",
+      "local_ip": "192.168.1.112",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-284-1/2017-07-11_capture-win2.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-285-1/capture_win24.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-285-1/capture_win24.pcap",
+      "local_ip": "192.168.1.135",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-285-1/capture_win24.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-286-1/2017-07-22_capture-win2.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-286-1/2017-07-22_capture-win2.pcap",
+      "local_ip": "192.168.1.112",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-286-1/2017-07-22_capture-win2.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-287-1/2017-07-11_capture-win24.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-287-1/2017-07-11_capture-win24.pcap",
+      "local_ip": "192.168.1.135",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-287-1/2017-07-11_capture-win24.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-288-1/2017-07-11_capture-win2.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-288-1/2017-07-11_capture-win2.pcap",
+      "local_ip": "192.168.1.112",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-288-1/2017-07-11_capture-win2.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-289-1/2017-07-11_capture-win24.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-289-1/2017-07-11_capture-win24.pcap",
+      "local_ip": "192.168.1.135",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-289-1/2017-07-11_capture-win24.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-290-1/2017-07-11_capture-win2.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-290-1/2017-07-11_capture-win2.pcap",
+      "local_ip": "192.168.1.112",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-290-1/2017-07-11_capture-win2.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-291-1/2017-07-11_capture-win2.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-291-1/2017-07-11_capture-win2.pcap",
+      "local_ip": "192.168.1.112",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-291-1/2017-07-11_capture-win2.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-292-1/2017-07-11_capture-win2.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-292-1/2017-07-11_capture-win2.pcap",
+      "local_ip": "192.168.1.112",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-292-1/2017-07-11_capture-win2.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-293-1/2017-07-12_capture-win24.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-293-1/2017-07-12_capture-win24.pcap",
+      "local_ip": "192.168.1.135",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-293-1/2017-07-12_capture-win24.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-294-1/2017-07-13_capture-24.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-294-1/2017-07-13_capture-24.pcap",
+      "local_ip": "192.168.1.135",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-294-1/2017-07-13_capture-24.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-295-1/2017-07-11_capture-win2.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-295-1/2017-07-11_capture-win2.pcap",
+      "local_ip": "192.168.1.112",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-295-1/2017-07-11_capture-win2.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-296-1/2017-07-13_capture-win2.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-296-1/2017-07-13_capture-win2.pcap",
+      "local_ip": "192.168.1.112",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-296-1/2017-07-13_capture-win2.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-297-1/2017-07-13_capture-win24.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-297-1/2017-07-13_capture-win24.pcap",
+      "local_ip": "192.168.1.135",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-297-1/2017-07-13_capture-win24.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-299-1/2017-07-13_capture-win24.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-299-1/2017-07-13_capture-win24.pcap",
+      "local_ip": "192.168.1.135",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-299-1/2017-07-13_capture-win24.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-3/2013-08-20_capture-win15.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-3/2013-08-20_capture-win15.pcap",
+      "local_ip": "10.0.2.29",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-3/2013-08-20_capture-win15.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-302-1/2017-08-03_win6.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-302-1/2017-08-03_win6.pcap",
+      "local_ip": "192.168.1.116",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-302-1/2017-08-03_win6.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-303-1/2017-08-12_capture-win2.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-303-1/2017-08-12_capture-win2.pcap",
+      "local_ip": "192.168.1.112",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-303-1/2017-08-12_capture-win2.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-305-2/2017-08-02_win4.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-305-2/2017-08-02_win4.pcap",
+      "local_ip": "192.168.1.114",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-305-2/2017-08-02_win4.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-306-1/2017-08-01_capture-win5.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-306-1/2017-08-01_capture-win5.pcap",
+      "local_ip": "192.168.1.115",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-306-1/2017-08-01_capture-win5.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-308-1/2017-08-03_win8.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-308-1/2017-08-03_win8.pcap",
+      "local_ip": "192.168.1.117",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-308-1/2017-08-03_win8.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-311-1/capture_win10.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-311-1/capture_win10.pcap",
+      "local_ip": "192.168.1.120",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-311-1/capture_win10.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-313-1/capture_win12.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-313-1/capture_win12.pcap",
+      "local_ip": "192.168.1.122",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-313-1/capture_win12.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-316-1/capture_win15.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-316-1/capture_win15.pcap",
+      "local_ip": "192.168.1.125",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-316-1/capture_win15.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-317-1/capture1.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-317-1/capture1.pcap",
+      "local_ip": "10.0.2.200",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-317-1/capture1.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-318-1/2017-11-22_win4.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-318-1/2017-11-22_win4.pcap",
+      "local_ip": "192.168.1.114",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-318-1/2017-11-22_win4.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-320-2/2018-01-30_win17.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-320-2/2018-01-30_win17.pcap",
+      "local_ip": "192.168.1.127",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-320-2/2018-01-30_win17.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-321-1/2017-01-27_capture-win12.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-321-1/2017-01-27_capture-win12.pcap",
+      "local_ip": "192.168.1.122",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-321-1/2017-01-27_capture-win12.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-325-1/2018-01-30_win9.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-325-1/2018-01-30_win9.pcap",
+      "local_ip": "192.168.1.119",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-325-1/2018-01-30_win9.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-327-2/2018-03-27_win3.capture1.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-327-2/2018-03-27_win3.capture1.pcap",
+      "local_ip": "192.168.1.113",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-327-2/2018-03-27_win3.capture1.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-331-1/2018-02-02_win7.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-331-1/2018-02-02_win7.pcap",
+      "local_ip": "192.168.1.117",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-331-1/2018-02-02_win7.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-331-2/2018-02-15_win5.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-331-2/2018-02-15_win5.pcap",
+      "local_ip": "192.168.1.115",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-331-2/2018-02-15_win5.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-336-1/2018-02-23_win10.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-336-1/2018-02-23_win10.pcap",
+      "local_ip": "192.168.1.120",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-336-1/2018-02-23_win10.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-339-1/2018-03-01_win9.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-339-1/2018-03-01_win9.pcap",
+      "local_ip": "192.168.1.119",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-339-1/2018-03-01_win9.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-344-1/2018-04-03_win10.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-344-1/2018-04-03_win10.pcap",
+      "local_ip": "192.168.1.120",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-344-1/2018-04-03_win10.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-35-1/2014-01-31_capture-win7.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-35-1/2014-01-31_capture-win7.pcap",
+      "local_ip": "10.0.2.107",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-35-1/2014-01-31_capture-win7.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-351-1/2018-05-03_win11.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-351-1/2018-05-03_win11.pcap",
+      "local_ip": "192.168.1.121",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-351-1/2018-05-03_win11.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-353-1/2018-05-07_capture.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-353-1/2018-05-07_capture.pcap",
+      "local_ip": "10.0.2.15",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-353-1/2018-05-07_capture.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-36/capture-win2.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-36/capture-win2.pcap",
+      "local_ip": "10.0.2.102",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-36/capture-win2.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-368-1/2018-09-15_win2.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-368-1/2018-09-15_win2.pcap",
+      "local_ip": "192.168.1.112",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-368-1/2018-09-15_win2.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-370-1/2017-02-13_win3.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-370-1/2017-02-13_win3.pcap",
+      "local_ip": "192.168.1.113",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-370-1/2017-02-13_win3.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-371-1/2017-2-20_win10.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-371-1/2017-2-20_win10.pcap",
+      "local_ip": "192.168.1.120",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-371-1/2017-2-20_win10.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-371-1/test.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-371-1/test.pcap",
+      "local_ip": "192.168.1.120",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-371-1/test.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-4/2013-08-20_capture-win5.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-4/2013-08-20_capture-win5.pcap",
+      "local_ip": "10.0.2.19",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-4/2013-08-20_capture-win5.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-400-1/2021-03-12_win9.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-400-1/2021-03-12_win9.pcap",
+      "local_ip": "192.168.1.119",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-400-1/2021-03-12_win9.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-402-1/2021-02-26_capture.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-402-1/2021-02-26_capture.pcap",
+      "local_ip": "192.168.1.114",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-402-1/2021-02-26_capture.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-403-1/2021-05-21_capture.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-403-1/2021-05-21_capture.pcap",
+      "local_ip": "192.168.112.234",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-403-1/2021-05-21_capture.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-404-1/2021-07-18_win-10-1.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-404-1/2021-07-18_win-10-1.pcap",
+      "local_ip": "192.168.1.131",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-404-1/2021-07-18_win-10-1.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-405-1/2021-07-30_win4.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-405-1/2021-07-30_win4.pcap",
+      "local_ip": "192.168.1.114",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-405-1/2021-07-30_win4.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-406-1/2021-08-09_win4.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-406-1/2021-08-09_win4.pcap",
+      "local_ip": "192.168.1.2",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-406-1/2021-08-09_win4.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-407-1/2021-08-16_gmfresco10.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-407-1/2021-08-16_gmfresco10.pcap",
+      "local_ip": "10.0.3.15",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-407-1/2021-08-16_gmfresco10.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-408-1/2021-08-18_fresco11.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-408-1/2021-08-18_fresco11.pcap",
+      "local_ip": "10.0.3.15",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-408-1/2021-08-18_fresco11.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-409-4/2021-11-29_win5.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-409-4/2021-11-29_win5.pcap",
+      "local_ip": "192.168.1.255",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-409-4/2021-11-29_win5.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-42/botnet-capture-20110810-neris.pcap",
+      "label": "botnet",
+      "split": "tuning",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-42/botnet-capture-20110810-neris.pcap",
+      "local_ip": "147.32.84.165",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-42/botnet-capture-20110810-neris.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-43/botnet-capture-20110811-neris.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-43/botnet-capture-20110811-neris.pcap",
+      "local_ip": "147.32.84.165",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-43/botnet-capture-20110811-neris.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-44/botnet-capture-20110812-rbot.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-44/botnet-capture-20110812-rbot.pcap",
+      "local_ip": "147.32.84.165",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-44/botnet-capture-20110812-rbot.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-45/botnet-capture-20110815-rbot-dos-icmp.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-45/botnet-capture-20110815-rbot-dos-icmp.pcap",
+      "local_ip": "147.32.84.165",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-45/botnet-capture-20110815-rbot-dos-icmp.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-45/botnet-capture-20110815-rbot-dos.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-45/botnet-capture-20110815-rbot-dos.pcap",
+      "local_ip": "147.32.84.165",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-45/botnet-capture-20110815-rbot-dos.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-46/botnet-capture-20110815-fast-flux.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-46/botnet-capture-20110815-fast-flux.pcap",
+      "local_ip": "147.32.84.165",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-46/botnet-capture-20110815-fast-flux.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-47/botnet-capture-20110816-donbot.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-47/botnet-capture-20110816-donbot.pcap",
+      "local_ip": "147.32.84.165",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-47/botnet-capture-20110816-donbot.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-48/botnet-capture-20110816-sogou.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-48/botnet-capture-20110816-sogou.pcap",
+      "local_ip": "147.32.84.165",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-48/botnet-capture-20110816-sogou.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-49/botnet-capture-20110816-qvod.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-49/botnet-capture-20110816-qvod.pcap",
+      "local_ip": "147.32.84.165",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-49/botnet-capture-20110816-qvod.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-53/botnet-capture-20110819-bot.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-53/botnet-capture-20110819-bot.pcap",
+      "local_ip": "147.32.84.165",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-53/botnet-capture-20110819-bot.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-54/botnet-capture-20110815-fast-flux-2.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-54/botnet-capture-20110815-fast-flux-2.pcap",
+      "local_ip": "147.32.84.165",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-54/botnet-capture-20110815-fast-flux-2.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-55/capture-win13.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-55/capture-win13.pcap",
+      "local_ip": "10.0.2.113",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-55/capture-win13.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-59/2014-03-12_capture-win15.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-59/2014-03-12_capture-win15.pcap",
+      "local_ip": "10.0.2.115",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-59/2014-03-12_capture-win15.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-6/2013-08-20_capture-win11.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-6/2013-08-20_capture-win11.pcap",
+      "local_ip": "10.0.2.25",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-6/2013-08-20_capture-win11.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-6/2013-08-20_capture-win6.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-6/2013-08-20_capture-win6.pcap",
+      "local_ip": "10.0.2.20",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-6/2013-08-20_capture-win6.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-60/2014-03-12_win20.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-60/2014-03-12_win20.pcap",
+      "local_ip": "10.0.2.120",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-60/2014-03-12_win20.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-61-1/2014-05-30_capture-win13.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-61-1/2014-05-30_capture-win13.pcap",
+      "local_ip": "10.0.2.113",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-61-1/2014-05-30_capture-win13.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-61-2/2014-06-06_capture-win13.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-61-2/2014-06-06_capture-win13.pcap",
+      "local_ip": "10.0.2.113",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-61-2/2014-06-06_capture-win13.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-61-3/2014-06-30_capture-win13.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-61-3/2014-06-30_capture-win13.pcap",
+      "local_ip": "10.0.2.113",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-61-3/2014-06-30_capture-win13.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-64/2014-04-07_capture-win6.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-64/2014-04-07_capture-win6.pcap",
+      "local_ip": "10.0.2.106",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-64/2014-04-07_capture-win6.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-65/2014-04-07_capture-win11.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-65/2014-04-07_capture-win11.pcap",
+      "local_ip": "10.0.2.111",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-65/2014-04-07_capture-win11.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-66-1/2014-04-07_capture-win13.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-66-1/2014-04-07_capture-win13.pcap",
+      "local_ip": "10.0.2.113",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-66-1/2014-04-07_capture-win13.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-67-3/2014-06-30_capture-win14.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-67-3/2014-06-30_capture-win14.pcap",
+      "local_ip": "10.0.2.28",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-67-3/2014-06-30_capture-win14.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-7/2013-08-20_capture-win1.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-7/2013-08-20_capture-win1.pcap",
+      "local_ip": "10.0.2.15",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-7/2013-08-20_capture-win1.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-71/2014-04-07_capture-win19.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-71/2014-04-07_capture-win19.pcap",
+      "local_ip": "10.0.2.119",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-71/2014-04-07_capture-win19.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-71/2014-05-30_capture-win19.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-71/2014-05-30_capture-win19.pcap",
+      "local_ip": "10.0.2.119",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-71/2014-05-30_capture-win19.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-71/2014-06-06_capture-win19.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-71/2014-06-06_capture-win19.pcap",
+      "local_ip": "10.0.2.119",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-71/2014-06-06_capture-win19.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-71/2014-06-30_capture-win19.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-71/2014-06-30_capture-win19.pcap",
+      "local_ip": "10.0.2.119",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-71/2014-06-30_capture-win19.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-73/2014-05-16_capture-win15.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-73/2014-05-16_capture-win15.pcap",
+      "local_ip": "10.0.2.115",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-73/2014-05-16_capture-win15.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-8/2013-11-06_capture-win5.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-8/2013-11-06_capture-win5.pcap",
+      "local_ip": "10.0.2.105",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-8/2013-11-06_capture-win5.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-8/2013-11-06_capture-win9.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-8/2013-11-06_capture-win9.pcap",
+      "local_ip": "10.0.2.109",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-8/2013-11-06_capture-win9.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-83-1/2014-06-06_capture-win2.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-83-1/2014-06-06_capture-win2.pcap",
+      "local_ip": "10.0.2.102",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-83-1/2014-06-06_capture-win2.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-83-2/2014-06-30_capture-win2.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-83-2/2014-06-30_capture-win2.pcap",
+      "local_ip": "10.0.2.102",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-83-2/2014-06-30_capture-win2.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-89-1/2014-09-15_capture-win2.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-89-1/2014-09-15_capture-win2.pcap",
+      "local_ip": "10.0.2.102",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-89-1/2014-09-15_capture-win2.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-9/2013-08-20_captureWin5.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-9/2013-08-20_captureWin5.pcap",
+      "local_ip": "10.0.2.19",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-9/2013-08-20_captureWin5.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-9/2013-08-20_captureWin6.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-9/2013-08-20_captureWin6.pcap",
+      "local_ip": "10.0.2.20",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-9/2013-08-20_captureWin6.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-90/192.168.3.104-unvirus.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-90/192.168.3.104-unvirus.pcap",
+      "local_ip": "192.168.3.104",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-90/192.168.3.104-unvirus.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-91/capture.botnet2.infected.1.only445.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-91/capture.botnet2.infected.1.only445.pcap",
+      "local_ip": "192.168.1.155",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-91/capture.botnet2.infected.1.only445.pcap"
+    },
+    {
+      "name": "CTU-Malware-Capture-Botnet-92/192.168.3.104-eldorado2-1.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Malware-Capture-Botnet-92/192.168.3.104-eldorado2-1.pcap",
+      "local_ip": "192.168.3.104",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Malware-Capture-Botnet-92/192.168.3.104-eldorado2-1.pcap"
+    },
+    {
+      "name": "CTU-Manual-Capture-Attack-1/10.0.0.40.dradis.heartbleed.pcap",
+      "label": "botnet",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Manual-Capture-Attack-1/10.0.0.40.dradis.heartbleed.pcap",
+      "local_ip": "10.0.0.40",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Manual-Capture-Attack-1/10.0.0.40.dradis.heartbleed.pcap"
+    },
+    {
+      "name": "CTU-Normal-14/2017-07-23_capture-winFull.pcap",
+      "label": "normal",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Normal-14/2017-07-23_capture-winFull.pcap",
+      "local_ip": "10.0.2.15",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Normal-14/2017-07-23_capture-winFull.pcap"
+    },
+    {
+      "name": "CTU-Normal-20/2017-04-30_win-normal.pcap",
+      "label": "normal",
+      "split": "tuning",
+      "pcap": "data/samples/stratosphere/CTU-Normal-20/2017-04-30_win-normal.pcap",
+      "local_ip": "10.0.2.15",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Normal-20/2017-04-30_win-normal.pcap"
+    },
+    {
+      "name": "CTU-Normal-21/2017-05-02_kali-normal.pcap",
+      "label": "normal",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Normal-21/2017-05-02_kali-normal.pcap",
+      "local_ip": "192.168.1.191",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Normal-21/2017-05-02_kali-normal.pcap"
+    },
+    {
+      "name": "CTU-Normal-22/2017-05-02_kali-normal.pcap",
+      "label": "normal",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Normal-22/2017-05-02_kali-normal.pcap",
+      "local_ip": "192.168.1.191",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Normal-22/2017-05-02_kali-normal.pcap"
+    },
+    {
+      "name": "CTU-Normal-23/2017-04-18_win-normal.pcap",
+      "label": "normal",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Normal-23/2017-04-18_win-normal.pcap",
+      "local_ip": "10.0.2.15",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Normal-23/2017-04-18_win-normal.pcap"
+    },
+    {
+      "name": "CTU-Normal-24/2017-04-19_win-normal.pcap",
+      "label": "normal",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Normal-24/2017-04-19_win-normal.pcap",
+      "local_ip": "10.0.2.15",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Normal-24/2017-04-19_win-normal.pcap"
+    },
+    {
+      "name": "CTU-Normal-25/2017-04-25_win-normal.pcap",
+      "label": "normal",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Normal-25/2017-04-25_win-normal.pcap",
+      "local_ip": "10.0.2.15",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Normal-25/2017-04-25_win-normal.pcap"
+    },
+    {
+      "name": "CTU-Normal-26/2017-04-28_normal.pcap",
+      "label": "normal",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Normal-26/2017-04-28_normal.pcap",
+      "local_ip": "10.0.2.15",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Normal-26/2017-04-28_normal.pcap"
+    },
+    {
+      "name": "CTU-Normal-27/2017_04_30-normal.pcap",
+      "label": "normal",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Normal-27/2017_04_30-normal.pcap",
+      "local_ip": "10.0.2.15",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Normal-27/2017_04_30-normal.pcap"
+    },
+    {
+      "name": "CTU-Normal-28/2017-05-01_normal.pcap",
+      "label": "normal",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Normal-28/2017-05-01_normal.pcap",
+      "local_ip": "10.0.2.15",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Normal-28/2017-05-01_normal.pcap"
+    },
+    {
+      "name": "CTU-Normal-29/2017-05-01_normal.pcap",
+      "label": "normal",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Normal-29/2017-05-01_normal.pcap",
+      "local_ip": "10.0.2.15",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Normal-29/2017-05-01_normal.pcap"
+    },
+    {
+      "name": "CTU-Normal-30/2017-05-01_normal.pcap",
+      "label": "normal",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Normal-30/2017-05-01_normal.pcap",
+      "local_ip": "10.0.2.15",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Normal-30/2017-05-01_normal.pcap"
+    },
+    {
+      "name": "CTU-Normal-31/2017-05-01_normal.pcap",
+      "label": "normal",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Normal-31/2017-05-01_normal.pcap",
+      "local_ip": "10.0.2.15",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Normal-31/2017-05-01_normal.pcap"
+    },
+    {
+      "name": "CTU-Normal-32/2017-05-02_normal.pcap",
+      "label": "normal",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Normal-32/2017-05-02_normal.pcap",
+      "local_ip": "10.0.2.15",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Normal-32/2017-05-02_normal.pcap"
+    },
+    {
+      "name": "CTU-Normal-33/capture-new-Windows-7-Full.pcap",
+      "label": "normal",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Normal-33/capture-new-Windows-7-Full.pcap",
+      "local_ip": "10.0.2.15",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Normal-33/capture-new-Windows-7-Full.pcap"
+    },
+    {
+      "name": "CTU-Normal-7/2013-12-17_capture1.pcap",
+      "label": "normal",
+      "split": "holdout",
+      "pcap": "data/samples/stratosphere/CTU-Normal-7/2013-12-17_capture1.pcap",
+      "local_ip": "10.0.0.46",
+      "source": "https://mcfp.felk.cvut.cz/publicDatasets/CTU-Normal-7/2013-12-17_capture1.pcap"
+    }
+  ]
+}
